@@ -1,0 +1,154 @@
+;; (do
+;;   (map
+;;     (fn* (a) (do
+;;       (libo-apply "GoToCell"    "ToPoint" (str "$A$" a))
+;;       (libo-apply "EnterString" "StringName" (str a))))
+;;     (list 1 2 3 4 5))
+;;   (libo-apply "Save"))
+
+;; (do
+;;   (libo-apply "GoToCell" (list "ToPoint" "$A$1"))
+;;   (libo-apply "EnterString" (list "StringName" "fdsa"))
+;;   (libo-apply "GoToCell" (list "ToPoint" "$A$2"))
+;;   (libo-apply "EnterString" (list "StringName" "FDSA"))
+;;   )
+
+; (+ 1 2)
+; (cell-get "Sheet1" 0 0)
+; (cell-set "Sheet1" 0 0 1)
+; (cell-set "Sheet1" 0 0 (+ 1 (cell-get "Sheet1" 0 0)))
+; (throw "error message")
+; (prn (list "fdsa_\"_\\_\n_" 123))
+; (prn 456)
+
+(let* (sheet-name "Sheet1"
+       alive-char "■"
+       t0 (time-ms)
+
+       numseq (fn* (from to) ; from <= x < to
+                (if (<= to from)
+                  ()
+                  (cons from (numseq (+ from 1) to))))
+
+       xlist (numseq 0 5)
+       ylist (numseq 0 5)
+
+       adj-x-offset (fn* (x) (+ x 1))
+
+       each-cell (fn* (fn)
+                   (map (fn* (y)
+                                (map (fn* (x)
+                                          (fn x y))
+                                xlist))
+                        ylist))
+
+       gol-cell-set (fn* (x y val)
+                         (cell-set sheet-name
+                                   (adj-x-offset x)
+                                   y
+                                   (if (nil? val) "-" val)))
+       gol-cell-get (fn* (x y)
+                         (cell-get sheet-name (adj-x-offset x) y))
+
+       set-alive (fn* (x y) (gol-cell-set x y alive-char))
+
+       cell-set-buf (fn* (x y val) (gol-cell-set x (+ y 6) val))
+
+       adjust-x (fn* (x)
+                   (cond
+                     (< x 0) 4
+                     (< 4 x) 0
+                     "else" x))
+       adjust-y (fn* (y) (cond (< y 0) 4 (< 4 y) 0 "else" y))
+
+       sum-rec (fn* (args)
+                 (if (<= (count args) 0)
+                   0
+                   (+ (first args) (sum-rec (rest args)))))
+       sum (fn* (& args) (sum-rec args))
+
+       alive? (fn* (x y)
+                (= (gol-cell-get (adjust-x x) (adjust-y y)) alive-char))
+
+       ;; alive-count (fn* (x y xr xl yt yb)
+       ;;               (sum
+       ;;                 (if (alive? xl yt) 1 0)
+       ;;                 (if (alive? x  yt) 1 0)
+       ;;                 (if (alive? xr yt) 1 0)
+       ;;                 (if (alive? xl y ) 1 0)
+       ;;                 (if (alive? xr y ) 1 0)
+       ;;                 (if (alive? xl yb) 1 0)
+       ;;                 (if (alive? x  yb) 1 0)
+       ;;                 (if (alive? xr yb) 1 0)))
+
+       count-cell-set (fn* (x y v)
+                           (gol-cell-set x (+ 12 y) v))
+
+       count-cell-get (fn* (x y)
+                           (gol-cell-get x (+ 12 y)))
+
+       count-cell-inc (fn* (x y)
+         (count-cell-set x y (+ (count-cell-get x y) 1)))
+
+       count-alive (fn* (x y)
+         (if (= (gol-cell-get x y) alive-char)
+           (let* (
+                  xl (adjust-x (- x 1))
+                  xr (adjust-x (+ x 1))
+                  yt (adjust-y (- y 1))
+                  yb (adjust-y (+ y 1)))
+             (do
+               (count-cell-inc xl yt)
+               (count-cell-inc x  yt)
+               (count-cell-inc xr yt)
+               (count-cell-inc xl y )
+               (count-cell-inc xr y )
+               (count-cell-inc xl yb)
+               (count-cell-inc x  yb)
+               (count-cell-inc xr yb)))))
+
+       next-alive? (fn* (x y)
+         (let* (
+             cell-alive (alive? x y)
+             count (count-cell-get x y))
+           (if cell-alive
+             (cond
+               (<= count 1) false ; 生 → 死
+               (<= 4 count) false ; 生 → 死
+               "else" true)
+             (= count 3) ; 3の場合のみ 死 → 生
+           )))
+  )
+  (do
+      ;; ;; リセット
+      ;; (each-cell (fn* (x y)
+      ;;              (cell-set sheet-name (adj-x-offset x) y ".")))
+
+      ;; ;; 初期状態のセット
+      ;; (set-alive 2 1)
+      ;; (set-alive 3 2)
+      ;; (set-alive 1 3)
+      ;; (set-alive 2 3)
+      ;; (set-alive 3 3)
+
+      ;; 生存カウントをリセット
+      (each-cell (fn* (x y)
+                   (count-cell-set x y 0)))
+
+      ;; 生存カウント
+      (each-cell (fn* (x y) (count-alive x y)))
+
+      ;; 次世代生成 v2
+      (each-cell (fn* (x y)
+                   (cell-set-buf x y
+                                 (if (next-alive? x y) alive-char ".")
+                                 )))
+
+      ;; バッファから戻し
+      (each-cell (fn* (x y)
+                   (gol-cell-set x y
+                                 (gol-cell-get x (+ y 6))
+                                 )))
+
+      (str (/ (- (time-ms) t0) 1000) " sec")
+      ))

@@ -79,7 +79,7 @@ REGRESS =
 
 HARD=
 DEFERRABLE=1
-OPTIONAL=1
+OPTIONAL=
 
 # Run target/rule within docker image for the implementation
 DOCKERIZE =
@@ -91,7 +91,7 @@ DOCKERIZE =
 
 IMPLS = ada ada.2 awk bash basic bbc-basic c chuck clojure coffee common-lisp cpp crystal cs d dart \
 	elisp elixir elm erlang es6 factor fantom forth fsharp go groovy gnu-smalltalk \
-	guile haskell haxe hy io java js jq julia kotlin livescript logo lua make mal \
+	guile haskell haxe hy io java js jq julia kotlin libreoffice-basic livescript logo lua make mal \
 	matlab miniMAL nasm nim objc objpascal ocaml perl perl6 php picolisp pike plpgsql \
 	plsql powershell ps python python.2 r racket rexx rpython ruby rust scala scheme skew \
 	swift swift3 swift4 swift5 tcl ts vala vb vhdl vimscript wasm wren yorick xslt zig
@@ -146,6 +146,7 @@ dist_EXCLUDES += guile io julia matlab swift
 bbc-basic_TEST_OPTS = --test-timeout 60
 guile_TEST_OPTS = --test-timeout 120
 io_TEST_OPTS = --test-timeout 120
+libreoffice-basic_TEST_OPTS = --start-timeout 600 --test-timeout 1200
 logo_TEST_OPTS = --start-timeout 60 --test-timeout 120
 mal_TEST_OPTS = --start-timeout 60 --test-timeout 120
 miniMAL_TEST_OPTS = --start-timeout 60 --test-timeout 120
@@ -156,7 +157,7 @@ vimscript_TEST_OPTS = --test-timeout 30
 ifeq ($(MAL_IMPL),vimscript)
 mal_TEST_OPTS = --start-timeout 60 --test-timeout 180
 else ifeq ($(MAL_IMPL),powershell)
-mal_TEST_OPTS = --start-timeout 60 --test-timeout 180
+mal_TEST_OPTS = --start-timeout 600 --test-timeout 1800
 endif
 xslt_TEST_OPTS = --test-timeout 120
 
@@ -223,6 +224,7 @@ js_STEP_TO_PROG =            impls/js/$($(1)).js
 jq_STEP_PROG =               impls/jq/$($(1)).jq
 julia_STEP_TO_PROG =         impls/julia/$($(1)).jl
 kotlin_STEP_TO_PROG =        impls/kotlin/$($(1)).jar
+libreoffice_basic_STEP_TO_PROG = impls/libreoffice-basic/$($(1)).lobas
 livescript_STEP_TO_PROG =    impls/livescript/$($(1)).js
 logo_STEP_TO_PROG =          impls/logo/$($(1)).lg
 lua_STEP_TO_PROG =           impls/lua/$($(1)).lua
