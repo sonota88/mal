@@ -1,0 +1,6235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.spreadsheet">
+ <office:meta><meta:creation-date>2020-11-09T06:01:19.443490323</meta:creation-date><meta:generator>LibreOffice/6.0.7.3$Linux_X86_64 LibreOffice_project/00m0$Build-3</meta:generator><dc:date>2020-12-04T03:52:08.275208477</dc:date><meta:editing-duration>PT49M23S</meta:editing-duration><meta:editing-cycles>73</meta:editing-cycles><meta:document-statistic meta:table-count="1" meta:cell-count="5" meta:object-count="4"/></office:meta>
+ <office:settings>
+  <config:config-item-set config:name="ooo:view-settings">
+   <config:config-item config:name="VisibleAreaTop" config:type="int">0</config:config-item>
+   <config:config-item config:name="VisibleAreaLeft" config:type="int">1097</config:config-item>
+   <config:config-item config:name="VisibleAreaWidth" config:type="int">25227</config:config-item>
+   <config:config-item config:name="VisibleAreaHeight" config:type="int">52832</config:config-item>
+   <config:config-item-map-indexed config:name="Views">
+    <config:config-item-map-entry>
+     <config:config-item config:name="ViewId" config:type="string">view1</config:config-item>
+     <config:config-item-map-named config:name="Tables">
+      <config:config-item-map-entry config:name="Sheet1">
+       <config:config-item config:name="CursorPositionX" config:type="int">0</config:config-item>
+       <config:config-item config:name="CursorPositionY" config:type="int">0</config:config-item>
+       <config:config-item config:name="HorizontalSplitMode" config:type="short">0</config:config-item>
+       <config:config-item config:name="VerticalSplitMode" config:type="short">0</config:config-item>
+       <config:config-item config:name="HorizontalSplitPosition" config:type="int">0</config:config-item>
+       <config:config-item config:name="VerticalSplitPosition" config:type="int">0</config:config-item>
+       <config:config-item config:name="ActiveSplitRange" config:type="short">2</config:config-item>
+       <config:config-item config:name="PositionLeft" config:type="int">0</config:config-item>
+       <config:config-item config:name="PositionRight" config:type="int">0</config:config-item>
+       <config:config-item config:name="PositionTop" config:type="int">0</config:config-item>
+       <config:config-item config:name="PositionBottom" config:type="int">0</config:config-item>
+       <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
+       <config:config-item config:name="ZoomValue" config:type="int">100</config:config-item>
+       <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
+       <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
+       <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
+      </config:config-item-map-entry>
+     </config:config-item-map-named>
+     <config:config-item config:name="ActiveTable" config:type="string">Sheet1</config:config-item>
+     <config:config-item config:name="HorizontalScrollbarWidth" config:type="int">1040</config:config-item>
+     <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
+     <config:config-item config:name="ZoomValue" config:type="int">100</config:config-item>
+     <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
+     <config:config-item config:name="ShowPageBreakPreview" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="ShowZeroValues" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="ShowNotes" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="GridColor" config:type="long">12632256</config:config-item>
+     <config:config-item config:name="ShowPageBreaks" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="HasColumnRowHeaders" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="HasSheetTabs" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="IsOutlineSymbolsSet" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="IsValueHighlightingEnabled" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="IsSnapToRaster" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="RasterIsVisible" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="RasterResolutionX" config:type="int">1000</config:config-item>
+     <config:config-item config:name="RasterResolutionY" config:type="int">1000</config:config-item>
+     <config:config-item config:name="RasterSubdivisionX" config:type="int">1</config:config-item>
+     <config:config-item config:name="RasterSubdivisionY" config:type="int">1</config:config-item>
+     <config:config-item config:name="IsRasterAxisSynchronized" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
+    </config:config-item-map-entry>
+   </config:config-item-map-indexed>
+  </config:config-item-set>
+  <config:config-item-set config:name="ooo:configuration-settings">
+   <config:config-item config:name="SyntaxStringRef" config:type="short">7</config:config-item>
+   <config:config-item config:name="AllowPrintJobCancel" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="SaveVersionOnClose" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="IsKernAsianPunctuation" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="CharacterCompressionType" config:type="short">0</config:config-item>
+   <config:config-item config:name="ApplyUserData" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="PrinterSetup" config:type="base64Binary"></config:config-item>
+   <config:config-item config:name="PrinterName" config:type="string">Generic Printer</config:config-item>
+   <config:config-item-map-indexed config:name="ForbiddenCharacters">
+    <config:config-item-map-entry>
+     <config:config-item config:name="Language" config:type="string">en</config:config-item>
+     <config:config-item config:name="Country" config:type="string">US</config:config-item>
+     <config:config-item config:name="Variant" config:type="string"/>
+     <config:config-item config:name="BeginLine" config:type="string"/>
+     <config:config-item config:name="EndLine" config:type="string"/>
+    </config:config-item-map-entry>
+    <config:config-item-map-entry>
+     <config:config-item config:name="Language" config:type="string">ja</config:config-item>
+     <config:config-item config:name="Country" config:type="string">JP</config:config-item>
+     <config:config-item config:name="Variant" config:type="string"/>
+     <config:config-item config:name="BeginLine" config:type="string">!%),.:;?]}¢°’”‰′″℃、。々〉》」』】〕ぁぃぅぇぉっゃゅょゎ゛゜ゝゞァィゥェォッャュョヮヵヶ・ーヽヾ！％），．：；？］｝｡｣､･ｧｨｩｪｫｬｭｮｯｰﾞﾟ¢</config:config-item>
+     <config:config-item config:name="EndLine" config:type="string">$([¥{£¥‘“〈《「『【〔＄（［｛｢£￥</config:config-item>
+    </config:config-item-map-entry>
+   </config:config-item-map-indexed>
+   <config:config-item config:name="AutoCalculate" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="LinkUpdateMode" config:type="short">3</config:config-item>
+   <config:config-item config:name="HasColumnRowHeaders" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="LoadReadonly" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="UpdateFromTemplate" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="ShowZeroValues" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="GridColor" config:type="long">12632256</config:config-item>
+   <config:config-item config:name="ShowPageBreaks" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="IsOutlineSymbolsSet" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="IsDocumentShared" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="ShowNotes" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="EmbedFonts" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="HasSheetTabs" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="RasterSubdivisionY" config:type="int">1</config:config-item>
+   <config:config-item config:name="RasterIsVisible" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="RasterResolutionX" config:type="int">1000</config:config-item>
+   <config:config-item config:name="RasterResolutionY" config:type="int">1000</config:config-item>
+   <config:config-item config:name="IsSnapToRaster" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="RasterSubdivisionX" config:type="int">1</config:config-item>
+   <config:config-item config:name="IsRasterAxisSynchronized" config:type="boolean">true</config:config-item>
+  </config:config-item-set>
+ </office:settings>
+ <office:scripts>
+  <office:script script:language="ooo:Basic">
+   <ooo:libraries xmlns:ooo="http://openoffice.org/2004/office" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <ooo:library-embedded ooo:name="Standard"/>
+    <ooo:library-embedded ooo:name="mylib">
+     <ooo:module ooo:name="main">
+      <ooo:source-code>
+
+rem -*- mode: basic -*-
+
+Option Explicit
+
+dim ENABLE_LOG
+dim log_path as string
+
+dim mal_error
+
+dim input_buf as string
+dim input_cont_p as boolean
+
+
+sub setup(argv, repl_env)
+    if environ(&quot;ENABLE_LOG&quot;) = &quot;1&quot; then
+        ENABLE_LOG = true
+    elseif environ(&quot;ENABLE_LOG&quot;) = &quot;0&quot; then
+        ENABLE_LOG = False
+    else
+        ENABLE_LOG = false
+    end if
+    
+    reset_mal_error()
+    input_buf = &quot;&quot;
+    input_cont_p = False
+
+    MalEnv_setup()
+    
+    Utils.log2 &quot;&quot;
+    Utils.log1  &quot;================================&quot;
+    Utils.log1  &quot;start&quot;
+
+    &apos; step 6
+    MalEnv.set_(repl_env, MalSymbol.new_(&quot;*ARGV*&quot;), MalList.rest(argv))
+    Utils.logkv2 &quot;38 argv&quot;, argv
+    
+    Utils.log2 &quot;--&gt;&gt; prepare eval&quot;
+    dim fname_eval
+    fname_eval = MalNamedFunction.init(&quot;eval&quot;)
+    fname_eval.env = repl_env
+    MalEnv.set_(repl_env, MalSymbol.new_(&quot;eval&quot;), fname_eval)
+    Utils.log2 &quot;&lt;&lt;-- prepare eval&quot;
+
+    read_eval(repl_env, &quot;(def! *host-language* &quot; &amp; dq() &amp; &quot;libo_bas&quot; &amp; dq() &amp; &quot;)&quot;)
+    read_eval(repl_env, &quot;(def! not (fn* (a) (if a false true)))&quot;)
+    
+    read_eval(repl_env, _
+        &quot;(def! load-file                     &quot; _
+      &amp; &quot;  (fn* (f) (eval (read-string (str  &quot; _
+      &amp;      dq() &amp; &quot;(do &quot; &amp; dq()              _
+      &amp; &quot;     (slurp f)                      &quot; _
+      &amp;      dq() &amp; lf() &amp; &quot; nil)&quot; &amp; dq()      _
+      &amp; &quot;  ))))                              &quot; _
+      &amp; &quot;)                                   &quot; _
+    )
+
+    read_eval(repl_env, _
+        &quot;(defmacro! cond                                                       &quot; _
+      &amp; &quot;  (fn* (&amp; xs)                                                         &quot; _
+      &amp; &quot;    (if (&gt; (count xs) 0)                                              &quot; _
+      &amp; &quot;      (list                                                           &quot; _
+      &amp; &quot;        &apos;if (first xs)                                                &quot; _
+      &amp; &quot;        (if (&gt; (count xs) 1)                                          &quot; _
+      &amp; &quot;          (nth xs 1)                                                  &quot; _
+      &amp; &quot;          (throw &quot; &amp; dq() &amp; &quot;odd number of forms to cond&quot; &amp; dq() &amp; &quot;))&quot; _
+      &amp; &quot;        (cons &apos;cond (rest (rest xs)))))))                             &quot; _
+    )
+    
+    Utils.log0 &quot;&quot;
+    Utils.log0 &quot;================================&quot;
+    Utils.log0 &quot;&lt;&lt;-- setup done&quot;
+    Utils.log0 &quot;================================&quot;
+    Utils.log0 &quot;&quot;
+
+    if environ(&quot;IS_TEST&quot;) = &quot;1&quot; then
+        ext_command null, null, &quot;SETUP_DONE&quot;
+    else
+        ext_command null, &quot;setup done&quot;, &quot;SETUP_DONE&quot;
+    end if
+end sub
+
+
+Sub Main
+    On Local Error GoTo on_error__Main
+    
+    log_path = environ(&quot;FILE_LOG_SETUP&quot;)
+    Utils.log0 &quot;logging start&quot;
+    
+    dim repl_env
+    repl_env = create_repl_env()
+
+    dim argv
+    argv = get_argv()
+
+    setup(argv, repl_env)
+    
+    log_path = environ(&quot;FILE_LOG&quot;)
+    
+    if 0 &lt; MalList.size(argv) then
+        Utils.log0 &quot;mode: argv&quot;
+        _main_file(repl_env, argv)
+        
+        if environ(&quot;IS_TEST&quot;) = &quot;1&quot; then
+            ext_command(null, null, &quot;EXIT 0&quot;)
+        else
+            ext_command(null, &quot;bye&quot;, &quot;EXIT 0&quot;)
+        end if
+    else
+        Utils.log0 &quot;mode: normal&quot;
+        _main_repl(repl_env)
+        Utils.log2 &quot;&lt;&lt;-- _main_repl()&quot;
+    end if
+    
+    if environ(&quot;AUTO_CLOSE&quot;) = &quot;1&quot; then
+        Utils.log1 &quot;--&gt;&gt; auto close&quot;
+        ThisComponent.close(true)
+        Utils.log1 &quot;&lt;&lt;-- auto close&quot;
+        &apos;wait 1000
+        &apos;stardesktop.terminate
+    end if
+
+    exit sub
+
+on_error__Main:
+    dim msg
+    msg = format_err_msg(&quot;Main&quot;, err, erl, error$)
+
+    ext_command(null, msg, &quot;EXIT 1&quot;)
+
+    if environ(&quot;AUTO_CLOSE&quot;) = &quot;1&quot; then
+        ThisComponent.close(true)
+        &apos;wait 1000
+        &apos;stardesktop.terminate
+      exit sub
+    end if
+end sub
+
+
+&apos; print しない
+sub _main_file(repl_env, argv)
+    read_eval(repl_env, &quot;(load-file &quot; &amp; dq() &amp; MalList.get_(argv, 0) &amp; dq() &amp; &quot;)&quot;)
+
+    &apos; 一番外側の try/catch に相当
+    Utils.log0 &quot;--&gt;&gt; check error (argv mode top)&quot;
+    if mal_error_exists() then
+        print_stderr(&quot;Error: &quot; &amp; Printer._pr_str(mal_error, true))
+    end if
+    Utils.log0 &quot;&lt;&lt;-- check error (argv mode top)&quot;
+end sub
+
+
+sub _main_repl(repl_env)
+    do while true
+        __LV = 0
+
+        Utils.log0 &quot;&quot;
+        Utils.log0 &quot;&quot;
+        Utils.log0 &quot;================================&quot;
+        Utils.log0 &quot;--&gt;&gt; REPL loop&quot;
+
+        dim text
+
+        text = Core.readline(&quot;user&gt; &quot;)
+
+        Utils.logkv2 &quot;text&quot;, text
+
+        dim result
+        if text = &quot;exit&quot; then
+            ext_command(null, &quot;bye&quot;, &quot;EXIT 0&quot;)
+            Utils.log0 &quot;181 exit do&quot;
+            exit do
+        else
+            reset_mal_error()
+            
+            __inc_lv
+            REP(repl_env, text)
+            __dec_lv
+
+            &apos; 一番外側の try/catch に相当
+            Utils.log0 &quot;--&gt;&gt; check error (top)&quot;
+            if mal_error_exists() then
+                dim msg
+                msg = &quot;Error: &quot; &amp; Printer._pr_str(mal_error, true)
+                Utils.log0 msg
+                &apos; print_stderr(msg)
+                ext_command(null, msg, &quot;PRINT&quot;)
+            end if
+            Utils.log0 &quot;&lt;&lt;-- check error (top)&quot;
+        end if
+        
+        Utils.log1 &quot;&lt;&lt;-- REPL loop&quot;
+    loop
+
+    Utils.log0 &quot;205 end of _main_repl()&quot;
+end sub
+
+
+function get_argv
+    Utils.log2 &quot;--&gt;&gt; get_argv()&quot;
+
+    dim rv
+    
+    dim path
+    path = environ(&quot;FILE_ARGS&quot;)
+
+    dim argv
+    argv = MalList.new_()
+
+    if not FileExists(path) then
+        rv = argv
+        get_argv = rv
+        exit function
+    end if
+
+    dim lines
+    lines = split(file_read(path), lf())
+
+    dim argc
+    argc = CInt(lines(0))
+    Utils.logkv2 &quot;argc&quot;, argc
+    
+    dim i
+    i = 1
+    do while i &lt;= argc
+        MalList.add(argv, lines(i))
+        i = i + 1
+    loop
+
+    Utils.logkv2 &quot;argv&quot;, argv
+    
+    rv = argv
+    get_argv = rv    
+end function
+
+
+function create_repl_env()
+    dim rv
+
+    dim repl_env
+    repl_env = MalEnv.new_()
+    MalEnv.set_(repl_env, MalSymbol.new_(&quot;+&quot;), MalNamedFunction.init(&quot;+&quot;))
+    MalEnv.set_(repl_env, MalSymbol.new_(&quot;-&quot;), MalNamedFunction.init(&quot;-&quot;))
+    MalEnv.set_(repl_env, MalSymbol.new_(&quot;*&quot;), MalNamedFunction.init(&quot;*&quot;))
+    MalEnv.set_(repl_env, MalSymbol.new_(&quot;/&quot;), MalNamedFunction.init(&quot;/&quot;))
+
+    Core.register_core_funcs(repl_env)
+
+    rem special forms
+    MalEnv.set_(repl_env, MalSymbol.new_(&quot;def!&quot;), MalSymbol.new_(&quot;def!&quot;))
+    MalEnv.set_(repl_env, MalSymbol.new_(&quot;let*&quot;), MalSymbol.new_(&quot;let*&quot;))
+    MalEnv.set_(repl_env, MalSymbol.new_(&quot;fn*&quot; ), MalSymbol.new_(&quot;fn*&quot; ))
+    MalEnv.set_(repl_env, MalSymbol.new_(&quot;if&quot;  ), MalSymbol.new_(&quot;if&quot;  ))
+    MalEnv.set_(repl_env, MalSymbol.new_(&quot;do&quot;  ), MalSymbol.new_(&quot;do&quot;  ))
+    MalEnv.set_(repl_env, MalSymbol.new_(&quot;quote&quot;), MalSymbol.new_(&quot;quote&quot;))
+    MalEnv.set_(repl_env, MalSymbol.new_(&quot;quasiquote&quot;), MalSymbol.new_(&quot;quasiquote&quot;))
+    MalEnv.set_(repl_env, MalSymbol.new_(&quot;defmacro!&quot;), MalSymbol.new_(&quot;defmacro!&quot;))
+    MalEnv.set_(repl_env, MalSymbol.new_(&quot;macroexpand&quot;), MalSymbol.new_(&quot;macroexpand&quot;))
+    
+    rv = repl_env
+
+    create_repl_env = rv
+end function
+
+rem --------------------------------
+
+function read_eval(repl_env, line_ As String)
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler__read_eval
+                        &apos; --------------------------------
+
+    Utils.log0 &quot;--&gt;&gt; read_eval()&quot;
+    dim rv
+
+    dim ast
+    ast = READ_(line_)
+    
+    if input_cont_p then
+        Utils.log0 &quot;input continued: skip eval and print&quot;
+        read_eval = null
+        exit function
+    end if
+    
+    dim eval_result
+    eval_result = EVAL(ast, repl_env)
+
+    rv = eval_result
+    read_eval = rv
+
+                        &apos; --------------------------------
+                            Exit function
+                        error_handler__read_eval:
+                            panic format_err_msg(&quot;read_eval&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end function
+
+rem --------------------------------
+
+sub REP(repl_env, line_ As String)
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler__REP
+                        &apos; --------------------------------
+
+    Utils.log0 &quot;--&gt;&gt; REP()&quot;
+
+    dim eval_result
+    eval_result = read_eval(repl_env, line_)
+
+    if input_cont_p then
+        REP = null
+        exit sub
+    end if
+
+    PRINT_(eval_result)
+    
+                        &apos; --------------------------------
+                            Exit sub
+                        error_handler__REP:
+                            panic format_err_msg(&quot;REP&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end sub
+
+rem --------------------------------
+
+sub PRINT_(exp)
+    Utils.log0 &quot;--&gt;&gt; PRINT_&quot;
+    dim str As String
+    str = Printer._pr_str(exp, True)
+    ext_command(str, null, &quot;PRINT&quot;)
+end sub
+
+rem --------------------------------
+
+function READ_(str)
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler__READ_
+                        &apos; --------------------------------
+
+    Utils.log0 &quot;--&gt;&gt; READ_()&quot;
+    dim rv
+  
+    if environ(&quot;IS_TEST&quot;) = &quot;1&quot; then
+        rv = READ_one_line(str)
+    else
+        rv = READ_multi_line(str)
+    end if
+    
+    READ_ = rv
+    Utils.log0 &quot;&lt;&lt;-- READ_&quot;
+
+                        &apos; --------------------------------
+                            Exit function
+                        error_handler__READ_:
+                            panic format_err_msg(&quot;READ_&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end function
+
+
+function READ_one_line(str)
+    Utils.log1 &quot;--&gt;&gt; READ_one_line()&quot;
+    READ_one_line = Reader.read_str(str)
+end function
+
+
+function READ_multi_line(str)
+    Utils.log1 &quot;--&gt;&gt; READ_multi_line()&quot;
+    dim rv
+
+    rv = Reader.read_str(input_buf &amp; str &amp; lf())
+
+    input_cont_p = false
+    if mal_error_exists() then
+        &apos; read で起こった例外を catch
+
+        if type_name_ex(mal_error) = &quot;String&quot; then
+            if mal_error = &quot;expected &apos;)&apos;, got EOF&quot; then
+                &apos; リストが完了していない =&gt; エラーにせず、 input_buf に貯めて継続する
+                input_buf = input_buf &amp; str &amp; lf()
+                input_cont_p = True
+                reset_mal_error() &apos; エスカレーションしない
+            else
+                &apos; 対象外の例外だった場合 =&gt; reset
+                &apos; （通常の例外扱い）
+                input_buf = &quot;&quot;
+                input_cont_p = False
+            end if
+        else
+            &apos; 対象外の例外だった場合 =&gt; reset
+            &apos; （通常の例外扱い）
+            input_buf = &quot;&quot;
+            input_cont_p = False
+        end if
+    else
+        &apos; 例外が発生していない =&gt; reset
+        input_buf = &quot;&quot;
+        input_cont_p = False
+    end if
+
+    READ_multi_line = rv
+end function
+
+
+rem --------------------------------
+
+function _eval_ast_list(list, env)
+    Utils.log2 &quot;--&gt;&gt; _eval_ast_list&quot;
+    dim rv
+
+    dim newlist
+
+    select case type_name_ex(list)
+    case MalList.type_name
+        newlist = MalList.new_()
+    case MalVector.type_name
+        newlist = MalVector.new_()
+    case else
+        throw &quot;unexpected type: &quot; &amp; type_name_ex(list)
+    end select
+
+    dim i, ast, eval_result
+    for i = 0 to MalList.size(list) - 1
+        ast = MalList.get_(list, i)
+
+        eval_result = EVAL(ast, env)
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in _eval_ast_list)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            _eval_ast_list = null
+                            Utils.log0 &quot;exit _eval_ast_list&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+        MalList.add(newlist, eval_result)
+    next
+    rv = newlist
+
+    _eval_ast_list = rv
+end function
+
+
+function _eval_ast_map(map, env)
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler___eval_ast_map
+                        &apos; --------------------------------
+
+    Utils.log2 &quot;--&gt;&gt; _eval_ast_map()&quot;
+    dim rv
+
+    dim newmap
+    newmap = MalMap.new_()
+
+    dim keys
+    keys = MalMap.get_keys(map)
+
+    dim i, ast, k, v, k2, v2
+    for i = 0 to MalList.size(keys) - 1
+        k = MalList.get_(keys, i)
+        v = MalMap.get_(map, k)
+
+        k2 = EVAL(k, env)
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in _eval_ast_map)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            _eval_ast_map = null
+                            Utils.log0 &quot;exit _eval_ast_map&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+        v2 = EVAL(v, env)
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in _eval_ast_map)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            _eval_ast_map = null
+                            Utils.log0 &quot;exit _eval_ast_map&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+        MalMap.put(newmap, k2, v2)
+    next
+
+    rv = newmap
+
+    _eval_ast_map = rv
+
+                        &apos; --------------------------------
+                            Exit function
+                        error_handler___eval_ast_map:
+                            panic format_err_msg(&quot;_eval_ast_map&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end function
+
+
+function _eval_ast(ast, env)
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler___eval_ast
+                        &apos; --------------------------------
+
+    Utils.log0 &quot;--&gt;&gt; _eval_ast()&quot;
+    dim rv
+
+    select case type_name_ex(ast)
+      case MalSymbol.type_name
+        dim sym
+        sym = ast
+        rv = MalEnv.get_(env, sym)
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in _eval_ast)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            _eval_ast = null
+                            Utils.log0 &quot;exit _eval_ast&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+      case MalList.type_name
+        rv = _eval_ast_list(ast, env)
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in _eval_ast)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            _eval_ast = null
+                            Utils.log0 &quot;exit _eval_ast&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+      case MalVector.type_name
+        rv = _eval_ast_list(ast, env)
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in _eval_ast)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            _eval_ast = null
+                            Utils.log0 &quot;exit _eval_ast&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+      case MalMap.type_name
+        rv = _eval_ast_map(ast, env)
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in _eval_ast)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            _eval_ast = null
+                            Utils.log0 &quot;exit _eval_ast&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+      case else
+        rv = ast
+    end select
+
+    _eval_ast = rv
+
+                        &apos; --------------------------------
+                            Exit function
+                        error_handler___eval_ast:
+                            panic format_err_msg(&quot;_eval_ast&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end function
+
+rem --------------------------------
+
+function is_macro_call(ast, env)
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler__is_macro_call
+                        &apos; --------------------------------
+
+    Utils.log1 &quot;--&gt;&gt; is_macro_call()&quot;
+
+    dim rv
+    
+    if not MalList.is_list(ast) then
+        is_macro_call = false
+        exit function
+    end if
+
+    if MalList.size(ast) = 0 then
+        is_macro_call = false
+        exit function
+    end if
+    
+    dim head
+    head = MalList.head(ast)
+
+    if not MalSymbol.is_symbol(head) then
+        is_macro_call = false
+        exit function
+    end if
+
+    if not Utils.is_truthy(MalEnv.find(env, head)) then
+        is_macro_call = false
+        exit function
+    end if
+    
+    dim val
+    val = MalEnv.get_(env, head)
+    
+    if not MalFunction.is_mal_function(val) then
+        is_macro_call = false
+        exit function
+    end if
+
+    if not val.is_macro then
+        is_macro_call = false
+        exit function
+    end if
+    
+    rv = True
+    is_macro_call = rv
+    
+                        &apos; --------------------------------
+                            Exit function
+                        error_handler__is_macro_call:
+                            panic format_err_msg(&quot;is_macro_call&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end function
+
+
+function _apply_macro(mac, args)
+    Utils.log1 &quot;--&gt;&gt; _apply_macro()&quot;
+    _apply_macro = Core._apply_func(mac, args) &apos; TODO core から移動した方がよい？
+end function
+
+
+function macroexpand(ast, env)
+    Utils.log1 &quot;--&gt;&gt; macroexpand()&quot;
+    dim rv
+
+    &apos; assert
+    if IsEmpty(ast) then
+        panic &quot;ast must be non-empty&quot;
+    end if
+    
+    dim mac, args
+    do while true
+        if not is_macro_call(ast, env) then
+            exit do
+        end if
+        mac = MalEnv.get_(env, MalList.head(ast))
+        args = MalList.rest(ast)
+        ast = _apply_macro(mac, args)
+    loop
+    
+    rv = ast
+
+    macroexpand = rv
+end function
+
+rem --------------------------------
+
+rem mutate env: yes
+rem mutate ast: no
+rem @return [env, ast, result, do_return]
+function _eval_special_form_def(ast, env)
+    dim rv
+
+    dim name, val, result
+    &apos; (def! name val)
+    name = MalList.get_(ast, 1)
+    val  = MalList.get_(ast, 2)
+
+    dim eval_result
+    eval_result = EVAL(val, env)
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in _eval_special_form_def)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            _eval_special_form_def = null
+                            Utils.log0 &quot;exit _eval_special_form_def&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+    result = MalEnv.set_(env, name, eval_result)
+
+    _eval_special_form_def = Array(env, ast, result, true)
+end function
+
+
+function _eval_special_form_let(ast, env)
+    dim rv
+
+    dim kvs, body
+    &apos; (let* kvs body)
+    kvs  = MalList.get_(ast, 1)
+    body = MalList.get_(ast, 2)
+
+    dim let_env
+    let_env = MalEnv.new_(env)
+
+    dim k, v
+    dim evaluated_v
+    dim i
+
+    i = 0
+    do while i &lt; MalList.size(kvs)
+      k = MalList.get_(kvs, i)
+      v = MalList.get_(kvs, i + 1)
+      evaluated_v = EVAL(v, let_env)
+      MalEnv.set_(let_env, k, evaluated_v)
+      i = i + 2
+    loop
+
+    rv = Array(let_env, body, null, false) rem continue
+    _eval_special_form_let = rv
+end function
+
+
+function _eval_special_form_quote(ast, env)
+    Utils.log2 &quot;--&gt;&gt; _eval_special_form_quote()&quot;
+    
+    dim rv
+
+    dim val
+    val = MalList.get_(ast, 1)
+    
+    rv = Array(env, ast, val, true)
+
+    _eval_special_form_quote = rv
+end function
+
+
+function _symbol_eq(val, str) As Boolean
+    dim rv
+
+    if not MalSymbol.is_symbol(val) then
+        rv = false
+        _symbol_eq = rv
+        exit function
+    end if
+    
+    rv = MalSymbol.eq_to_str(val, str)
+    
+    _symbol_eq = rv
+end function
+
+
+function _qq_loop_list(acc, list)
+    dim rv
+    dim head
+    
+    head = MalList.head(list)
+    
+    if MalList.size(list) = 2 and _symbol_eq(head, &quot;splice-unquote&quot;) then
+        acc = MalList.from_array(Array( _
+            MalSymbol.new_(&quot;concat&quot;), MalList.get_(list, 1), acc _
+        ))
+    else
+        dim qqed
+        qqed = quasiquote(list)
+        acc = MalList.from_array(Array( _
+            MalSymbol.new_(&quot;cons&quot;), qqed, acc _
+        ))
+    end if
+
+    rv = acc
+    _qq_loop_list = rv
+end function
+
+
+function qq_loop(ast)
+    Utils.log2 &quot;--&gt;&gt; qq_loop()&quot;
+
+    dim rv
+    
+    dim acc
+    acc = MalList.new_()
+
+    dim ast_rev
+    ast_rev = MalList.reverse(ast)
+
+    dim i, el
+    for i = 0 to MalList.size(ast_rev) - 1
+        el = MalList.get_(ast_rev, i)
+
+        if type_name_ex(el) = MalList.type_name then &apos; TODO Use is_list
+            dim acc2
+            acc2 = _qq_loop_list(acc, el)
+            acc = acc2
+        else
+            dim _cons, qqed
+            _cons = MalSymbol.new_(&quot;cons&quot;)
+            qqed = quasiquote(el)
+            dim arr
+            arr = Array(_cons, qqed, acc)
+            acc = MalList.from_array(arr)
+        end if
+    next
+
+    rv = acc
+
+    qq_loop = rv
+end function
+
+
+function _is_sym_unquote(sym) as boolean
+    Utils.log2 &quot;--&gt;&gt; _is_sym_unquote()&quot;
+    dim rv
+    
+    if not MalSymbol.is_symbol(sym) then
+        rv = false
+        _is_sym_unquote = rv
+        exit function
+    end if
+    
+    rv = MalSymbol.eq_to_str(sym, &quot;unquote&quot;)
+    
+    _is_sym_unquote = rv
+end function
+
+
+function quasiquote(ast)
+    Utils.logkv2 &quot;--&gt;&gt; quasiquote()&quot;, ast
+    dim rv
+    dim val
+
+    select case type_name_ex(ast)
+    case MalList.type_name
+        if MalList.size(ast) = 2 then
+            dim head
+            head = MalList.head(ast)
+            
+            if MalSymbol.is_symbol(head) and _is_sym_unquote(head) then
+                val = MalList.get_(ast, 1)
+            else
+                val = qq_loop(ast)
+            end if
+        else
+            val = qq_loop(ast)
+        end if
+    case MalSymbol.type_name
+        val = MalList.from_array(Array(MalSymbol.new_(&quot;quote&quot;), ast))
+    case else
+        val = ast
+    end select
+    
+    rv = val
+
+    quasiquote = rv
+end function
+
+
+function _eval_special_form_quasiquote(args, env)
+    Utils.log2 &quot;--&gt;&gt; _eval_special_form_quasiquote()&quot;
+    dim rv
+
+    Dim ast
+    ast = MalList.get_(args, 1)
+
+    dim val
+    val = quasiquote(ast)   
+    
+    &apos; val が次のターンの ast になる
+    rv = Array(env, val, val, false)
+
+    _eval_special_form_quasiquote = rv
+end function
+
+
+function _eval_special_form_defmacro(ast, env)
+    Utils.log1 &quot;--&gt;&gt; _eval_special_form_defmacro()&quot;
+    dim rv
+
+    Dim a1, a2
+    a1 = MalList.get_(ast, 1)
+    a2 = MalList.get_(ast, 2)
+
+    dim eval_result
+    eval_result = EVAL(a2, env)
+    dim func
+    func = Core.clone(eval_result)
+    func.is_macro = true
+    
+    dim val
+    val = MalEnv.set_(env, a1, func)
+
+    rv = Array(env, ast, val, true)
+
+    _eval_special_form_defmacro = rv
+end function
+
+
+function _eval_special_form_macroexpand(ast, env)
+    Utils.log1 &quot;--&gt;&gt; _eval_special_form_macroexpand()&quot;
+    dim rv
+    
+    Dim a1
+    a1 = MalList.get_(ast, 1)
+    
+    dim val
+    val = macroexpand(a1, env)
+    rv = Array(env, ast, val, true)
+
+    _eval_special_form_macroexpand = rv
+end function
+
+
+&apos; (try* expr1 (catch* ...))
+
+&apos; @return [env, ast, result, do_return]
+function _eval_special_form_try(ast, env)
+    Utils.log2 &quot;--&gt;&gt; _eval_special_form_try()&quot;
+
+    dim rv
+
+    dim a1
+    a1 = MalList.get_(ast, 1)
+
+    dim result
+    __inc_lv
+    result = EVAL(a1, env)
+    __dec_lv
+
+    if mal_error_exists() then
+        if 3 &lt;= MalList.size(ast) then
+            &apos; (catch* err expr)
+            dim a2, a2_0
+            a2 = MalList.get_(ast, 2)
+            a2_0 = MalList.get_(a2, 0)
+
+            if MalSymbol.eq_to_str(a2_0, &quot;catch*&quot;) then
+                dim ex_name, ast2
+                ex_name = MalList.get_(a2, 1)
+                ast2 = MalList.get_(a2, 2)
+                
+                dim env2
+                env2 = MalEnv.new_(env)
+                MalEnv.set_(env2, ex_name, mal_error) &apos; 引数をセット
+
+                reset_mal_error()
+
+                result = EVAL(ast2, env2)
+            else
+                &apos; TODO エスカレーションする
+                &apos; ここでは何もせず関数を抜け、外側で対応
+            end if
+        else
+            &apos; TODO エスカレーションする
+            &apos; ここでは何もせず関数を抜け、外側で対応
+        end if
+    end if
+
+    rv = Array(env, ast, result, true)
+    _eval_special_form_try = rv
+end function
+
+
+rem mutate ast
+rem @return [env, ast, result, do_return]
+function _eval_special_form_do(ast, env)
+    Utils.log2 &quot;--&gt;&gt; _eval_special_form_do()&quot;
+    dim rv
+    
+    dim exps, results
+    exps = MalList.newlist_for_do(ast) rem 先頭と最後以外 / ast[1..-2]
+    ast  = MalList.last(ast)
+
+    rem 最後を除いて / 最後以外を / eval する
+    __inc_lv
+    results = _eval_ast(exps, env)
+    __dec_lv
+    &apos; TODO check error
+
+    rv = Array(env, ast, results, false)
+    _eval_special_form_do = rv
+end function
+
+
+function _eval_special_form_if(ast, env)
+    Utils.log2 &quot;--&gt;&gt; _eval_special_form_if()&quot;
+
+    dim rv
+    dim result, do_return
+    result = null
+    do_return = false
+    
+    &apos; (if cond_expr then_expr else_expr)
+    dim cond_expr, then_expr, else_expr
+    cond_expr = MalList.get_(ast, 1)
+    then_expr = MalList.get_(ast, 2)
+    dim cond
+    cond = EVAL(cond_expr, env)
+    
+    if is_truthy(cond) then
+        ast = then_expr rem Continue loop (TCO)
+    else
+        rem if IsNull(else_expr) or IsEmpty(else_expr) then
+        if MalList.size(ast) &lt;= 3 then
+            rem else が省略されている場合
+            do_return = true
+        else
+            else_expr = MalList.get_(ast, 3)
+            ast = else_expr rem Continue loop (TCO)
+        end if
+    end if
+
+    rv = Array(env, ast, result, do_return)
+    _eval_special_form_if = rv
+end function
+
+
+rem (fn* ...) =&gt; (lambda ...)
+function _eval_special_form_fn(ast, env)
+    Utils.log2 &quot;--&gt;&gt; _eval_special_form_fn()&quot;
+    
+    dim rv
+    dim arg_names, body
+
+    &apos; (fn* (x) x)
+    &apos;          body ... body
+    &apos;      arg_names     ... args
+
+    arg_names = MalList.get_(ast, 1)
+    body      = MalList.get_(ast, 2)
+
+    dim newfunc
+    newfunc = MalFunction_new(env, arg_names, body)
+
+    rv = Array(env, ast, newfunc, true)
+
+    _eval_special_form_fn = rv
+end function
+
+
+rem @return [env, ast, eval_result, do_return]
+function eval_special_form(ast, env)
+    Utils.log2 &quot;--&gt;&gt; eval_special_form&quot;
+
+    dim iter_rv
+
+    Dim a0
+    a0 = MalList.get_(ast, 0)
+
+    select case a0.str
+      case &quot;def!&quot;
+        iter_rv = _eval_special_form_def(ast, env)
+      case &quot;let*&quot;
+        iter_rv = _eval_special_form_let(ast, env)
+      case &quot;quote&quot;
+        iter_rv = _eval_special_form_quote(ast, env)
+      case &quot;quasiquote&quot;
+        iter_rv = _eval_special_form_quasiquote(ast, env)
+      case &quot;defmacro!&quot;
+        iter_rv = _eval_special_form_defmacro(ast, env)
+      case &quot;macroexpand&quot;
+        iter_rv = _eval_special_form_macroexpand(ast, env)
+      case &quot;try*&quot;
+        iter_rv = _eval_special_form_try(ast, env)
+      case &quot;do&quot;
+        iter_rv = _eval_special_form_do(ast, env)
+      case &quot;if&quot;
+        iter_rv = _eval_special_form_if(ast, env)
+      case &quot;fn*&quot;
+        iter_rv = _eval_special_form_fn(ast, env)
+      case else
+        panic &quot;invalid special form&quot;
+    end select
+
+    eval_special_form = iter_rv
+end function
+
+rem --------------------------------
+
+function _eval_inner(ast, env)
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler___eval_inner
+                        &apos; --------------------------------
+    Utils.log0 &quot;--&gt;&gt; _eval_inner()&quot;
+    dim rv
+
+    ast = macroexpand(ast, env)
+
+    if type_name_ex(ast) &lt;&gt; MalList.type_name then &apos; TODO Use is_list()
+        rv = _eval_ast(ast, env)
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in _eval_inner)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            _eval_inner = null
+                            Utils.log0 &quot;exit _eval_inner&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+        _eval_inner = Array(env, ast, rv, true)
+        exit function
+    end if
+
+    if MalList.size(ast) = 0 then
+        rv = ast
+        _eval_inner = Array(env, ast, rv, true)
+        exit function
+    end if
+
+    dim iter_rv
+    Dim result
+    Dim do_return As Boolean
+
+    if is_special_form(ast) then
+        iter_rv = eval_special_form(ast, env)
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in _eval_inner)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            _eval_inner = null
+                            Utils.log0 &quot;exit _eval_inner&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+        env       = iter_rv(0)
+        ast       = iter_rv(1)
+        result    = iter_rv(2)
+        do_return = iter_rv(3)
+    else
+        dim el, f, args
+
+        el = _eval_ast(ast, env)
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in _eval_inner)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            _eval_inner = null
+                            Utils.log0 &quot;exit _eval_inner&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+        f = MalList.head(el)
+        args = MalList.rest(el)
+
+        if MalFunction.is_mal_function(f) then
+            ast = f.body
+            env = MalFunction_gen_env(f, args) rem TODO
+        else
+            result = apply(f, args, env)
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in _eval_inner)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            _eval_inner = null
+                            Utils.log0 &quot;exit _eval_inner&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+            do_return = true
+        end if
+    end if
+
+    _eval_inner = Array(env, ast, result, do_return)
+
+                        &apos; --------------------------------
+                            Exit function
+                        error_handler___eval_inner:
+                            panic format_err_msg(&quot;_eval_inner&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end function
+
+
+function EVAL(ByVal ast, ByVal env)
+    Utils.log0 &quot;--&gt;&gt; EVAL()&quot;
+
+    dim rv
+    dim iter_rv
+
+    dim eval_result
+    Dim do_return As Boolean
+
+    dim i
+    i = 0
+    do while true
+        i = i + 1
+
+        iter_rv = _eval_inner(ast, env)
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in EVAL)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            EVAL = null
+                            Utils.log0 &quot;exit EVAL&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+        env         = iter_rv(0)
+        ast         = iter_rv(1)
+        eval_result = iter_rv(2)
+        do_return   = iter_rv(3)
+
+        if do_return then
+            rv = eval_result
+            exit do
+        end if
+    loop
+  
+    EVAL = rv
+end function
+
+rem --------------------------------
+
+rem ここに渡ってきた時点で args は評価済み
+rem 評価済みの args に手続きを適用するだけ
+function apply(f, args, env)
+    Utils.log0 &quot;--&gt;&gt; apply()&quot;
+    dim rv
+
+    if type_name_ex(f) &lt;&gt; MalNamedFunction_type_name then
+        throw &quot;apply: expected MalNamedFunction, got (&quot; &amp; inspect(f) &amp; &quot;)&quot;
+    end if
+
+    rv = dispatch_func(f, args, env)
+    
+    apply = rv
+end function
+
+rem --------------------------------
+
+function _is_special_form_symbol(sym)
+    Utils.log2 &quot;--&gt;&gt; _is_special_form_symbol()&quot;
+    dim rv
+
+    select case sym.str
+        case &quot;def!&quot;, &quot;let*&quot;, &quot;fn*&quot;, &quot;if&quot;, &quot;do&quot;, &quot;quote&quot;, _
+             &quot;quasiquote&quot;, &quot;defmacro!&quot;, &quot;macroexpand&quot;, &quot;try*&quot;
+      rv = true
+    case else
+      rv = false
+    end select
+
+    _is_special_form_symbol = rv
+end function
+
+
+Function is_special_form(list) As Boolean
+    Utils.log2 &quot;--&gt;&gt; is_special_form()&quot;
+    dim rv
+    dim el0
+    el0 = MalList.get_(list, 0)
+
+    If Not MalSymbol.is_symbol(el0) Then
+        rv = false
+        is_special_form = rv
+        exit function
+    end if
+
+    rv = _is_special_form_symbol(el0)
+
+    is_special_form = rv
+End Function
+
+&apos; --------------------------------
+
+sub _run
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler___run
+                        &apos; --------------------------------
+    &apos; ThisComponent.LockControllers()
+
+    dim box_src, box_output
+    box_src    = Calc.get_shape_by_name(&quot;src&quot;)
+    box_output = Calc.get_shape_by_name(&quot;output&quot;)
+
+    dim src
+    src = box_src.string
+    
+    log_path = environ(&quot;FILE_LOG_SETUP&quot;)
+
+    dim argv
+    argv = MalList.new_()
+
+    dim repl_env
+    repl_env = create_repl_env()
+
+    setup(argv, repl_env)
+    
+    &apos; clear log
+    &apos; dim logbox
+    &apos; logbox = Calc.get_shape_by_name(&quot;log&quot;)
+    &apos; logbox.string = &quot; &quot;
+
+    log_path = environ(&quot;FILE_LOG&quot;)
+    &apos; file_clear log_path
+    
+    box_clear &quot;output&quot;
+    
+    dim result
+    result = read_eval(repl_env, src)
+    
+    &apos; 一番外側の try/catch に相当
+    Utils.log0 &quot;--&gt;&gt; check error (gui mode top)&quot;
+    if mal_error_exists() then
+        &apos; print_stderr(&quot;Error: &quot; &amp; Printer._pr_str(mal_error, true))
+        result = mal_error
+    end if
+    Utils.log0 &quot;&lt;&lt;-- check error (gui mode top)&quot;
+
+    &apos; box_output.string = Printer._pr_str(result, false)
+    dim out_str
+    out_str = Printer._pr_str(result, false)
+    Utils.box_append(&quot;output&quot;, &quot;=&gt; &quot; &amp; out_str)
+
+    &apos; ThisComponent.UnlockControllers()
+    
+                        &apos; --------------------------------
+                            Exit sub
+                        error_handler___run:
+                            panic format_err_msg(&quot;_run&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end sub
+
+
+sub on_click_run
+    rem msgbox &quot;on_click_run&quot;
+    _run()
+end sub
+      
+      </ooo:source-code>
+     </ooo:module>
+     <ooo:module ooo:name="MalList">
+      <ooo:source-code>
+
+rem -*- mode: basic -*-
+
+Option Explicit
+
+type MalList
+    xs as variant
+    size as integer
+    type_ as string
+    klass as string
+    meta as variant
+end type
+
+
+function new_
+    dim list as New MalList
+    dim xs() as variant
+    list.xs = xs
+    list.size = 0
+    list.type_ = type_name
+    list.klass = type_name
+    new_ = list
+end function
+
+
+Function type_name() As String
+    type_name = &quot;MalList&quot;
+End Function
+
+
+function cap(self)
+    dim rv
+
+    if ubound(self.xs) = -1 then
+        rv = 0
+    else
+        rv = ubound(self.xs) + 1
+    end if
+
+    cap = rv
+End function
+
+
+function from_array(array_)
+    dim rv
+
+    rv = MalList.new_()
+
+    dim i
+    for i = 0 to ubound(array_)
+        MalList.add(rv, array_(i))
+    next
+
+    from_array = rv
+end function
+
+
+sub add(self, elem)
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler__add
+                        &apos; --------------------------------
+    
+    dim size_, newsize
+    size_ = self.size
+
+    if self.size &gt;= cap(self) then
+        if size_ = 0 then
+            newsize = 1
+        else
+            newsize = size_ * 2
+        end if
+
+      dim newxs(newsize) as variant
+
+      Dim i As Integer
+      i = 0
+      do while i &lt; size_
+          newxs(i) = self.xs(i)
+          i = i + 1
+      loop
+
+      self.xs = newxs
+    end if
+
+    self.xs(self.size) = elem
+    self.size = self.size + 1
+
+                        &apos; --------------------------------
+                            Exit sub
+                        error_handler__add:
+                            panic format_err_msg(&quot;add&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end sub
+
+
+rem TODO 範囲外の場合: null を返すべき？
+function get_(self, i as integer)
+    get_ = self.xs(i)
+end function
+
+
+sub set_(self, i as integer, el)
+    self.xs(i) = el
+end sub
+
+
+function List_inspect(self)
+    dim rv
+
+    dim str
+    str = &quot;[&quot;
+
+    Dim i As Integer
+    for i = 0 to self.size - 1
+      if 0 &lt; i then
+          str = str &amp; &quot;, &quot;
+      end if
+      str = str &amp; inspect(MalList.get_(self, i))
+    next
+
+    str = str &amp; &quot;]&quot;
+
+    rv = str
+    List_inspect = rv
+end function
+
+
+&apos; TODO rename =&gt; pr_str
+function MalList_pr_str(self, print_readably as boolean)
+    dim rv
+
+    dim str
+    str = &quot;(&quot;
+
+    Dim i As Integer
+    for i = 0 to self.size - 1
+        if 0 &lt; i then
+          str = str &amp; &quot; &quot;
+        end if
+
+      dim el
+      el = MalList.get_(self, i)
+
+      if IsNull(el) then
+        rem 本当は _pr_str に渡したいが渡せないためここで分岐している
+        str = str &amp; &quot;nil&quot;
+      else
+        dim s2 as string
+        s2 = Printer._pr_str(el, print_readably)
+        str = str &amp; s2
+      end if
+    next
+
+    str = str &amp; &quot;)&quot;
+
+    rv = str
+    MalList_pr_str = rv
+end function
+
+
+function size(self)
+    size = self.size
+end function
+
+
+&apos; TODO rename =&gt; first
+function head(self)
+    head = get_(self, 0)
+end function
+
+
+function rest(self)
+    Utils.log1 &quot;--&gt;&gt; MalList.rest&quot;
+    dim rv
+
+    dim newlist
+    newlist = MalList.new_()
+
+    if MalList.size(self) &lt;= 1 then
+        rest = newlist
+        exit function
+    end if
+
+    dim i
+    for i = 1 to MalList.size(self) - 1
+        dim el
+        el = MalList.get_(self, i)
+        MalList.add(newlist, el)
+    next
+    rv = newlist
+
+    rest = rv
+end function
+
+
+function last(self)
+    dim rv
+    
+    dim n
+    n = MalList.size(self)
+    rv = MalList.get_(self, n - 1)
+
+    last = rv
+end function
+
+
+function reverse(self)
+    dim rv
+
+    rv = MalList.new_()
+
+    dim i, el
+    i = MalList.size(self) - 1 
+    do while 0 &lt;= i
+        el = MalList.get_(self, i)
+        MalList.add(rv, el)
+        i = i - 1
+    loop
+
+    reverse = rv
+end function
+
+
+rem TODO sublist とかにした方がよいかも
+function newlist_for_do(self)
+    dim rv
+    rv = MalList.new_()
+
+    dim i
+    i = 1
+    do while i &lt;= MalList.size(self) - 2
+        MalList.add(rv, MalList.get_(self, i))
+        i = i + 1
+    loop
+    
+    newlist_for_do = rv
+end function
+
+
+function clone(self)
+    dim rv
+
+    rv = MalList.new_()
+    dim i
+    for i = 0 to MalList.size(self) - 1
+        MalList.add(rv, MalList.get_(self, i))
+    next
+    clone = rv
+end function
+
+
+function is_list(val)
+    dim rv
+    
+    rv = (type_name_ex(val) = type_name)
+
+    is_list = rv
+end function
+
+
+function typename(self)
+    &apos; Utils.log3 &quot;--&gt;&gt; typename()&quot;
+    dim rv
+
+    rv = self.klass
+
+    typename = rv
+end function
+
+
+function seq(self)
+    &apos; Utils.log1 &quot;--&gt;&gt; seq()&quot;
+    dim rv
+
+    rv = self
+
+    seq = rv
+end function
+
+
+function conj(self, xs)
+    &apos; Utils.log1 &quot;--&gt;&gt; MalList.conj()&quot;
+    dim rv
+
+    dim temp
+    temp = Core.clone(self)
+
+    &apos; 先にサイズを確保しておく
+    dim newsize as integer
+    newsize = MalList.size(self) + MalList.size(xs)
+    dim i as integer
+    do while MalList.size(self) &lt; newsize
+        MalList.add(self, null)
+    loop
+
+    dim self_i, el
+    self_i = 0
+    
+    i = MalList.size(xs) - 1
+    do while 0 &lt;= i
+        el = MalList.get_(xs, i)
+        MalList.set_(self, self_i, el)
+        i = i - 1
+        self_i = self_i + 1
+    loop
+    
+    for i = 0 to MalList.size(temp) - 1
+        el = MalList.get_(temp, i)
+        MalList.set_(self, self_i, el)
+        self_i = self_i + 1
+    next
+    
+    rv = self
+
+    conj = rv
+end function
+
+      
+      </ooo:source-code>
+     </ooo:module>
+     <ooo:module ooo:name="Reader">
+      <ooo:source-code>
+
+rem -*- mode: basic -*-
+
+Option Explicit
+
+dim tokens
+dim pos
+
+rem --------------------------------
+
+function get_ident_size(str)
+    &apos; Utils.log3 &quot;--&gt;&gt; get_ident_size()&quot;
+    dim rv
+    Dim i As Integer
+
+    Dim DQ_ As String
+    DQ_ = dq()
+
+    Dim non_ident_chars As String
+    non_ident_chars = &quot; []{}(&apos;`,;)&quot; &amp; lf()
+
+    Dim c As String
+    i = 0
+    do while i &lt; len(str)
+      c = char_at(str, i)
+      if str_include(non_ident_chars, c) then
+        exit do
+      elseif c = DQ_ then
+      end if
+      i = i + 1
+    loop
+
+    rv = i
+    get_ident_size = rv
+end function
+
+
+function _consume_str(rest)
+    &apos; Utils.log3 &quot;--&gt;&gt; _consume_str()&quot;
+    dim rv
+
+    if char_at(rest, 0) &lt;&gt; dq() then
+      rv = 0
+      _consume_str = rv
+      exit function
+    end if
+
+    dim pos, c, s
+
+    pos = 1
+    do while pos &lt; len(rest)
+        c = char_at(rest, pos)
+        if c = dq() then
+            pos = pos + 1
+            exit do
+        elseif c = bs() then
+            pos = pos + 2
+        else
+            pos = pos + 1
+        end if
+    loop
+
+    _consume_str = pos
+end function
+
+
+function _consume_comment(rest)
+    &apos; Utils.log3 &quot;--&gt;&gt; _consume_comment()&quot;
+    dim rv
+
+    dim pos, c, s
+
+    pos = 1
+    do while pos &lt; len(rest)
+        c = char_at(rest, pos)
+        if c = lf() then
+            pos = pos + 1
+            exit do
+        else
+            pos = pos + 1
+        end if
+    loop
+
+    _consume_comment = pos
+end function
+
+
+function _unescape_str(str)
+    &apos; Utils.logkv3 &quot;--&gt;&gt; _unescape_str()&quot;, str
+    dim rv
+    dim pos, c, s
+
+    s = &quot;&quot;
+    pos = 1
+    do while pos &lt; len(str)
+        c = char_at(str, pos)
+        if c = dq() then
+            exit do
+        elseif c = bs() then
+            if pos = len(str) - 2 then rem TODO
+                throw &quot;expected &apos;&quot; &amp; dq() &amp; &quot;&apos;, got EOF&quot;
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in _unescape_str)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            _unescape_str = null
+                            Utils.log0 &quot;exit _unescape_str&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+            end if
+
+            dim next_char
+            next_char = char_at(str, pos + 1)
+            if next_char = bs() then
+                s = s &amp; bs()
+            elseif next_char = &quot;n&quot; then
+                s = s &amp; lf()
+            elseif next_char = dq() then
+                s = s &amp; dq()
+            else
+                s = s &amp; next_char
+            end if
+            pos = pos + 2
+        else
+            s = s &amp; c
+            pos = pos + 1
+        end if
+    loop
+
+    rv = s
+    _unescape_str = rv
+end function
+
+
+function tokenize(str)
+    &apos; Utils.log2 &quot;--&gt;&gt; tokenize()&quot;
+
+    dim pos, rest_
+    dim ts, size
+    pos = 0
+
+    ts = MalList.new_()
+
+    do while pos &lt; len(str)
+      rest_ = substring(str, pos)
+      if left(rest_, 2) = &quot;~@&quot; then
+        size = 2
+        MalList.add(ts, left(rest_, size))
+        pos = pos + size
+      elseif str_include(&quot; ,&quot; &amp; lf(), left(rest_, 1)) then
+        pos = pos + 1
+      elseif str_include(&quot;[]{}()&apos;`~^@&quot;, left(rest_, 1)) then
+        size = 1
+        MalList.add(ts, left(rest_, size))
+        pos = pos + size
+
+      elseif 0 &lt; _consume_str(rest_) then
+        size = _consume_str(rest_)
+        MalList.add(ts, left(rest_, size))
+        pos = pos + size
+
+      elseif left(rest_, 1) = &quot;;&quot; then
+        size = _consume_comment(rest_)
+        pos = pos + size
+
+      else
+        size = get_ident_size(rest_)
+        if 0 &lt; size then
+          MalList.add(ts, left(rest_, size))
+          pos = pos + size
+        else
+            panic &quot;not yet implemented&quot;
+        end if
+      end if
+    loop
+
+    tokenize = ts
+end function
+
+rem --------------------------------
+
+function peek()
+    &apos; Utils.log3 &quot;--&gt;&gt; peek&quot;
+    dim rv
+
+    rv = MalList.get_(tokens, pos)
+
+    peek = rv
+end function
+
+
+function next_()
+    &apos; Utils.log3 &quot;--&gt;&gt; next_()&quot;
+    dim rv
+
+    pos = pos + 1
+
+    if tokens.size &lt; pos then
+      rv = null
+    else
+      rv = MalList.get_(tokens, pos - 1)
+    end if
+
+    next_ = rv
+end function
+
+rem --------------------------------
+
+function is_int(str)
+    dim rv
+    dim i, c
+
+    if str = &quot;-&quot; then
+        rv = false
+        exit function
+    end if
+
+    rv = true
+    for i = 0 to len(str) - 1
+      c = char_at(str, i)
+      if not ( Utils.is_numeric(c) or c = &quot;-&quot; ) then
+          rv = false
+      end if
+    next
+
+    is_int = rv
+end function
+
+
+function read_map
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler__read_map
+                        &apos; --------------------------------
+    &apos; Utils.log1 &quot;--&gt;&gt; read_map()&quot;
+    dim rv
+
+    dim map, k, v
+    map = MalMap.new_()
+    
+    next_()
+
+    do while True
+        if peek() = &quot;}&quot; then
+            next_()
+            exit do
+        end if
+        k = read_atom()
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in read_map)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            read_map = null
+                            Utils.log0 &quot;exit read_map&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+        v = read_form()
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in read_map)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            read_map = null
+                            Utils.log0 &quot;exit read_map&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+        MalMap.put(map, k, v)
+    loop
+    
+    rv = map
+    read_map = rv
+    
+                        &apos; --------------------------------
+                            Exit function
+                        error_handler__read_map:
+                            panic format_err_msg(&quot;read_map&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end function
+
+
+function read_atom()
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler__read_atom
+                        &apos; --------------------------------
+
+    &apos; Utils.log3 &quot;--&gt;&gt; read_atom()&quot;
+    dim rv
+    dim token
+
+    token = next_()
+
+    if token = &quot;nil&quot; then
+        rv = null
+    elseif is_int(token) then
+        rv = CInt(token)
+    elseif token = dq() then
+        throw &quot;expected &apos;&quot; &amp; dq() &amp; &quot;&apos;, got EOF&quot;
+    elseif char_at(token, 0) = dq() then
+        if char_at(token, len(token) - 1) = dq() then
+            rv = _unescape_str(token)
+        else
+            throw &quot;expected &apos;&quot; &amp; dq() &amp; &quot;&apos;, got EOF&quot;
+        end if
+    elseif char_at(token, 0) = &quot;:&quot; then
+        rv = kw_marker() &amp; substring(token, 1)
+    elseif token = &quot;true&quot; then
+        rv = True
+    elseif token = &quot;false&quot; then
+        rv = False
+    else
+        rv = MalSymbol.new_(token)
+    end if
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in read_atom)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            read_atom = null
+                            Utils.log0 &quot;exit read_atom&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+    read_atom = rv
+
+                        &apos; --------------------------------
+                            Exit function
+                        error_handler__read_atom:
+                            panic format_err_msg(&quot;read_atom&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end function
+
+
+function read_list(klass, start, last)
+    &apos; Utils.log3(&quot;--&gt;&gt; read_list()&quot;)
+    dim rv
+    dim ast, t
+
+    select case klass
+    case MalList.type_name
+        ast = MalList.new_()
+    case MalVector.type_name
+        ast = MalVector.new_()
+    case else
+        throw &quot;unexpected klass (&quot; &amp; klass &amp; &quot;)&quot;
+    end select
+
+    t = next_()
+    if t &lt;&gt; start then
+      __ERR_unexpected_start__
+    end if
+
+    do while true
+        if tokens.size &lt;= pos then
+            throw &quot;expected &apos;&quot; &amp; last &amp; &quot;&apos;, got EOF&quot;
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in read_list)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            read_list = null
+                            Utils.log0 &quot;exit read_list&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+        end if
+
+      t = peek()
+      if t = last then
+        exit do
+      end if
+
+      &apos; TODO switch MalVector
+      MalList.add(ast, read_form())
+    loop
+    next_()
+
+    rv = ast
+
+    read_list = rv
+end function
+
+
+function read_form()
+    Utils.log3 &quot;--&gt;&gt; read_form()&quot;
+    dim rv
+    dim form
+
+    Dim c As String
+    c = peek()
+
+    if c = &quot;;&quot; then
+      rv = nil
+
+    elseif c = &quot;&apos;&quot; then
+      next_()
+
+      form = read_form()
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in read_form)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            read_form = null
+                            Utils.log0 &quot;exit read_form&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+      rv = MalList.from_array(Array(MalSymbol.new_(&quot;quote&quot;), form))
+
+    elseif c = &quot;`&quot; then
+        next_()
+
+        form = read_form()
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in read_form)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            read_form = null
+                            Utils.log0 &quot;exit read_form&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+        rv = MalList.from_array(Array(MalSymbol.new_(&quot;quasiquote&quot;), form))
+
+    elseif c = &quot;~&quot; then
+      next_()
+
+      form = read_form()
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in read_form)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            read_form = null
+                            Utils.log0 &quot;exit read_form&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+      rv = MalList.from_array(Array(MalSymbol.new_(&quot;unquote&quot;), form))
+
+    elseif c = &quot;~@&quot; then
+      next_()
+
+      form = read_form()
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in read_form)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            read_form = null
+                            Utils.log0 &quot;exit read_form&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+      rv = MalList.from_array(Array(MalSymbol.new_(&quot;splice-unquote&quot;), form))
+
+    elseif c = &quot;@&quot; then
+      next_()
+
+      form = read_form()
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in read_form)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            read_form = null
+                            Utils.log0 &quot;exit read_form&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+      rv = MalList.from_array(Array(MalSymbol.new_(&quot;deref&quot;), form))
+
+    elseif c = &quot;(&quot; then
+      rv = read_list(MalList.type_name, &quot;(&quot;, &quot;)&quot;)
+
+    elseif c = &quot;)&quot; then
+      throw &quot;unexpected &apos;)&apos;&quot;
+
+    elseif c = &quot;[&quot; then
+      rv = read_list(MalVector.type_name, &quot;[&quot;, &quot;]&quot;)
+
+    elseif c = &quot;]&quot; then
+      throw &quot;unexpected &apos;]&apos;&quot;
+
+    elseif c = &quot;{&quot; then
+        rv = read_map()
+
+    elseif c = &quot;}&quot; then
+      throw &quot;unexpected &apos;}&apos;&quot;
+
+    else
+      rv = read_atom()
+    end if
+
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in read_form)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            read_form = null
+                            Utils.log0 &quot;exit read_form&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+    read_form = rv
+end function
+
+
+function read_str(str)
+    Utils.logkv2 &quot;--&gt;&gt; read_str()&quot;, str
+    dim rv
+
+    tokens = tokenize(str)
+    Utils.log3 &quot;--------------------------------&quot;
+    Utils.logkv3 &quot;tokens.size&quot;, tokens.size
+    Utils.logkv3 &quot;tokens&quot;, tokens
+    Utils.log3 &quot;--------------------------------&quot;
+    pos = 0
+
+    if tokens.size = 0 then
+      rv = null
+    else
+      rv = read_form()
+    end if
+
+    Utils.log3 &quot;--------------------------------&quot;
+    Utils.logkv3 &quot;read result&quot;, rv
+    Utils.log3 &quot;--------------------------------&quot;
+
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in read_str)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            read_str = null
+                            Utils.log0 &quot;exit read_str&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+    read_str = rv
+end function
+
+      
+      </ooo:source-code>
+     </ooo:module>
+     <ooo:module ooo:name="Printer">
+      <ooo:source-code>
+
+rem -*- mode: basic -*-
+
+Option Explicit
+
+function _pr_str(val, optional print_readably as boolean)
+    &apos; Utils.log2 &quot;--&gt;&gt; _pr_str()&quot;
+    dim rv
+
+    dim _r
+    if IsMissing(print_readably) then
+        _r = true
+    else
+        _r = print_readably
+    end if
+
+    if IsNull(val) then
+      rv = &quot;nil&quot;
+      _pr_str = rv
+      Exit Function
+    End If
+
+    Dim tn As String
+    tn = TypeName(val)
+
+    If tn = &quot;String&quot; then
+        If Keyword_is_keyword(val) Then
+            rv = &quot;:&quot; + substring(val, 1)
+        else
+            if _r then
+                rv = inspect_str(val)
+            else
+                rv = val
+            end if
+        end if
+
+    elseif tn = &quot;Integer&quot; then
+      rv = &quot;&quot; &amp; val
+    elseif tn = &quot;Long&quot; then
+      rv = &quot;&quot; &amp; val
+    elseif tn = &quot;Single&quot; then
+      rv = &quot;&quot; &amp; val
+    elseif tn = &quot;Double&quot; then
+      rv = &quot;&quot; &amp; val
+    elseif tn = &quot;Boolean&quot; then
+        if val then
+            rv = &quot;true&quot;
+        else
+            rv = &quot;false&quot;
+        end if
+    elseif tn = &quot;Object&quot; then
+      Dim otn As String
+      otn = obj_typename(val)
+
+      if otn = MalList.type_name then
+        rv = MalList_pr_str(val, _r)
+      elseif otn = MalVector.type_name then
+        rv = MalVector_pr_str(val, _r)
+      elseif otn = MalSymbol.type_name then
+        rv = MalSymbol_inspect(val)
+      elseif otn = MalMap.type_name then
+        rv = MalMap_pr_str(val, _r)
+      elseif otn = MalNamedFunction_type_name then
+        rv = MalNamedFunction_inspect(val)
+      elseif otn = MalFunction.type_name then
+        rv = MalFunction_inspect(val)
+      elseif otn = MalAtom.type_name then
+        rv = MalAtom_inspect(val)
+      else
+        rv = &quot;&lt;unknown_obj&gt; &quot; &amp; otn
+      end if
+    else
+      rv = &quot;&lt;unknown&gt; &quot; &amp; tn
+    end if
+
+    _pr_str = rv
+end function
+
+      
+      </ooo:source-code>
+     </ooo:module>
+     <ooo:module ooo:name="Utils">
+      <ooo:source-code>
+
+rem -*- mode: basic -*-
+
+Option Explicit
+
+dim __LV
+
+rem --------------------------------
+
+function dq() as string
+    dq = chr(34)
+end function
+
+
+function lf() as string
+    lf = chr(10)
+end function
+
+
+function bs() as string
+    bs = chr(92)
+end function
+
+
+function kw_marker() as string
+    kw_marker = chr(&amp;H029e)
+end function
+
+rem --------------------------------
+
+function substring(str, index)
+    if (index &lt; 0) then
+      substring = &quot;invalid_index&quot;
+    else
+      substring = right(str, len(str) - index)
+    end if
+end function
+
+
+function char_at(str, index)
+    dim retval
+
+    if (index &lt; 0 or len(str) &lt;= index) then
+      retval = &quot;invalid_index&quot;
+    else
+      retval = right(left(str, index + 1), 1)
+    end if
+
+    char_at = retval
+end function
+
+
+function str_include(str, target) as boolean
+    dim rv
+
+    rv = instr(str, target) &lt;&gt; 0 
+
+    str_include = rv
+end function
+
+
+function is_numeric(c)
+    is_numeric = str_include(&quot;0123456789&quot;, c)
+end function
+
+rem --------------------------------
+
+function int_to_s(n as integer)
+    int_to_s = &quot;&quot; &amp; n
+end function
+
+rem --------------------------------
+
+function inspect(val) as string
+    &apos; Utils.log1 &quot;--&gt;&gt; inspect()&quot;
+    dim rv
+
+    if IsNull(val) then
+      rv = &quot;null&quot;
+    elseif IsEmpty(val) then
+      rv = &quot;&lt;Empty&gt;&quot;
+    Else
+
+      Dim tn As String
+      tn = TypeName(val)
+
+      Select Case tn
+      Case &quot;Boolean&quot;, &quot;Integer&quot;, &quot;Long&quot;, &quot;Single&quot;, &quot;Double&quot;
+        rv = CStr(val)
+      Case &quot;String&quot;
+        rv = inspect_str(val)
+      Case &quot;Object&quot;
+
+        Dim otn As String
+        otn = obj_typename(val)
+
+        if otn = MalList.type_name then
+          rv = List_inspect(val)
+        elseif otn = MalVector.type_name then
+          rv = MalVector_inspect(val)
+        elseif otn = MalSymbol.type_name then
+          rv = MalSymbol_inspect(val)
+        elseif otn = MalMap.type_name then
+          rv = MalMap_inspect(val)
+        elseif otn = MalEnv.type_name then
+          rv = MalEnv_inspect(val)
+        elseif otn = MalNamedFunction_type_name then
+          rv = MalNamedFunction_inspect(val)
+        elseif otn = MalFunction.type_name then
+          rv = MalFunction_inspect(val)
+        elseif otn = MalAtom.type_name then
+          rv = MalAtom_inspect(val)
+        elseif otn = &quot;Token&quot; then
+          rv = Token_inspect(val)
+        else
+          rv = &quot;&lt;unknown_obj&gt;&quot;
+        end if
+
+      Case Else
+        rv = &quot;&lt;UNKNOWN&gt; &quot; &amp; TypeName(val)
+      End Select
+
+    End If
+
+    inspect = rv
+end function
+
+
+function inspect_str(str)
+    dim rv
+    dim s, i, c
+    s = &quot;&quot;
+
+    Dim LF_ As String
+    Dim DQ_ As String
+    Dim BS_ As String
+    LF_ = lf()
+    DQ_ = dq()
+    BS_ = bs()
+
+    for i = 0 to len(str) - 1
+      c = char_at(str, i)
+
+      Select Case c
+        Case LF_
+          s = s &amp; BS_ &amp; &quot;n&quot;
+        Case dq()
+          s = s &amp; BS_ &amp; DQ_
+        Case bs()
+          s = s &amp; BS_ &amp; BS_
+        Case Else
+          s = s &amp; c
+      End select
+    next
+
+    rv = DQ_ &amp; s &amp; DQ_
+    inspect_str = rv
+end function
+
+
+function obj_typename(obj)
+    &apos; Utils.log1 &quot;--&gt;&gt; obj_typename()&quot;
+    on local error goto on_error_obj_typename
+
+    dim rv
+
+    rv = obj.type_
+
+    if rv = MalList.type_name then &apos; TODO use is_list (?)
+        &apos; MalVector の場合がある
+        rv = MalList.typename(obj)
+    end if
+
+    obj_typename = rv
+    exit function
+
+on_error_obj_typename:
+    &apos; typename(err) =&gt; &quot;Long&quot;
+    if err = 423 then
+      rem type_ プロパティが存在しない場合
+      obj_typename = null
+    else
+      msgbox format_err_msg(&quot;obj_typename&quot;, err, erl, error$)
+      __ERROR__
+    end if
+end function
+
+
+function type_name_ex(val)
+    &apos; Utils.log1 &quot;--&gt;&gt; type_name_ex()&quot;
+    dim rv
+
+    if IsNull(val) then
+        rv = TypeName(val)
+        type_name_ex = rv
+        exit function
+    end if
+
+    select case TypeName(val)
+      case &quot;Integer&quot;, &quot;Long&quot;, &quot;String&quot;, &quot;Boolean&quot;, &quot;Single&quot;, &quot;Double&quot;
+          rv = TypeName(val)
+      case else
+        rv = obj_typename(val)
+    end select
+
+    type_name_ex = rv
+end function
+
+rem --------------------------------
+
+sub __inc_lv
+    __LV = __LV + 1
+end sub
+
+sub __dec_lv
+    __LV = __LV - 1
+end sub
+
+
+sub debug(x)
+    msgbox x    
+end sub
+
+
+sub debug_kv(k, v)
+    msgbox &quot;&quot; &amp; k &amp; &quot; (&quot; &amp; inspect(v) &amp; &quot;)&quot;
+end sub
+
+&apos; --------------------------------
+
+function _log_indent()
+    dim rv
+    dim s, i, n
+    rv = &quot;&quot;
+    s = &quot;|   &quot;
+    i = 0
+    do while i &lt; __LV
+        rv = rv &amp; s
+        i = i + 1
+    loop
+
+    rem Space(4 * __LV)
+
+    _log_indent = rv
+end function
+
+
+sub log0(msg)
+    if not ENABLE_LOG then
+        exit sub
+    end if
+    
+    if environ(&quot;LOG_MODE&quot;) = &quot;shape&quot; then
+        dim box
+        box = Calc.get_shape_by_name(&quot;log&quot;)
+        box.string = box.string &amp; _log_indent() &amp; msg &amp; lf()
+    else
+        file_append(log_path, &quot;___ &quot; &amp; _log_indent() &amp; msg)
+    end if
+end sub
+
+
+sub logkv0(k, v)
+    if not ENABLE_LOG then
+        exit sub
+    end if
+
+    log0 k &amp; &quot; (_&quot; &amp; inspect(v) &amp; &quot;_)&quot;
+end sub
+
+
+sub log1(msg)
+    if not ENABLE_LOG then
+        exit sub
+    end if
+
+    file_append(log_path, &quot;__  &quot; &amp; _log_indent() &amp; msg)
+end sub
+
+
+sub logkv1(k, v)
+    if not ENABLE_LOG then
+        exit sub
+    end if
+
+    log1 k &amp; &quot; (_&quot; &amp; inspect(v) &amp; &quot;_)&quot;
+end sub
+
+
+sub log2(msg)
+    if not ENABLE_LOG then
+        exit sub
+    end if
+
+    file_append(log_path, &quot;_   &quot; &amp; _log_indent() &amp; msg)
+end sub
+
+
+sub logkv2(k, v)
+    if not ENABLE_LOG then
+        exit sub
+    end if
+
+    log2 k &amp; &quot; (_&quot; &amp; inspect(v) &amp; &quot;_)&quot;
+end sub
+
+
+sub log3(msg)
+    if not ENABLE_LOG then
+        exit sub
+    end if
+
+    file_append(log_path, &quot;    &quot; &amp; _log_indent() &amp; msg)
+end sub
+
+
+sub logkv3(k, v)
+    if not ENABLE_LOG then
+        exit sub
+    end if
+
+    log3 k &amp; &quot; (_&quot; &amp; inspect(v) &amp; &quot;_)&quot;
+end sub
+
+
+sub panic(msg)
+    Utils.log0   &quot;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&quot;
+    Utils.logkv0 &quot;PANIC&quot;, msg
+    Utils.log0   &quot;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&quot;
+
+    ext_command(null, msg, &quot;EXIT 1&quot;)
+end sub
+
+
+sub log_error_clear()
+    Utils.log1 &quot;--&gt;&gt; log_error_clear&quot;
+    
+    dim path
+    dim fileno
+    fileno = freefile
+    path = environ(&quot;FILE_ERR&quot;)
+    open path for output as fileno
+
+    print #fileno, &quot;&quot; ;
+
+    close fileno
+end sub
+
+
+sub log_out_clear()
+    Utils.log1 &quot;--&gt;&gt; log_out_clear&quot;
+    
+    dim path
+    dim fileno
+    fileno = freefile
+    path = environ(&quot;FILE_OUT&quot;)
+    open path for output as fileno
+
+    print #fileno, &quot;&quot; ;
+
+    close fileno
+end sub
+
+rem --------------------------------
+
+function is_truthy(val) as boolean
+    Utils.log1 &quot;--&gt;&gt; is_truthy()&quot;
+    
+    dim rv as boolean
+
+    if IsNull(val) then
+        rv = False
+    elseif TypeName(val) = &quot;Boolean&quot; then
+        rv = val
+    else
+        rv = True
+    end if
+
+    is_truthy = rv
+end function
+
+rem --------------------------------
+
+sub file_write(path, str as string)
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler__file_write
+                        &apos; --------------------------------
+  dim iCount3 as integer
+  iCount3 = Freefile
+  &apos; open path for OutPut as iCount3
+  open path for binary access write as #iCount3
+
+  put(#iCount3, 1, str)
+
+  close #iCount3
+
+                        &apos; --------------------------------
+                            Exit sub
+                        error_handler__file_write:
+                            panic format_err_msg(&quot;file_write&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end sub
+
+
+&apos; TODO rename: clean の方がよいかも
+sub file_touch(path)
+    file_write(path, &quot;&quot;)
+end sub
+
+
+sub file_clear(path)
+    if FileExists(path) then
+        file_rm(path)
+    end if
+    file_write(path, &quot;&quot;)
+end sub
+
+
+sub file_append(path, msg)
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler__file_append
+                        &apos; --------------------------------
+
+    dim iCount3 as integer
+    iCount3 = Freefile
+    &apos; open path for OutPut as iCount3
+    open path for append as #iCount3
+
+    print #iCount3, msg
+
+    close #iCount3
+
+                        &apos; --------------------------------
+                            Exit sub
+                        error_handler__file_append:
+                            panic format_err_msg(&quot;file_append&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end sub
+
+
+function file_read(path as string)
+    &apos;Utils.log2 &quot;--&gt;&gt; file_read()&quot;
+    dim rv
+
+    dim sfa as object
+    sfa = CreateUnoService(&quot;com.sun.star.ucb.SimpleFileAccess&quot;)
+
+    dim is_ as object
+    is_ = sfa.openFileRead(path)
+
+    Dim tis As Object
+    tis = CreateUnoService(&quot;com.sun.star.io.TextInputStream&quot;)
+    tis.setInputStream(is_)
+    tis.setEncoding(&quot;UTF-8&quot;)
+
+
+    rv = tis.readString(Array(), false)
+
+    tis.closeInput()
+
+    file_read = rv
+end function
+
+
+sub file_rm(path)
+    Kill(ConvertToUrl(path))
+end sub
+
+
+sub file_rm_if_exists(path)
+    if FileExists(path) then
+        Kill(ConvertToUrl(path))
+    end if
+end sub
+
+
+sub file_wait(path)
+    &apos; Utils.logkv0 &quot;--&gt;&gt; file_wait&quot;, path
+
+    dim interval_sec
+    interval_sec = 0.01
+    
+    do while not FileExists(path)
+        &apos; Utils.log3(&quot;file_wait: exist ... no =&gt; wait &quot; &amp; str(interval_sec))
+        wait interval_sec * 1000
+        interval_sec = interval_sec + 0.01
+        if 5 &lt;= interval_sec then
+            interval_sec = 5
+        end if
+    loop
+
+    &apos; Utils.log1 &quot;file_wait: exist ... yes&quot;
+end sub
+
+
+sub file_wait_deletion(path)
+    dim interval_sec
+    interval_sec = 0.01
+
+    do while FileExists(path)
+        wait interval_sec * 1000
+        interval_sec = interval_sec + 0.01
+        if 5 &lt;= interval_sec then
+            interval_sec = 5
+        end if
+    loop
+end sub
+
+
+sub box_clear(box_name)
+    dim box
+    box = Calc.get_shape_by_name(box_name)
+    box.string = &quot;&quot;
+end sub
+
+
+sub box_append(box_name, text)
+    dim box
+    box = Calc.get_shape_by_name(box_name)
+    box.string = box.string &amp; text
+end sub
+
+
+sub print_stdout(msg)
+    dim msg2 as string
+    msg2 = &quot;&quot;
+        
+    if msg = &quot;&quot; then
+        msg2 = &quot;OUT &quot;
+    else
+        dim lines
+        lines = split(msg, lf())
+        dim i
+        for i = 0 to ubound(lines)
+          msg2 = msg2 &amp; &quot;OUT &quot; &amp; lines(i) &amp; lf()
+        next
+    end if
+    
+    if is_gui() then
+        box_append(&quot;output&quot;, msg2)
+    else
+        dim path
+        path = environ(&quot;FILE_OUT&quot;)
+        file_append(path, msg2)
+    end if
+end sub
+
+
+sub print_stderr(msg)
+    if is_gui() then
+        box_append(&quot;output&quot;, msg)
+    else
+        dim path
+        path = environ(&quot;FILE_OUT&quot;)
+        file_append(path, &quot;ERR &quot; &amp; msg)
+    end if
+end sub
+
+
+sub clear_output
+    dim path
+    path = environ(&quot;FILE_OUT&quot;)
+    file_write(path, &quot;&quot;)
+end sub
+
+
+function mal_error_exists() as boolean
+    dim rv
+
+    if TypeName(mal_error) = &quot;Integer&quot; then
+        if mal_error = 0 then
+            rv = False
+        else
+            rv = True
+        end if
+    else
+        rv = True
+    end if
+
+    mal_error_exists = rv
+end function
+
+
+sub reset_mal_error()
+    mal_error = 0
+end sub
+
+
+function ext_command(stdout, stderr, command) as string
+    &apos; Utils.log0 &quot;--&gt;&gt; ext_command: cmd from libo: &quot; &amp; command
+
+    dim rv
+
+    dim resp as string
+
+    if not is_gui() then
+        file_clear(environ(&quot;FILE_OUT&quot;))
+    end if
+
+    if not IsNull(stdout) then
+        print_stdout(stdout)
+    end if
+
+    if not IsNull(stderr) then
+        print_stderr(stderr)
+    end if
+    
+    if is_gui() then
+        exit function
+    end if
+    
+    dim file_done as string
+    dim file_done_temp as string
+    file_done = environ(&quot;FILE_DONE&quot;)
+    file_done_temp = file_done &amp; &quot;.temp&quot;
+
+    file_write(file_done_temp, command)
+    name file_done_temp as file_done
+
+    &apos; wait ack
+    file_wait_deletion file_done
+
+    Dim file_msg_to_libo As String
+    file_msg_to_libo = environ(&quot;FILE_IN&quot;)
+
+    file_wait(file_msg_to_libo)
+    resp = file_read(file_msg_to_libo)
+    file_rm(file_msg_to_libo)
+    
+    rv = resp
+    ext_command = rv
+end function
+
+
+function format_err_msg(text, err_, erl_, error_) as String
+    &apos; Utils.log2 &quot;--&gt;&gt; format_err_msg()&quot;
+    dim rv as String
+    
+    rv = text &amp; &quot; (line &quot; &amp; erl_ &amp; &quot;) &quot; &amp; err_ &amp; &quot; &quot; &amp; error_
+
+    format_err_msg = rv
+end function
+
+
+Function is_test As Boolean
+    is_test = (environ(&quot;IS_TEST&quot;) = &quot;1&quot;)
+End Function
+
+
+Function is_gui As Boolean
+    is_gui = (environ(&quot;RUN_MODE&quot;) &lt;&gt; &quot;cli&quot;)
+End Function
+
+
+function Keyword_is_keyword(kw) as Boolean
+    &apos; Utils.log1 &quot;--&gt;&gt; Keyword_is_keyword&quot;
+    dim rv
+
+    if TypeName(kw) &lt;&gt; &quot;String&quot; then
+        rv = false
+        Keyword_is_keyword = rv
+        exit function
+    end if
+
+    If len(kw) = 0 Then
+        Keyword_is_keyword = False
+        Exit Function
+    End If
+
+    rv = (char_at(kw, 0) = kw_marker())
+
+    Keyword_is_keyword = rv
+end function
+
+      
+      </ooo:source-code>
+     </ooo:module>
+     <ooo:module ooo:name="MalSymbol">
+      <ooo:source-code>
+
+rem -*- mode: basic -*-
+
+Option Explicit
+
+type MalSymbol
+    str
+    type_ as String
+end type
+
+
+function new_(str as string)
+    &apos; Utils.log3 &quot;--&gt;&gt; MalSymbol.new_&quot;
+    dim sym as New MalSymbol
+    sym.str = str
+    sym.type_ = type_name
+    new_ = sym
+end function
+
+
+Function type_name
+    type_name = &quot;MalSymbol&quot;
+End Function
+
+
+function MalSymbol_inspect(sym) as string
+    &apos; MalSymbol_inspect = &quot;&apos;&quot; &amp; sym.str
+    MalSymbol_inspect = sym.str
+end function
+
+
+function MalSymbol_to_s(sym) as string
+    &apos; Utils.log3 &quot;--&gt;&gt; MalSymbol_to_s&quot;
+    &apos; MalSymbol_inspect = &quot;&apos;&quot; &amp; sym.str
+    MalSymbol_to_s = sym.str
+end function
+
+
+function clone(self)
+    dim rv
+    rv = new_(self.str)
+    clone = rv
+end function
+
+
+function is_symbol(val)
+    is_symbol = (type_name_ex(val) = type_name)
+end function
+
+
+function eq_to_str(self, str)
+    eq_to_str = (self.str = str)
+end function
+
+      
+      </ooo:source-code>
+     </ooo:module>
+     <ooo:module ooo:name="Calc">
+      <ooo:source-code>
+
+&apos; -*- mode: basic -*-
+
+Option Explicit
+
+Function get_active_sheet
+    get_active_sheet = ThisComponent.CurrentController.ActiveSheet
+End Function
+
+
+Function get_sheet_by_name(sheet_name As String)
+    get_sheet_by_name = ThisComponent.Sheets.getByName(sheet_name)
+End Function
+
+
+function get_shape_by_name(name)
+    dim sh, dp, count, i, shape
+    set sh = get_active_sheet()
+    dp = sh.Drawpage
+    count = dp.Count
+
+    dim target_i
+    For i = 0 to count - 1
+      shape = dp.getByIndex(i)
+      If shape.Name = name then
+         target_i = i
+      end If
+    next i
+
+    get_shape_by_name = dp.getByIndex(target_i)
+end function
+
+
+function _get_used_area_cursor(sheet_name)
+    dim rv
+
+    Dim sheet
+    sheet = get_sheet_by_name(sheet_name)
+    
+    Dim range
+    range = sheet.getCellRangeByName(&quot;A1&quot;)
+
+    Dim cursor &apos; SheetCellCursor
+    cursor = sheet.createCursorByRange(range)
+
+    cursor.gotoEndOfUsedArea(True)
+    rv = cursor
+    
+    _get_used_area_cursor = rv
+end function
+
+
+Function get_ri_max(sheet_name As String)
+    Dim rv
+
+    Dim cursor &apos; SheetCellCursor
+    cursor = _get_used_area_cursor(sheet_name)
+
+    rv = cursor.Rows.Count - 1
+
+    get_ri_max = rv
+End Function
+
+
+Function get_ci_max(sheet_name As String)
+    Dim rv
+
+    Dim cursor &apos; SheetCellCursor
+    cursor = _get_used_area_cursor(sheet_name)
+
+    rv = cursor.Columns.Count - 1
+
+    get_ci_max = rv
+End Function
+
+
+Function cell_get(sheet_name, ci, ri)
+    Dim rv
+
+    dim sheet
+    sheet = ThisComponent.Sheets.getByName(sheet_name)
+
+    dim cell
+    cell = sheet.getCellByPosition(ci, ri)
+
+    select case cell.getType()
+        case com.sun.star.table.CellContentType.EMPTY
+            rv = null
+        case com.sun.star.table.CellContentType.VALUE
+            rv = cell.Value
+        case com.sun.star.table.CellContentType.TEXT
+            rv = cell.String
+        case com.sun.star.table.CellContentType.FORMULA
+            rv = cell.Formula
+        case else
+            panic &quot;must not happen&quot;
+    end select
+
+    cell_get = rv
+End Function
+
+
+Sub cell_set(sheet_name, ci, ri, value)
+    Dim sheet
+    sheet = ThisComponent.Sheets.getByName(sheet_name)
+
+    Dim cell
+    cell = sheet.getCellByPosition(ci, ri)
+
+    cell.formula = value
+End Sub
+
+      
+      </ooo:source-code>
+     </ooo:module>
+     <ooo:module ooo:name="MalEnv">
+      <ooo:source-code>
+
+rem -*- mode: basic -*-
+
+Option Explicit
+
+dim env_id_max as integer
+
+sub MalEnv_setup
+    env_id_max = 0
+end sub
+
+type MalEnv
+    type_ as string
+    data as variant
+    outer as variant
+    id as Integer
+end type
+
+
+function new_(optional outer)
+    dim rv as New MalEnv
+
+    rv.type_ = MalEnv.type_name
+    rv.data = MalMap.new_()
+
+    rv.id = env_id_max + 1
+    env_id_max = env_id_max + 1
+
+    if IsMissing(outer) then
+        rv.outer = null
+    else
+        rv.outer = outer
+    end if
+
+    new_ = rv
+end function
+
+
+Function type_name As String
+    type_name = &quot;MalEnv&quot;
+End Function
+
+
+function find(self, key)
+    &apos; Utils.log3 &quot;--&gt;&gt; MalEnv.find&quot;
+    dim rv
+    rv = null
+
+    if MalMap.has_key(self.data, key) then
+        rv = self
+    end if
+
+    if isNull(rv) then
+        if not IsNull(self.outer) then
+            rv = find(self.outer, key)
+        end if
+    elseif isEmpty(rv) then
+        if not IsNull(self.outer) then
+            rv = find(self.outer, key)
+        end if
+    end if
+
+    find = rv
+end function
+
+
+function set_(self, key, value)
+    &apos; Utils.log2 &quot;--&gt;&gt; MalEnv.set_()&quot;
+    dim rv
+    
+    Dim tn As String &apos; type name
+    tn = type_name_ex(key)
+
+    if tn = &quot;String&quot; then
+        MalMap.put(self.data, key, value)
+    elseif tn = MalSymbol.type_name then
+        MalMap.put(self.data, key, value)
+    elseif tn = MalNamedFunction_type_name then
+        MalMap.put(self.data, key, value)
+    else
+        panic &quot;not yet implemented (MalEnv.set_)&quot;
+    end if
+
+    rv = value
+    set_ = rv
+end function
+
+
+function get_(self, key)
+    &apos; Utils.log3 &quot;--&gt;&gt; MalEnv.get_()&quot;
+    dim rv
+
+    dim env
+    env = MalEnv.find(self, key)
+
+    if IsEmpty(env) or IsNull(env) then
+        Core.throw &quot;&apos;&quot; &amp; inspect(key) &amp; &quot;&apos; not found&quot;
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in get_)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            get_ = null
+                            Utils.log0 &quot;exit get_&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+    end if
+
+    rv = MalMap.get_(env.data, key)
+
+    get_ = rv
+end function
+
+
+function has_key(self, k) as boolean
+    has_key = MalMap.has_key(self.data, k)
+end function
+
+
+function MalEnv_inspect(self)
+    dim rv
+
+    dim outer
+    if IsNull(self.outer) then
+        outer = &quot;, outer:null&quot;
+    else
+        outer = &quot;, outer: &quot; &amp; inspect(self.outer)
+    end if
+
+    rv = &quot;{ &quot;
+    rv = rv &amp; &quot;id: &quot; &amp; int_to_s(self.id)
+    rv = rv &amp; &quot;, data: &quot; &amp; MalMap_inspect(self.data)
+    rv = rv &amp; outer
+    rv = rv &amp; &quot; }&quot;
+
+    MalEnv_inspect = rv
+end function
+
+      
+      </ooo:source-code>
+     </ooo:module>
+     <ooo:module ooo:name="Core">
+      <ooo:source-code>
+
+rem -*- mode: basic -*-
+
+Option Explicit
+
+rem --------------------------------
+
+sub register_core_funcs(env)
+    dim names
+    names = MalList.new_()
+
+    MalList.add(names, &quot;list&quot;  )
+    MalList.add(names, &quot;list?&quot; )
+    MalList.add(names, &quot;empty?&quot;)
+    MalList.add(names, &quot;count&quot; )
+    MalList.add(names, &quot;=&quot;     )
+    MalList.add(names, &quot;&gt;&quot;     )
+    MalList.add(names, &quot;&gt;=&quot;    )
+    MalList.add(names, &quot;&lt;&quot;     )
+    MalList.add(names, &quot;&lt;=&quot;    )
+    MalList.add(names, &quot;prn&quot;   )
+
+    &apos; step4 self host
+    MalList.add(names, &quot;dissoc&quot;)
+    
+    &apos; step 6
+    MalList.add(names, &quot;read-string&quot;)
+    MalList.add(names, &quot;slurp&quot;      )
+    MalList.add(names, &quot;str&quot;        )
+    MalList.add(names, &quot;atom&quot;       )
+    MalList.add(names, &quot;atom?&quot;      )
+    MalList.add(names, &quot;deref&quot;      )
+    MalList.add(names, &quot;reset!&quot;     )
+    MalList.add(names, &quot;swap!&quot;      )
+    
+    &apos; step 7
+    MalList.add(names, &quot;cons&quot;       )
+    MalList.add(names, &quot;concat&quot;     )
+
+    &apos; step 8 deferrable
+    MalList.add(names, &quot;first&quot;      )
+    MalList.add(names, &quot;rest&quot;       )
+
+    &apos; step 9
+    MalList.add(names, &quot;throw&quot;      )
+    MalList.add(names, &quot;nth&quot;        )
+    MalList.add(names, &quot;map&quot;        )
+    MalList.add(names, &quot;symbol?&quot;    )
+    MalList.add(names, &quot;nil?&quot;       )
+    MalList.add(names, &quot;true?&quot;      )
+    MalList.add(names, &quot;false?&quot;     )
+    MalList.add(names, &quot;apply&quot;      )
+
+    &apos; step 9 deferrable
+    MalList.add(names, &quot;symbol&quot;     )
+    MalList.add(names, &quot;keyword?&quot;   )
+    MalList.add(names, &quot;keyword&quot;    )
+    MalList.add(names, &quot;sequential?&quot;)
+    MalList.add(names, &quot;vector?&quot;    )
+    MalList.add(names, &quot;vector&quot;     )
+    MalList.add(names, &quot;map?&quot;       )
+    MalList.add(names, &quot;hash-map&quot;   )
+    MalList.add(names, &quot;assoc&quot;      )
+    MalList.add(names, &quot;get&quot;        )
+    MalList.add(names, &quot;contains?&quot;  )
+    MalList.add(names, &quot;keys&quot;       )
+    MalList.add(names, &quot;vals&quot;       )
+
+    &apos; step A
+    MalList.add(names, &quot;readline&quot;   )
+
+    &apos; step A deferrable
+    MalList.add(names, &quot;time-ms&quot;    )
+    MalList.add(names, &quot;string?&quot;    )
+    MalList.add(names, &quot;number?&quot;    )
+    MalList.add(names, &quot;seq&quot;        )
+    MalList.add(names, &quot;conj&quot;       )
+    MalList.add(names, &quot;meta&quot;       )
+    MalList.add(names, &quot;with-meta&quot;  )
+    MalList.add(names, &quot;fn?&quot;        )
+    
+    &apos; step A self host
+    MalList.add(names, &quot;pr-str&quot;     )
+    MalList.add(names, &quot;println&quot;    )
+    
+    MalList.add(names, &quot;wait&quot;       )
+
+    &apos; MalEnv.set_(env, MalSymbol.new_(&quot;prop-get&quot;), MalNamedFunction.init(&quot;prop-get&quot;))
+    &apos; MalEnv.set_(env, MalSymbol.new_(&quot;prop-set&quot;), MalNamedFunction.init(&quot;prop-set&quot;))
+    &apos; MalEnv.set_(env, MalSymbol.new_(&quot;uno-get&quot;), MalNamedFunction.init(&quot;uno-get&quot;))
+    &apos; MalEnv.set_(env, MalSymbol.new_(&quot;uno-call&quot;), MalNamedFunction.init(&quot;uno-call&quot;))
+
+    MalList.add(names, &quot;execute-dispatch&quot;  )
+    MalList.add(names, &quot;lock-controllers&quot;  )
+    MalList.add(names, &quot;unlock-controllers&quot;)
+    MalList.add(names, &quot;msgbox&quot;            )
+    MalList.add(names, &quot;get-ci-max&quot;        )
+    MalList.add(names, &quot;get-ri-max&quot;        )
+    MalList.add(names, &quot;file-write&quot;        )
+
+    &apos; Calc
+    MalList.add(names, &quot;cell-get&quot;)
+    MalList.add(names, &quot;cell-set&quot;)
+
+    dim i as Integer
+    dim name as String
+    for i = 0 to MalList.size(names) - 1
+        name = MalList.get_(names, i)
+        MalEnv.set_(env, MalSymbol.new_(name), MalNamedFunction.init(name))
+    next
+end sub
+
+rem --------------------------------
+
+function dispatch_func(f, args, env)
+    &apos; Utils.log0 &quot;--&gt;&gt; dispatch_func()&quot;
+    dim rv
+    dim a, b
+
+    if f.id = &quot;+&quot; then
+        rv = _builtin_add(args)
+    ElseIf f.id = &quot;-&quot; then
+        rv = _builtin_sub(args)
+    ElseIf f.id = &quot;*&quot; then
+        rv = _builtin_mult(args)
+    ElseIf f.id = &quot;/&quot; then
+        rv = _builtin_div(args)
+
+    ElseIf f.id = &quot;list&quot; then
+        rv = Core.list(args)
+    ElseIf f.id = &quot;list?&quot; then
+        rv = Core.list_p(args)
+    ElseIf f.id = &quot;empty?&quot; then
+        rv = Core.empty_p(MalList.get_(args, 0))
+    ElseIf f.id = &quot;count&quot; then
+        rv = Core.count(MalList.get_(args, 0))
+
+    ElseIf f.id = &quot;=&quot; then
+        rv = Core.equal(MalList.get_(args, 0), MalList.get_(args, 1))
+    ElseIf f.id = &quot;&gt;&quot; then
+        rv = Core.greater_than(MalList.get_(args, 0), MalList.get_(args, 1))
+    ElseIf f.id = &quot;&gt;=&quot; then
+        rv = Core.greater_equal(MalList.get_(args, 0), MalList.get_(args, 1))
+    ElseIf f.id = &quot;&lt;&quot; then
+        rv = Core.less_than(MalList.get_(args, 0), MalList.get_(args, 1))
+    ElseIf f.id = &quot;&lt;=&quot; then
+        rv = Core.less_equal(MalList.get_(args, 0), MalList.get_(args, 1))
+
+    ElseIf f.id = &quot;prn&quot; then
+        rv = Core.prn(args)
+        
+    &apos; step 4 self host
+    ElseIf f.id = &quot;dissoc&quot; then
+        rv = dissoc(args)
+
+    &apos; step 6
+    ElseIf f.id = &quot;read-string&quot; then
+        rv = Core.read_string(args)
+    ElseIf f.id = &quot;slurp&quot; then
+        rv = Core.slurp(args)
+    ElseIf f.id = &quot;str&quot; then
+        rv = Core.str_(args)
+    ElseIf f.id = &quot;atom&quot; then
+        rv = MalAtom.create(MalList.get_(args, 0))
+    ElseIf f.id = &quot;atom?&quot; then
+        rv = Core.atom_p(MalList.get_(args, 0))
+    ElseIf f.id = &quot;deref&quot; then
+        rv = Core.deref(MalList.get_(args, 0))
+    ElseIf f.id = &quot;reset!&quot; then
+        rv = Core.reset(args)
+    ElseIf f.id = &quot;swap!&quot; then
+        rv = Core.swap(args)
+
+    &apos; step 7
+    ElseIf f.id = &quot;cons&quot; then
+        rv = Core.cons(args)
+
+    ElseIf f.id = &quot;concat&quot; then
+        rv = Core.concat(args)
+
+    &apos; step 8 deferrable
+    ElseIf f.id = &quot;first&quot; then
+        rv = first(args)
+    ElseIf f.id = &quot;rest&quot; then
+        rv = rest(args)
+
+    &apos; step 9
+    ElseIf f.id = &quot;throw&quot; then
+        dim err_obj
+        err_obj = MalList.head(args)
+        Core.throw(err_obj)
+        exit function
+
+    ElseIf f.id = &quot;nth&quot; then
+        a = MalList.get_(args, 0)
+        b = MalList.get_(args, 1)
+        rv = Core.nth(a, b)
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in dispatch_func)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            dispatch_func = null
+                            Utils.log0 &quot;exit dispatch_func&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+    ElseIf f.id = &quot;map&quot; then
+        a = MalList.get_(args, 0) &apos; func
+        b = MalList.get_(args, 1) &apos; list
+        rv = Core.map(a, b)
+
+    ElseIf f.id = &quot;symbol?&quot; then
+        a = MalList.get_(args, 0)
+        rv = MalSymbol.is_symbol(a)
+
+    ElseIf f.id = &quot;nil?&quot; then
+        a = MalList.get_(args, 0)
+        rv = IsNull(a)
+
+    ElseIf f.id = &quot;true?&quot; then
+        a = MalList.get_(args, 0)
+        if type_name_ex(a) = &quot;Boolean&quot; then
+            rv = (a = True)
+        else
+            rv = False
+        end if
+
+    ElseIf f.id = &quot;false?&quot; then
+        a = MalList.get_(args, 0)
+        rv = (a = False)
+
+    ElseIf f.id = &quot;apply&quot; then
+        rv = Core.core_apply(args)
+        
+    &apos; step 9 deferrable
+    ElseIf f.id = &quot;symbol&quot; then
+        rv = make_symbol(args)
+        
+    ElseIf f.id = &quot;keyword?&quot; then
+        rv = is_keyword(args)
+        
+    ElseIf f.id = &quot;keyword&quot; then
+        rv = make_keyword(args)
+        
+    ElseIf f.id = &quot;sequential?&quot; then
+        rv = is_sequential(args)
+        
+    ElseIf f.id = &quot;vector?&quot; then
+        rv = is_vector(args)
+        
+    ElseIf f.id = &quot;vector&quot; then
+        rv = make_vector(args)
+        
+    ElseIf f.id = &quot;map?&quot; then
+        rv = is_map(args)
+        
+    ElseIf f.id = &quot;hash-map&quot; then
+        rv = hash_map(args)
+        
+    ElseIf f.id = &quot;assoc&quot; then
+        rv = assoc(args)
+        
+    ElseIf f.id = &quot;get&quot; then
+        rv = get(args)
+        
+    ElseIf f.id = &quot;contains?&quot; then
+        rv = contains(args)
+        
+    ElseIf f.id = &quot;keys&quot; then
+        rv = keys(args)
+        
+    ElseIf f.id = &quot;vals&quot; then
+        rv = vals(args)
+        
+    &apos; step A
+    ElseIf f.id = &quot;readline&quot; then
+        dim prompt
+        prompt = MalList.head(args)
+        rv = readline(prompt)
+
+    &apos; step A deferrable
+    ElseIf f.id = &quot;time-ms&quot; then
+        rv = time_ms(args)
+
+    ElseIf f.id = &quot;string?&quot; then
+        rv = is_string(args)
+
+    ElseIf f.id = &quot;number?&quot; then
+        rv = is_number(args)
+
+    ElseIf f.id = &quot;seq&quot; then
+        rv = seq(args)
+
+    ElseIf f.id = &quot;conj&quot; then
+        rv = conj(args)
+
+    ElseIf f.id = &quot;meta&quot; then
+        rv = meta(args)
+
+    ElseIf f.id = &quot;with-meta&quot; then
+        rv = with_meta(args)
+
+    ElseIf f.id = &quot;fn?&quot; then
+        rv = is_fn(args)
+
+    &apos; step A self host
+    ElseIf f.id = &quot;pr-str&quot; then
+        rv = Core.pr_str(args)
+    ElseIf f.id = &quot;println&quot; then
+        rv = Core.println(args)
+
+    &apos; libo calc/basic
+    ElseIf f.id = &quot;msgbox&quot; then
+        rv = Core.msgbox_(args)
+    ElseIf f.id = &quot;wait&quot; then
+        rv = Core.wait_(args)
+        
+    &apos; ElseIf f.id = &quot;prop-get&quot; then
+    &apos;     rv = Core.prop_get(args)
+    &apos; ElseIf f.id = &quot;prop-set&quot; then
+    &apos;     rv = Core.prop_set(args)
+    &apos; ElseIf f.id = &quot;uno-get&quot; then
+    &apos;     rv = uno_get(args)
+    &apos; ElseIf f.id = &quot;uno-call&quot; then
+    &apos;     rv = Core.uno_call(args)
+
+    ElseIf f.id = &quot;cell-get&quot; then
+        rv = Core.cell_get(args)
+    ElseIf f.id = &quot;cell-set&quot; then
+        rv = cell_set(args)
+
+    ElseIf f.id = &quot;execute-dispatch&quot; then
+        rv = execute_dispatch(args)
+
+    ElseIf f.id = &quot;lock-controllers&quot; then
+        rv = lock_controllers(args)
+    ElseIf f.id = &quot;unlock-controllers&quot; then
+        rv = unlock_controllers(args)
+
+    ElseIf f.id = &quot;msgbox&quot; then
+        rv = msgbox_(args)
+
+    ElseIf f.id = &quot;get-ci-max&quot; then
+        rv = get_ci_max(args)
+    ElseIf f.id = &quot;get-ri-max&quot; then
+        rv = get_ri_max(args)
+    ElseIf f.id = &quot;file-write&quot; then
+        rv = Core__file_write(args)
+
+    ElseIf f.id = &quot;eval&quot; then
+        rv = EVAL(MalList.get_(args, 0), f.env)
+
+    else
+        panic &quot;unknown function&quot;
+    end if
+
+    dispatch_func = rv
+end function
+
+&apos; --------------------------------
+
+function list(args)
+    dim rv
+
+    rv = MalList.new_()
+
+    dim i, it
+    do while i &lt; MalList.size(args)
+        it = MalList.get_(args, i)
+        MalList.add(rv, it)
+        i = i + 1
+    loop
+
+    list = rv
+end function
+
+
+function list_p(args) as boolean
+    dim rv
+
+    dim arg0
+    arg0 = MalList.get_(args, 0)
+    rv = MalList.is_list(arg0)
+
+    list_p = rv
+end function
+
+
+function empty_p(list) as boolean
+    dim rv
+
+    dim size
+    size = MalList.size(list)
+    rv = (size = 0)
+
+    empty_p = rv
+end function
+
+
+function count(list) as Integer
+    dim rv
+    
+    if IsNull(list) then
+        rv = 0
+    else
+        rv = MalList.size(list)
+    end if
+
+    count = rv
+end function
+
+
+function equal(a, b) as Boolean
+    dim rv
+
+    &apos; dim ta, tb
+    &apos; ta = type_name_ex(a)
+    &apos; tb = type_name_ex(b)
+    &apos; if ta &lt;&gt; tb then
+    &apos;     Utils.logkv1 &quot;  ta&quot;, ta
+    &apos;     Utils.logkv1 &quot;  tb&quot;, tb
+    &apos;     rv = false
+    &apos;     equal = rv
+    &apos;     exit function
+    &apos; end if
+    
+    rv = (inspect(a) = inspect(b)) rem TODO
+
+    equal = rv
+end function
+
+
+function greater_than(a, b) as Boolean
+    greater_than = (a &gt; b)
+end function
+
+
+function greater_equal(a, b) as Boolean
+    greater_equal = (a &gt;= b)
+end function
+
+
+function less_than(a, b) as Boolean
+    less_than = (a &lt; b)
+end function
+
+
+function less_equal(a, b) as Boolean
+    less_equal = (a &lt;= b)
+end function
+
+
+function prn(args)
+    &apos; Utils.log1 &quot;--&gt;&gt; core.prn()&quot;
+    dim out as string
+    out = &quot;&quot;
+
+    dim i, arg
+    i = 0
+    do while i &lt; MalList.size(args)
+        arg = MalList.get_(args, i)
+        if 1 &lt;= i then
+            out = out &amp; &quot; &quot;
+        end if
+        out = out &amp; _pr_str(arg, True)
+        i = i + 1
+    loop
+
+    ext_command(out, null, &quot;PRINT&quot;)
+
+    prn = null
+end function
+
+
+&apos; step A self host
+function println(args)
+    &apos; Utils.log1 &quot;--&gt;&gt; core.println()&quot;
+
+    dim out as string
+    out = &quot;&quot;
+
+    dim i, arg
+    i = 0
+    do while i &lt; MalList.size(args)
+        arg = MalList.get_(args, i)
+        if 1 &lt;= i then
+            out = out &amp; &quot; &quot;
+        end if
+        out = out &amp; _pr_str(arg, False)
+        i = i + 1
+    loop
+
+    if Utils.is_gui() then
+        print_stdout out
+    else
+        ext_command(out, null, &quot;PRINT&quot;)
+    end if
+
+    println = null
+end function
+
+rem --------------------------------
+
+&apos; function prop_get(args)
+&apos;   dim rv
+&apos; 
+&apos;   dim obj, prop_name
+&apos;   obj       = MalList.get_(args, 0)
+&apos;   prop_name = MalList.get_(args, 1)
+&apos; 
+&apos;   rv = &quot;&lt;TODO prop_get_rv&gt;&quot;
+&apos; 
+&apos;   prop_get = rv
+&apos; end function
+&apos; 
+&apos; 
+&apos; function prop_set(args)
+&apos;   dim rv
+&apos;   
+&apos;   dim obj, prop_name, val
+&apos;   obj       = MalList.get_(args, 0)
+&apos;   prop_name = MalList.get_(args, 1)
+&apos;   val       = MalList.get_(args, 2)
+&apos;   
+&apos;   rv = null
+&apos;   prop_set = rv
+&apos; end function
+&apos; 
+&apos; 
+&apos; function uno_get(args)
+&apos;   dim rv
+&apos; 
+&apos;   dim fqcn
+&apos;   fqcn = MalList.get_(args, 0)
+&apos;   
+&apos;   rv = CreateUnoService(fqcn)
+&apos; 
+&apos;   uno_get = rv
+&apos; end function
+&apos; 
+&apos; 
+&apos; function uno_call(args)
+&apos;   dim rv
+&apos;   
+&apos;   dim obj, fqcn, method_name, method_args
+&apos;   obj         = MalList.get_(args, 0)
+&apos;   fqcn        = MalList.get_(args, 1)
+&apos;   method_name = MalList.get_(args, 2)
+&apos;   method_args = MalList.get_(args, 3)
+&apos; 
+&apos;   rv = CreateUnoService(fqcn)
+&apos;   
+&apos;   dim sm
+&apos;   sm = GetProcessServiceManager()
+&apos; 
+&apos;   dim ctx
+&apos;   set ctx = sm.getPropertyValue(&quot;DefaultContext&quot;)
+&apos; 
+&apos;   set cr = ctx.getValueByName(&quot;/singletons/com.sun.star.reflection.theCoreReflection&quot;)
+&apos; 
+&apos;   dim cls
+&apos;   cls = cr.forName(fqcn)
+&apos; 
+&apos;   dim meth
+&apos;   meth = cls.getMethod(method_name)
+&apos; 
+&apos;   rv = meth.invoke(obj, method_args)
+&apos; 
+&apos;   uno_call = rv
+&apos; end function
+
+rem --------------------------------
+
+sub wait_(args)
+    dim msec as integer
+    msec = MalList.head(args)
+    wait msec
+end sub
+
+
+function read_string(args)
+    dim rv
+
+    dim str
+    str = MalList.get_(args, 0)
+
+    rv = Reader.read_str(str)
+
+    read_string = rv
+end function
+
+
+function _to_fullpath(path)
+    dim rv
+
+    &apos; TODO OS-dependent
+    if char_at(path, 0) = &quot;/&quot; then
+        rv = path
+    else
+        rv = environ(&quot;PWD&quot;) &amp; &quot;/&quot; &amp; path
+    end if
+
+    _to_fullpath = rv
+end function
+
+
+function slurp(args)
+    &apos; Utils.log2 &quot;--&gt;&gt; slurp&quot;
+    dim rv
+
+    dim path
+    path = _to_fullpath(MalList.get_(args, 0))
+    
+    if not FileExists(path) then
+        panic &quot;file not found: &quot; &amp; path
+    end if
+
+    rv = file_read(path)
+
+    slurp = rv
+end function
+
+
+function str_(args)
+    dim rv
+
+    dim s, i, arg
+    s = &quot;&quot;
+    for i = 0 to MalList.size(args) - 1
+        arg = MalList.get_(args, i)
+        s = s &amp; _pr_str(arg, false)
+    next
+    
+    rv = s
+    str_ = rv
+end function
+
+&apos; --------------------------------
+
+function atom_p(val) As Boolean
+    atom_p = MalAtom.is_atom(val)
+end function
+
+
+function deref(atom_)
+    deref = atom_.val
+end function
+
+
+function reset(args)
+    dim rv
+
+    dim atom_, newval
+    atom_  = MalList.get_(args, 0)
+    newval = MalList.get_(args, 1)
+    
+    atom_.val = newval
+
+    rv = atom_.val
+
+    reset = newval
+end function
+
+
+function swap(args)
+    &apos; Utils.log2 &quot;--&gt;&gt; swap()&quot;
+
+    dim rv
+
+    dim atom_, f
+    atom_ = MalList.get_(args, 0)
+    f     = MalList.get_(args, 1)
+    
+    dim fn_args
+    Dim i As Integer
+    fn_args = MalList.new_()
+    MalList.add(fn_args, atom_.val)
+    if 3 &lt;= MalList.size(args) then
+        for i = 2 to MalList.size(args) - 1
+            MalList.add(fn_args, MalList.get_(args, i))
+        next
+    end if
+    
+    atom_.val = _apply_func(f, fn_args)
+
+    rv = atom_.val
+
+    swap = rv
+end function
+
+
+function cons(args)
+    dim rv
+    
+    dim el, list
+    el   = MalList.get_(args, 0)
+    list = MalList.get_(args, 1)
+
+    dim newlist
+    newlist = MalList.new_()
+    MalList.add(newlist, clone(el))
+
+    Dim i As Integer
+    dim el2
+    for i = 0 to MalList.size(list) - 1
+        el2 = MalList.get_(list, i)
+        MalList.add(newlist, el2)
+    next
+
+    rv = newlist
+
+    cons = rv
+end function
+
+
+function concat(args)
+    dim rv
+
+    dim newlist
+    newlist = MalList.new_()
+
+    Dim arg_i As Integer
+    dim arg
+
+    Dim inner_i As Integer
+    dim inner_el
+
+    for arg_i = 0 to MalList.size(args) - 1
+        arg = MalList.get_(args, arg_i)
+        for inner_i = 0 to MalList.size(arg) - 1
+            inner_el = MalList.get_(arg, inner_i)
+            MalList.add(newlist, inner_el)
+        next
+    next
+
+    rv = newlist
+    
+    concat = rv
+end function
+
+
+sub throw(arg)
+    Utils.logkv0 &quot;--&gt;&gt; throw&quot;, arg
+    mal_error = arg
+end sub
+
+
+function nth(list, n)
+    dim rv
+    
+    if MalList.size(list) &lt;= n then
+        throw &quot;nth: index out of range&quot;
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in nth)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            nth = null
+                            Utils.log0 &quot;exit nth&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+    end if
+    
+    rv = MalList.get_(list, n)
+
+    nth = rv
+end function
+
+
+function first(args)
+    dim rv
+
+    dim xs
+    xs = MalList.head(args)
+    if IsNull(xs) then
+        rv = null
+    ElseIf MalList.size(xs) = 0 then
+        rv = null
+    else
+        rv = MalList.head(xs)
+    end if
+
+    first = rv
+end function
+
+
+function rest(args)
+    dim rv
+
+    dim xs
+    xs = MalList.head(args)
+    if IsNull(xs) then
+        rv = MalList.new_()
+    ElseIf MalList.size(xs) = 0 then
+        rv = MalList.new_()
+    else
+        rv = MalList.rest(xs)
+    end if
+
+    rest = rv
+end function
+
+
+function map(f, list)
+    dim rv
+    
+    dim newlist
+    newlist = MalList.new_()
+
+    Dim i As Integer
+    dim el, newval
+    for i = 0 to MalList.size(list) - 1
+        el = MalList.get_(list, i)
+        newval = _apply_func(f, MalList.from_array(Array(el)))
+        MalList.add(newlist, newval)
+    next
+    
+    rv = newlist
+
+    map = rv
+end function
+
+
+function make_symbol(args)
+    make_symbol = MalSymbol.new_(MalList.head(args))
+end function
+
+
+function is_keyword(args) as boolean
+    &apos; Utils.log1 &quot;--&gt;&gt; is_keyword()&quot;
+    dim rv
+    dim arg
+    arg = MalList.head(args)
+
+    rv = MalMap.Keyword_is_keyword(arg)
+
+    is_keyword = rv
+end function
+
+
+&apos; TODO rename 候補: to_keyword
+function make_keyword(args) as string
+    &apos; Utils.log1 &quot;--&gt;&gt; make_keyword()&quot;
+    dim rv
+    dim arg
+    arg = MalList.head(args)
+    
+    if TypeName(arg) = &quot;String&quot; then
+        if MalMap.Keyword_is_keyword(arg) then
+            rv = arg
+        else
+            rv = kw_marker() &amp; arg
+        end if
+    else
+        rv = kw_marker() &amp; arg
+    end if
+
+    make_keyword = rv
+end function
+
+
+function is_sequential(args) as boolean
+    &apos; Utils.log1 &quot;--&gt;&gt; is_sequential()&quot;
+    dim rv
+    dim arg
+    arg = MalList.head(args)
+    
+    Dim tn As String
+    tn = type_name_ex(arg)
+
+    rv = ( _
+         tn = MalList.type_name _
+      or tn = MalVector.type_name _
+    )
+
+    is_sequential = rv
+end function
+
+
+function is_vector(args) as boolean
+    &apos; Utils.log1 &quot;--&gt;&gt; is_vector()&quot;
+    dim rv
+    dim arg
+    arg = MalList.head(args)
+    
+    rv = MalVector.is_vector(arg)
+
+    is_vector = rv
+end function
+
+
+function make_vector(args)
+    &apos; Utils.log1 &quot;--&gt;&gt; make_vector()&quot;
+    dim rv
+    
+    rv = MalVector.new_()
+
+    Dim i As Integer
+    for i = 0 to MalList.size(args) - 1
+        MalVector.add(rv, MalList.get_(args, i))
+    next
+
+    make_vector = rv
+end function
+
+
+function is_map(args) as boolean
+    dim arg
+    arg = MalList.head(args)
+    
+    is_map = MalMap.is_map(arg)
+end function
+
+
+function hash_map(args)
+    &apos; Utils.log1 &quot;--&gt;&gt; hash_map()&quot;
+    dim rv
+    
+    rv = MalMap.new_()
+
+    dim i, k, v
+    i = 0
+    do while i &lt; MalList.size(args)
+        k = MalList.get_(args, i)
+        v = MalList.get_(args, i + 1)
+        MalMap.put(rv, k, v)
+        i = i + 2
+    loop
+
+    hash_map = rv
+end function
+
+
+function assoc(args)
+    &apos; Utils.log1 &quot;--&gt;&gt; assoc()&quot;
+    dim rv
+
+    dim _map
+    _map = MalList.get_(args, 0)
+
+    dim newmap
+    newmap = MalMap.new_()
+    
+    dim keys_
+    keys_ = MalMap.get_keys(_map)
+    
+    dim i, k, v
+    for i = 0 to MalList.size(keys_) - 1
+        k = MalList.get_(keys_, i)
+        v = MalMap.get_(_map, k)
+        MalMap.put(newmap, k ,v)
+    next
+
+    i = 1
+    do while i &lt; MalList.size(args)
+        k = MalList.get_(args, i)
+        v = MalList.get_(args, i + 1)
+        MalMap.put(newmap, k, v)
+        i = i + 2
+    loop
+    
+    rv = newmap
+
+    assoc = rv
+end function
+
+
+function dissoc(args)
+    &apos; Utils.log1 &quot;--&gt;&gt; dissoc()&quot;
+    dim rv
+
+    dim map1, keys
+    map1 = MalList.head(args)
+    keys = MalList.rest(args)
+
+    dim map2
+    map2 = clone(map1)
+
+    dim i as integer
+    dim key
+    for i = 0 to MalList.size(keys) - 1
+        key = MalList.get_(keys, i)
+        MalMap.delete(map2, key)
+    next
+
+    rv = map2
+
+    dissoc = rv
+end function
+
+
+function get(args)
+    &apos; Utils.log1 &quot;--&gt;&gt; get()&quot;
+    dim rv
+
+    dim _map
+    _map = MalList.get_(args, 0)
+    
+    if IsNull(_map) then
+        rv = null
+        get = rv
+        exit function
+    end if
+
+    dim k
+    k = MalList.get_(args, 1)
+
+    rv = MalMap.get_(_map, k)
+
+    get = rv
+end function
+
+
+function contains(args) as boolean
+    &apos; Utils.log1 &quot;--&gt;&gt; contains()&quot;
+    dim rv
+
+    dim _map
+    _map = MalList.get_(args, 0)
+    
+    if IsNull(_map) then
+        throw &quot;not_yet_impl&quot; &apos; TODO
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in contains)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            contains = null
+                            Utils.log0 &quot;exit contains&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+    end if
+    
+    dim k
+    k = MalList.get_(args, 1)
+
+    rv = MalMap.has_key(_map, k)
+
+    contains = rv
+end function
+
+
+function keys(args)
+    &apos; Utils.log1 &quot;--&gt;&gt; keys()&quot;
+    dim rv
+
+    dim _map
+    _map = MalList.get_(args, 0)
+
+    if not MalMap.is_map(_map) then
+        rv = MalList.new_()
+        keys = rv
+        exit function
+    end if
+    
+    rv = MalMap.get_keys(_map)
+
+    keys = rv
+end function
+
+
+function vals(args)
+    &apos; Utils.log1 &quot;--&gt;&gt; vals()&quot;
+    dim rv
+
+    dim _map
+    _map = MalList.get_(args, 0)
+
+    if not MalMap.is_map(_map) then
+        rv = MalList.new_()
+        vals = rv
+        exit function
+    end if
+    
+    rv = MalMap.get_vals(_map)
+
+    vals = rv
+end function
+
+
+function time_ms
+    &apos; Utils.log1 &quot;--&gt;&gt; time_ms()&quot;
+    dim rv
+    
+    dim unodt, sec
+    unodt = CDateToUnoDateTime(Now)
+    &apos; TODO
+    &apos; sec = unodt.nanoseconds / 1000000000
+    sec = 0
+
+    rv = ((Now() - 25569) * 86400 + sec) * 1000
+
+    time_ms = rv
+end function
+
+
+function is_string(args)
+    dim arg
+    arg = MalList.head(args)
+
+    is_string = (TypeName(arg) = &quot;String&quot;)
+end function
+
+
+function is_number(args) as boolean
+    &apos; Utils.log1 &quot;--&gt;&gt; is_number()&quot;
+    dim rv
+
+    dim arg
+    arg = MalList.head(args)
+    
+    Dim tn As String
+    tn = TypeName(arg)
+
+    rv = ( _
+         tn = &quot;Integer&quot; _
+      or tn = &quot;Long&quot; _
+      or tn = &quot;Single&quot; _
+      or tn = &quot;Double&quot; _
+    )
+
+    is_number = rv
+end function
+
+
+function seq(args)
+    &apos; Utils.log1 &quot;--&gt;&gt; seq()&quot;
+    dim rv
+    dim arg
+    
+    arg = MalList.head(args)
+    if IsNull(arg) then
+        rv = null
+    ElseIf MalList.size(arg) = 0 then
+        rv = null
+    else
+        if MalList.is_list(arg) then
+            rv = MalList.seq(arg)
+        ElseIf MalVector.is_vector(arg) then
+            rv = MalVector.seq(arg)
+        else
+            throw &quot;unexpected type (&quot; &amp; type_name_ex(arg) &amp; &quot;)&quot;
+        end if
+    end if
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in seq)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            seq = null
+                            Utils.log0 &quot;exit seq&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+
+    seq = rv
+end function
+
+
+function conj(args)
+    &apos; Utils.log2 &quot;--&gt;&gt; Core.conj()&quot;
+    dim rv
+    
+    dim arg, rest
+    arg = MalList.head(args)
+    rest = MalList.rest(args)
+
+    dim cloned
+    cloned = clone(arg)
+
+    if MalList.is_list(cloned) then
+        rv = MalList.conj(cloned, rest)
+    ElseIf MalVector.is_vector(cloned) then
+        rv = MalVector.conj(cloned, rest)
+    else
+        throw &quot;unexpected type (&quot; &amp; type_name_ex(arg) &amp; &quot;)&quot;
+    end if
+
+    conj = rv
+end function
+
+
+function meta(args)
+    &apos; Utils.log1 &quot;--&gt;&gt; meta()&quot;
+    dim rv
+
+    dim arg
+    arg = MalList.head(args)
+    
+    rv = arg.meta
+
+    if IsEmpty(rv) then
+        rv = null
+    end if
+    
+    meta = rv
+end function
+
+
+function with_meta(args)
+    &apos; Utils.log1 &quot;--&gt;&gt; with_meta()&quot;
+    dim rv
+    
+    dim a, b, x
+    a = MalList.get_(args, 0)
+    b = MalList.get_(args, 1)
+    
+    x = clone(a)
+    x.meta = b
+    
+    rv = x
+
+    with_meta = rv
+end function
+
+
+function is_fn(args) as boolean
+    &apos; Utils.log1 &quot;--&gt;&gt; is_fn()&quot;
+    dim rv
+    
+    dim arg
+    arg = MalList.head(args)
+
+    if MalNamedFunction.is_named_function(arg) then
+        is_fn = True
+        exit function
+    end if
+
+    if MalFunction.is_mal_function(arg) then
+        is_fn = not arg.is_macro
+        exit function
+    end if
+    
+    rv = False
+    
+    &apos; rv = ( _
+    &apos;   (    MalNamedFunction.is_named_function(arg) _
+    &apos;     or  _
+    &apos;   ) _
+    &apos;   and not arg.is_macro _
+    &apos; )
+
+    &apos; rv = ( _
+    &apos;      MalNamedFunction.is_named_function(arg) _
+    &apos;   or (MalFunction.is_mal_function(arg) and not arg.is_macro) _
+    &apos; )
+
+    is_fn = rv
+end function
+
+
+function readline(prompt)
+    dim rv
+
+    Dim line As String
+    Dim file_done_temp
+    
+    If Utils.is_gui() Then
+        line = InputBox(prompt, &quot;readline&quot;)
+    Else
+        line = ext_command(null, null, &quot;READLINE &quot; &amp; prompt)
+    End If
+    
+    rv = line
+
+    readline = rv
+end function
+
+
+function pr_str(args) as string
+    &apos; Utils.log1 &quot;--&gt;&gt; pr_str()&quot;
+    dim rv
+    dim s as string
+    s = &quot;&quot;
+
+    dim i, arg
+    for i = 0 to MalList.size(args) - 1
+        arg = MalList.get_(args, i)
+        if 1 &lt;= i then
+            s = s &amp; &quot; &quot;
+        end if
+        s = s &amp; _pr_str(arg, true)
+    next
+    
+    rv = s
+
+    pr_str = rv
+end function
+
+&apos; --------------------------------
+
+function clone(val)
+    &apos; Utils.log2 &quot;--&gt;&gt; Core.clone()&quot;
+    dim rv
+    
+    if IsNull(val) then
+        clone = null
+        exit function
+    end if
+    
+    select case type_name_ex(val)
+    case &quot;Integer&quot;, &quot;Boolean&quot;
+        rv = val
+    case MalSymbol.type_name
+        rv = MalSymbol.clone(val)
+    case MalList.type_name
+        rv = MalList.clone(val)
+    case MalVector.type_name
+        rv = MalVector.clone(val)
+    case MalMap.type_name
+        rv = MalMap.clone(val)
+    case MalFunction.type_name
+        rv = MalFunction.clone(val)
+    case else
+        throw &quot;not yet implemented: &quot; &amp; type_name_ex(val)
+    end select
+
+    clone = rv
+end function
+
+
+function core_apply(args)
+    &apos; Utils.log2 &quot;--&gt;&gt; core_apply()&quot;
+    dim rv
+
+    dim f
+    f = MalList.head(args)
+
+    dim i, el
+
+    dim args2
+    args2 = MalList.new_()
+    for i = 1 to MalList.size(args) - 2
+        el = MalList.get_(args, i)
+        MalList.add(args2, el)
+    next
+    
+    dim list
+    list = MalList.last(args)
+    for i = 0 to MalList.size(list) - 1
+        el = MalList.get_(list, i)
+        MalList.add(args2, el)
+    next
+    
+    rv = _apply_func(f, args2)
+
+    core_apply = rv
+end function
+
+
+function _apply_func(f, args)
+    &apos; Utils.log2 &quot;--&gt;&gt; _apply_func()&quot;
+
+    dim rv
+    
+    if not MalList.is_list(args) then
+        throw &quot;_apply_func: expected MalList, got (&quot; &amp; inspect(args) &amp; &quot;)&quot;
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in _apply_func)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            _apply_func = null
+                            Utils.log0 &quot;exit _apply_func&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
+    end if
+    
+    If MalNamedFunction.is_named_function(f) Then
+        rv = apply(f, args, MalEnv.new_())
+        
+    ElseIf MalFunction.is_mal_function(f) Then
+        dim env2
+        env2 = MalFunction_gen_env(f, args)
+
+        rv = EVAL(f.body, env2)
+
+    else
+        panic &quot;invalid function&quot;
+    end if
+
+    _apply_func = rv
+end function
+
+rem --------------------------------
+rem builtin procedures
+
+function _builtin_add_int(a, b)
+    on local error goto on_error___builtin_add_int
+    _builtin_add_int = CInt(a + b)
+
+    exit function
+on_error___builtin_add_int:
+    if Err() = 6 then &apos; Overflow
+       &apos; step5 のテストを通すための措置
+       _builtin_add_int = CLng(a + b)
+    else
+        throw &quot;_builtin_add &quot; &amp; Erl() &amp; &quot;: ERR&quot; &amp; err &amp; &quot; &quot; &amp; error$
+    end if
+end function
+
+
+function _builtin_add(args)
+    dim rv
+    dim a, b
+
+    a = MalList.get_(args, 0)
+    b = MalList.get_(args, 1)
+    
+    dim ta, tb
+    ta = TypeName(a)
+    tb = TypeName(b)
+    
+    &apos; TODO consider Long
+    if (ta = &quot;Integer&quot; and tb = &quot;Integer&quot;) then
+        rv = _builtin_add_int(a, b)
+    else
+        rv = a + b
+    end if
+    
+    _builtin_add = rv
+end function
+
+
+function _builtin_sub(args)
+    dim rv
+    dim a, b
+
+    a = MalList.get_(args, 0)
+    b = MalList.get_(args, 1)
+    rv = a - b
+
+    _builtin_sub = rv
+end function
+
+
+function _builtin_mult(args)
+    dim rv
+    dim a, b
+
+    a = MalList.get_(args, 0)
+    b = MalList.get_(args, 1)
+    rv = a * b
+
+    _builtin_mult = rv
+end function
+
+
+function _builtin_div(args)
+    dim rv
+    dim a, b
+
+    a = MalList.get_(args, 0)
+    b = MalList.get_(args, 1)
+    rv = a / b
+
+    _builtin_div = rv
+end function
+
+&apos; --------------------------------
+
+function _make_uno_args(uno_kvs)
+    dim rv
+    
+    if MalList.size(uno_kvs) = 0 then
+        rv = Array()
+    else
+        dim i
+        dim num_uno_args
+        num_uno_args = MalList.size(uno_kvs) / 2
+
+        dim uno_args(num_uno_args - 1) as new com.sun.star.beans.PropertyValue
+        for i = 0 to num_uno_args - 1
+            uno_args(i).Name  = MalList.get_(uno_kvs, i * 2)
+            uno_args(i).Value = MalList.get_(uno_kvs, i * 2 + 1)
+        next
+        rv = uno_args
+    end if
+
+    _make_uno_args = rv
+end function
+
+
+function execute_dispatch(args)
+    dim rv : rv = null
+    
+    dim document   as object
+    dim dispatcher as object
+    rem ----------------------------------------------------------------------
+    rem get access to the document
+    document   = ThisComponent.CurrentController.Frame
+    dispatcher = createUnoService(&quot;com.sun.star.frame.DispatchHelper&quot;)
+
+    rem ----------------------------------------------------------------------
+    dim uno_command
+    uno_command = MalList.head(args)
+
+    dim uno_kvs
+    uno_kvs = MalList.rest(args)
+
+    dim uno_args
+    uno_args = _make_uno_args(uno_kvs)
+
+    dispatcher.executeDispatch(document, &quot;.uno:&quot; &amp; uno_command, &quot;&quot;, 0, uno_args)
+
+    execute_dispatch = rv
+end function
+
+
+function lock_controllers(args)
+    &apos; Utils.log1 &quot;--&gt;&gt; lock_controllers()&quot;
+
+    ThisComponent.LockControllers()
+
+    lock_controllers = null
+end function
+
+
+function unlock_controllers(args)
+    &apos; Utils.log1 &quot;--&gt;&gt; unlock_controllers()&quot;
+
+    if ThisComponent.hasControllersLocked() then
+        ThisComponent.LockControllers()
+    end if
+
+    unlock_controllers = null
+end function
+
+
+Function msgbox_(args)
+    Dim rv As Integer
+    Dim arg0, arg1, arg2
+    arg0 = MalList.head(args)
+
+    If MalList.size(args) = 1 Then
+        rv = MsgBox(arg0)
+    ElseIf MalList.size(args) = 2 Then
+        arg1 = MalList.get_(args, 1)
+        rv = MsgBox(arg0, arg1)
+    ElseIf MalList.size(args) = 3 Then
+        arg1 = MalList.get_(args, 1)
+        arg2 = MalList.get_(args, 2)
+        rv = MsgBox(arg0, arg1, arg2)
+    End If
+
+    msgbox_ = rv
+End Function
+
+&apos; --------------------------------
+&apos; Calc
+
+Function cell_get(args)
+    Dim sname, ci, ri
+    sname = MalList.get_(args, 0)
+    ci    = MalList.get_(args, 1)
+    ri    = MalList.get_(args, 2)
+
+    cell_get = Calc.cell_get(sname, ci, ri)
+End Function
+
+
+Function cell_set(args)
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler__cell_set
+                        &apos; --------------------------------
+
+    Dim sname, ci, ri, val
+    sname = MalList.get_(args, 0)
+    ci    = MalList.get_(args, 1)
+    ri    = MalList.get_(args, 2)
+    val   = MalList.get_(args, 3)
+
+    Calc.cell_set(sname, ci, ri, val)
+    cell_set = null
+
+                        &apos; --------------------------------
+                            Exit function
+                        error_handler__cell_set:
+                            panic format_err_msg(&quot;cell_set&quot;, err, erl, error$)
+                        &apos; --------------------------------
+End Function
+
+
+Function get_ri_max(args)
+    &apos; Utils.log2 &quot;--&gt;&gt; get_ri_max()&quot;
+    Dim rv
+
+    Dim sh_name As String
+    sh_name = MalList.get_(args, 0)
+
+    rv = Calc.get_ri_max(sh_name)
+    
+    get_ri_max = rv
+End Function
+
+
+Function get_ci_max(args)
+    &apos; Utils.log2 &quot;--&gt;&gt; get_ci_max()&quot;
+    Dim rv
+
+    Dim sh_name As String
+    sh_name = MalList.get_(args, 0)
+
+    rv = Calc.get_ci_max(sh_name)
+
+    get_ci_max = rv
+End Function
+
+&apos; --------------------------------
+
+Function Core__file_write(args) &apos; TODO rename
+    &apos; Utils.log2 &quot;--&gt;&gt; Core__file_write()&quot;
+    Dim rv
+    rv = null
+    
+    Dim path As String
+    Dim text As String
+    path = MalList.get_(args, 0)
+    text = MalList.get_(args, 1)
+    
+    Utils.file_clear(path)
+    Utils.file_write(path, text)
+
+    Core__file_write = rv
+End Function
+
+      
+      </ooo:source-code>
+     </ooo:module>
+     <ooo:module ooo:name="MalFunction">
+      <ooo:source-code>
+
+rem -*- mode: basic -*-
+
+Option Explicit
+
+rem --------------------------------
+
+type MalFunction
+    type_ as string
+    env &apos; MalEnv
+    args &apos; MalList
+    body &apos; MalList
+    is_macro as boolean
+    meta as variant
+end type
+
+
+&apos; TODO .new_() にリネーム
+function MalFunction_new(env, args, body)
+    dim mf as New MalFunction
+    mf.type_ = type_name
+    mf.env = env
+    mf.args = args
+    mf.body = body
+    MalFunction_new = mf
+end function
+
+
+Function type_name As String
+    type_name = &quot;MalFunction&quot;
+End Function
+
+
+function MalFunction_inspect(self)
+    dim rv
+
+    rv = &quot;#&lt;function&quot;
+
+    rv = rv &amp; &quot; env: &quot;
+
+    dim iter_env
+    iter_env = self.env
+
+    do while True
+        rv = rv &amp; iter_env.id
+
+        if IsNull(iter_env.outer) then
+            exit do
+        else
+            rv = rv &amp; &quot;-&gt;&quot;
+            iter_env = iter_env.outer
+        end if
+    loop
+
+    rv = rv &amp; &quot;&gt;&quot;
+
+    MalFunction_inspect = rv
+end function
+
+
+function MalFunction_gen_env(self, args)
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler__MalFunction_gen_env
+                        &apos; --------------------------------
+
+    &apos; Utils.log2 &quot;--&gt;&gt; MalFunction_gen_env&quot;
+
+    dim rv
+    dim newenv
+    
+    newenv = MalEnv.new_(self.env)
+
+    dim i, arg_name, arg_val
+    i = 0
+    do while i &lt; MalList.size(self.args)
+        arg_name = MalList.get_(self.args, i)
+
+        if MalSymbol.eq_to_str(arg_name, &quot;&amp;&quot;) then
+            arg_name = MalList.get_(self.args, i + 1)
+            dim opts
+            opts = MalList.new_()
+            dim i2
+            i2 = i
+            do while i2 &lt; MalList.size(args)
+                arg_val = MalList.get_(args, i2)
+                MalList.add(opts, arg_val)
+                i2 = i2 + 1
+            loop
+            MalEnv.set_(newenv, arg_name, opts)
+            exit do
+        end if
+        
+        arg_val  = MalList.get_(args, i)
+
+        MalEnv.set_(newenv, arg_name, arg_val)
+        i = i + 1
+    loop
+
+    rv = newenv
+    MalFunction_gen_env = rv
+    
+                        &apos; --------------------------------
+                            Exit function
+                        error_handler__MalFunction_gen_env:
+                            panic format_err_msg(&quot;MalFunction_gen_env&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end function
+
+
+function clone(self)
+    &apos; Utils.log2 &quot;--&gt;&gt; MalFunction.clone()&quot;
+    dim rv
+
+    rv = MalFunction_new(self.env, self.args, self.body)
+    rv.is_macro = self.is_macro
+
+    clone = rv
+end function
+
+
+function _is_mal_function_obj(val as object) as Boolean
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler___is_mal_function_obj
+                        &apos; --------------------------------
+
+    _is_mal_function_obj = (val.type_ = type_name)
+
+                        &apos; --------------------------------
+                            Exit function
+                        error_handler___is_mal_function_obj:
+                            panic format_err_msg(&quot;_is_mal_function_obj&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end function
+
+
+function is_mal_function(val as variant) as Boolean
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler__is_mal_function
+                        &apos; --------------------------------
+
+    if TypeName(val) &lt;&gt; &quot;Object&quot; then
+        is_mal_function = False
+        exit function
+    end if
+
+    is_mal_function = _is_mal_function_obj(val)
+
+                        &apos; --------------------------------
+                            Exit function
+                        error_handler__is_mal_function:
+                            panic format_err_msg(&quot;is_mal_function&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end function
+
+      
+      </ooo:source-code>
+     </ooo:module>
+     <ooo:module ooo:name="MalAtom">
+      <ooo:source-code>
+
+rem -*- mode: basic -*-
+
+Option Explicit
+
+
+Type MalAtom
+    type_ as string
+    val as variant
+    meta as variant
+End Type
+
+
+Function create(val)
+    dim rv as New MalAtom
+    
+    rv.type_ = type_name
+    rv.val = val
+
+    create = rv
+End Function
+
+
+Function type_name As String
+    type_name = &quot;MalAtom&quot;
+End Function
+
+
+Function MalAtom_inspect(self)
+    dim rv
+
+    rv = &quot;(atom &quot; &amp; inspect(self.val) &amp; &quot;)&quot;
+
+    MalAtom_inspect = rv
+End Function
+
+
+Function is_atom(val) As Boolean
+    is_atom = (type_name_ex(val) = type_name)
+End Function
+
+      
+      </ooo:source-code>
+     </ooo:module>
+     <ooo:module ooo:name="MalVector">
+      <ooo:source-code>
+
+rem -*- mode: basic -*-
+
+Option Explicit
+
+function new_
+    &apos; Utils.log3 &quot;--&gt;&gt; MalVector.new_()&quot;
+
+    dim list &apos; TODO rename
+    list = MalList.new_()
+
+    dim xs() as variant
+    list.xs = xs
+    list.size = 0
+    list.type_ = MalList.type_name
+    list.klass = MalVector.type_name
+
+    new_ = list
+end function
+
+
+Function type_name
+    type_name = &quot;MalVector&quot;
+End Function
+
+
+function clone(self)
+    &apos; Utils.log0 &quot;--&gt;&gt; MalVector.clone()&quot;
+    dim rv
+
+    rv = MalList.clone(self)
+    rv.klass = MalVector.type_name
+
+    clone = rv
+end function
+
+
+function MalVector_inspect(self)
+    dim rv
+    dim str, i
+
+    str = &quot;[&quot;
+
+    for i = 0 to self.size - 1
+      if 0 &lt; i then
+        str = str &amp; &quot;, &quot;
+      end if
+      str = str &amp; inspect(MalList.get_(self, i))
+    next
+
+    str = str &amp; &quot;]&quot;
+
+    rv = str
+    MalVector_inspect = rv
+end function
+
+
+&apos; TODO List_pr_str と共通化
+function MalVector_pr_str(self, print_readably as boolean)
+    &apos; Utils.log2 &quot;--&gt;&gt; MalVector_pr_str&quot;
+
+    dim rv
+    dim str, i, _r
+    _r = print_readably
+
+    str = &quot;[&quot;
+
+    for i = 0 to self.size - 1
+      if 0 &lt; i then
+        str = str &amp; &quot; &quot;
+      end if
+
+      dim el
+      el = MalList.get_(self, i)
+
+      if IsNull(el) then
+        rem 本当は _pr_str に渡したいが渡せないためここで分岐している
+        str = str &amp; &quot;nil&quot;
+      else
+        dim s2 as string
+        s2 = Printer._pr_str(el, _r)
+        str = str &amp; s2
+      end if
+    next
+
+    str = str &amp; &quot;]&quot;
+
+    rv = str
+    MalVector_pr_str = rv
+end function
+
+
+sub add(self, elem)
+    MalList.add(self, elem)    
+end sub
+
+
+function seq(self)
+    &apos; Utils.log1 &quot;--&gt;&gt; seq()&quot;
+    dim rv
+
+    rv = MalVector.new_()
+    dim i, el
+    for i = 0 to size(self) - 1
+        el = MalList.get_(self, i)
+        MalVector.add(rv, el)
+    next
+
+    seq = rv
+end function
+
+
+function conj(self, xs)
+    &apos; Utils.log1 &quot;--&gt;&gt; MalVector.conj()&quot;
+    dim rv
+
+    dim i, el
+    
+    for i = 0 to MalList.size(xs) - 1
+        el = MalList.get_(xs, i)
+        MalVector.add(self, el)
+    next
+    
+    rv = self
+
+    conj = rv
+end function
+
+
+function is_vector(val) as Boolean
+    is_vector = (type_name_ex(val) = MalVector.type_name)
+end function
+
+      
+      </ooo:source-code>
+     </ooo:module>
+     <ooo:module ooo:name="MalMap">
+      <ooo:source-code>
+
+rem -*- mode: basic -*-
+
+Option Explicit
+
+type MalMap
+    data as Variant &apos; com.sun.star.container.XMap
+    type_ as String
+    meta as Variant
+end type
+
+function new_
+    dim rv as New MalMap
+
+    rv.data = com.sun.star.container.EnumerableMap.create(&quot;string&quot;, &quot;any&quot;)
+    rv.type_ = type_name
+
+    new_ = rv
+end function
+
+
+Function type_name As String
+    type_name = &quot;MalMap&quot;
+End Function
+
+
+function get_(self, k)
+    &apos; Utils.log1 &quot;--&gt;&gt; MalMap.get_()&quot;
+    dim rv
+
+    dim str_key
+    str_key = _to_map_key(k)
+    
+    if self.data.containsKey(str_key) then
+        rv = self.data.get(str_key)
+    else
+        rv = null
+    end if
+    
+    get_ = rv
+end function
+
+
+function has_key(self, k) as Boolean
+    &apos;Utils.log1 &quot;--&gt;&gt; MalMap.has_key()&quot;
+    has_key = self.data.containsKey(_to_map_key(k))
+end function
+
+
+sub put(self, k, v)
+    &apos; Utils.log2 &quot;--&gt;&gt; MalMap.put()&quot;
+
+    self.data.put(_to_map_key(k), v)
+end sub
+
+
+function get_keys(self)
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler__get_keys
+                        &apos; --------------------------------
+
+    Utils.log1 &quot;--&gt;&gt; MalMap.get_keys()&quot;
+
+    dim key_iter, str_key, keys
+    keys = MalList.new_()
+    key_iter = self.data.createKeyEnumeration(False)
+    While key_iter.hasMoreElements()
+      str_key = key_iter.nextElement()
+      Utils.log1 str_key
+      MalList.add(keys, _from_map_key(str_key))
+    WEnd
+
+    get_keys = keys
+
+                        &apos; --------------------------------
+                            Exit function
+                        error_handler__get_keys:
+                            panic format_err_msg(&quot;get_keys&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end function
+
+
+
+function get_vals(self)
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler__get_vals
+                        &apos; --------------------------------
+
+    Utils.log1 &quot;--&gt;&gt; get_vals()&quot;
+    
+    dim rv
+
+    dim iter, val, vals
+    vals = MalList.new_()
+    iter = self.data.createValueEnumeration(False)
+    While iter.hasMoreElements()
+      val = iter.nextElement()
+      MalList.add(vals, val)
+    WEnd
+
+    rv = vals
+    get_vals = rv
+
+                        &apos; --------------------------------
+                            Exit function
+                        error_handler__get_vals:
+                            panic format_err_msg(&quot;get_vals&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end function
+
+
+function MalMap_inspect(self)
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler__MalMap_inspect
+                        &apos; --------------------------------
+    &apos; Utils.log1 &quot;--&gt;&gt; MalMap.inspect()&quot;
+
+    dim rv
+
+    dim str, keys
+    str = &quot;{&quot;
+
+    keys = get_keys(self)
+
+        dim i, key
+    for i = 0 to MalList.size(keys) - 1
+        key = MalList.get_(keys, i)
+
+        if 1 &lt;= i then
+            str = str &amp; &quot;, &quot;
+        end if
+
+        str = str &amp; inspect(key)
+        str = str &amp; &quot;: &quot;
+        dim val
+        val = get_(self, key)
+        str = str &amp; inspect(val)
+    next
+
+    str = str &amp; &quot;}&quot;
+
+    rv = str
+
+    MalMap_inspect = rv
+
+                        &apos; --------------------------------
+                            Exit function
+                        error_handler__MalMap_inspect:
+                            panic format_err_msg(&quot;MalMap_inspect&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end function
+
+
+function MalMap_pr_str(self2 as object, print_readably as Boolean)
+                        &apos; --------------------------------
+                            On Local Error GoTo error_handler__MalMap_pr_str
+                        &apos; --------------------------------
+    &apos; Utils.log1 &quot;--&gt;&gt; MalMap_pr_str()&quot;
+
+    dim rv
+
+    dim _r
+    _r = print_readably
+    
+    dim str
+    str = &quot;{&quot;
+
+    dim keys
+    keys = MalMap.get_keys(self2)
+    dim i, key
+    for i = 0 to MalList.size(keys) - 1
+        key = MalList.get_(keys, i)
+        
+        if 1 &lt;= i then
+            str = str &amp; &quot; &quot;
+        end if
+
+        str = str &amp; _pr_str(key, _r)
+        str = str &amp; &quot; &quot;
+        dim val
+        val = get_(self2, key)
+        str = str &amp; _pr_str(val, _r)
+    next
+    
+    str = str &amp; &quot;}&quot;
+    rv = str
+
+    MalMap_pr_str = rv
+
+                        &apos; --------------------------------
+                            Exit function
+                        error_handler__MalMap_pr_str:
+                            panic format_err_msg(&quot;MalMap_pr_str&quot;, err, erl, error$)
+                        &apos; --------------------------------
+end function
+
+
+function _to_map_key(val) as String
+    &apos;Utils.log1 &quot;--&gt;&gt; MalMap._to_map_key()&quot;
+    dim rv
+
+    select case type_name_ex(val)
+        case MalSymbol.type_name
+            rv = MalSymbol_to_map_key(val)
+        case &quot;String&quot;
+            if Keyword_is_keyword(val) then
+                rv = Keyword_to_map_key(val)
+            else
+                rv = String_to_map_key(val)
+            end if
+        case MalNamedFunction_type_name
+            rv = MalNamedFunction_to_map_key(val)
+        case else
+            panic &quot;not_yet_impl&quot;
+    end select
+
+    _to_map_key = rv
+end function
+
+
+function _from_map_key(key) &apos; TODO rename =&gt; str_key
+    &apos; Utils.log1 &quot;--&gt;&gt; _from_map_key()&quot;
+    dim rv
+    dim str
+
+    if left(key, 4) = &quot;str:&quot; then
+        rv = substring(key, 4)
+    elseif left(key, 4) = &quot;sym:&quot; then
+        str = substring(key, 4)
+        rv = MalSymbol.new_(str)
+    elseif left(key, 3) = &quot;kw:&quot; then
+        str = substring(key, 3)
+        rv = kw_marker() &amp; str
+    end if
+
+    _from_map_key = rv
+
+    &apos; _from_map_key = Reader.read_str(key)
+end function
+
+
+function String_to_map_key(str) as String
+    &apos;Utils.log1 &quot;--&gt;&gt; String_to_map_key&quot;
+    String_to_map_key = &quot;str:&quot; &amp; str
+end function
+
+
+function MalSymbol_to_map_key(sym) as String
+    &apos;Utils.log1 &quot;--&gt;&gt; MalSymbol_to_map_key&quot;
+    MalSymbol_to_map_key = &quot;sym:&quot; &amp; sym.str
+end function
+
+
+function Keyword_to_map_key(kw) as String
+    &apos;Utils.log1 &quot;--&gt;&gt; Keyword_to_map_key&quot;
+    Keyword_to_map_key = &quot;kw:&quot; &amp; substring(kw, 1)
+end function
+
+
+function MalNamedFunction_to_map_key(fname) as String
+    &apos;Utils.log1 &quot;--&gt;&gt; MalNamedFunction_to_map_key&quot;
+    MalNamedFunction_to_map_key = &quot;fun:&quot; &amp; fname.id
+end function
+
+
+function is_map(val)
+    &apos; Utils.log1 &quot;--&gt;&gt; is_map()&quot;
+    dim rv
+    
+    rv = type_name_ex(val) = MalMap.type_name
+
+    is_map = rv
+end function
+
+
+function delete(self, key)
+    self.data.remove(_to_map_key(key))
+    delete = null
+end function
+
+
+function clone(self)
+    &apos; Utils.log1 &quot;--&gt;&gt; clone()&quot;
+    dim rv
+    
+    dim newmap
+    bewmap = MalMap.new_()
+    
+    dim keys
+    keys = MalMap.get_keys(self)
+
+    dim i as integer
+    dim k, v
+    for i = 0 to MalList.size(keys) - 1
+        k = MalList.get_(keys, i)
+        if not _is_deleted(k) then
+            v = MalMap.get_(self, k)
+            MalMap.put(newmap, k, v)
+        end if
+    next
+    
+    rv = map
+    clone = rv
+end function
+
+      
+      </ooo:source-code>
+     </ooo:module>
+     <ooo:module ooo:name="MalNamedFunction">
+      <ooo:source-code>
+
+rem -*- mode: basic -*-
+
+Option Explicit
+
+type MalNamedFunction
+    type_ as string
+    id as string
+    env &apos; TODO as object
+    meta as variant
+end type
+
+
+function _MalNamedFunction_new_with_id(id)
+    &apos; Utils.log2 &quot;--&gt;&gt; MalNamedFunction_new_with_id()&quot;
+    dim rv
+
+    dim newfn as MalNamedFunction
+    newfn.type_ = MalNamedFunction_type_name
+    newfn.id = id
+
+    rv = newfn
+    _MalNamedFunction_new_with_id = rv
+end function
+
+
+Function MalNamedFunction_type_name
+    MalNamedFunction_type_name = &quot;MalNamedfunction&quot;
+End Function
+
+
+function init(id)
+    &apos; Utils.log2 &quot;--&gt;&gt; MalNamedFunction.init()&quot;
+    dim rv
+
+    rv = _MalNamedFunction_new_with_id(id)
+
+    init = rv
+end function
+
+
+function MalNamedFunction_inspect(self)
+    dim rv
+
+    rv = &quot;&lt;MalNamedFunction&quot;
+    rv = rv &amp; &quot; &quot; &amp; self.id
+    rv = rv &amp; &quot;&gt;&quot;
+
+    MalNamedFunction_inspect = rv
+end function
+
+
+function MalNamedFunction_to_map_key(fname)
+    dim rv
+
+    rv = &quot;fun:&quot; &amp; fname.id
+
+    MalNamedFunction_to_map_key = rv
+end function
+
+
+function is_named_function(val)
+    &apos; Utils.log1 &quot;--&gt;&gt; MalNamedFunction.is_named_function()&quot;
+    dim rv
+
+    rv = (type_name_ex(val) = MalNamedFunction_type_name)
+
+    is_named_function = rv
+end function
+
+      
+      </ooo:source-code>
+     </ooo:module>
+    </ooo:library-embedded>
+   </ooo:libraries>
+  </office:script>
+ </office:scripts>
+ <office:font-face-decls>
+  <style:font-face style:name="VL ゴシック" svg:font-family="&apos;VL ゴシック&apos;" style:font-adornments="標準" style:font-pitch="variable"/>
+  <style:font-face style:name="Liberation Sans" svg:font-family="&apos;Liberation Sans&apos;" style:font-family-generic="swiss" style:font-pitch="variable"/>
+  <style:font-face style:name="DejaVu Sans" svg:font-family="&apos;DejaVu Sans&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
+  <style:font-face style:name="TakaoPGothic" svg:font-family="TakaoPGothic" style:font-family-generic="system" style:font-pitch="variable"/>
+ </office:font-face-decls>
+ <office:styles>
+  <style:default-style style:family="table-cell">
+   <style:paragraph-properties style:tab-stop-distance="12.5mm"/>
+   <style:text-properties style:font-name="Liberation Sans" fo:language="en" fo:country="US" style:font-name-asian="DejaVu Sans" style:language-asian="ja" style:country-asian="JP" style:font-name-complex="TakaoPGothic" style:language-complex="hi" style:country-complex="IN"/>
+  </style:default-style>
+  <style:default-style style:family="graphic">
+   <style:graphic-properties svg:stroke-color="#3465a4" draw:fill-color="#729fcf" fo:wrap-option="no-wrap" draw:shadow-offset-x="3mm" draw:shadow-offset-y="3mm"/>
+   <style:paragraph-properties style:text-autospace="none" style:punctuation-wrap="simple" style:line-break="strict" style:writing-mode="page" style:font-independent-line-spacing="false">
+    <style:tab-stops/>
+   </style:paragraph-properties>
+   <style:text-properties style:use-window-font-color="true" fo:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="12pt" fo:language="en" fo:country="US" style:letter-kerning="true" style:font-name-asian="TakaoPGothic" style:font-size-asian="12pt" style:language-asian="ja" style:country-asian="JP" style:font-name-complex="TakaoPGothic" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN"/>
+  </style:default-style>
+  <number:number-style style:name="N0">
+   <number:number number:min-integer-digits="1"/>
+  </number:number-style>
+  <style:style style:name="Default" style:family="table-cell">
+   <style:text-properties style:font-name-asian="TakaoPGothic" style:font-family-asian="TakaoPGothic" style:font-family-generic-asian="system" style:font-pitch-asian="variable"/>
+  </style:style>
+  <style:style style:name="Heading_20__28_user_29_" style:display-name="Heading (user)" style:family="table-cell" style:parent-style-name="Default">
+   <style:text-properties fo:color="#000000" fo:font-size="24pt" fo:font-style="normal" fo:font-weight="bold"/>
+  </style:style>
+  <style:style style:name="Heading_20_1" style:display-name="Heading 1" style:family="table-cell" style:parent-style-name="Heading_20__28_user_29_">
+   <style:text-properties fo:color="#000000" fo:font-size="18pt" fo:font-style="normal" fo:font-weight="normal"/>
+  </style:style>
+  <style:style style:name="Heading_20_2" style:display-name="Heading 2" style:family="table-cell" style:parent-style-name="Heading_20__28_user_29_">
+   <style:text-properties fo:color="#000000" fo:font-size="12pt" fo:font-style="normal" fo:font-weight="normal"/>
+  </style:style>
+  <style:style style:name="Text" style:family="table-cell" style:parent-style-name="Default"/>
+  <style:style style:name="Note" style:family="table-cell" style:parent-style-name="Text">
+   <style:table-cell-properties fo:background-color="#ffffcc" style:diagonal-bl-tr="none" style:diagonal-tl-br="none" fo:border="0.74pt solid #808080"/>
+   <style:text-properties fo:color="#333333" fo:font-size="10pt" fo:font-style="normal" fo:font-weight="normal"/>
+  </style:style>
+  <style:style style:name="Footnote" style:family="table-cell" style:parent-style-name="Text">
+   <style:text-properties fo:color="#808080" fo:font-size="10pt" fo:font-style="italic" fo:font-weight="normal"/>
+  </style:style>
+  <style:style style:name="Hyperlink" style:family="table-cell" style:parent-style-name="Text">
+   <style:text-properties fo:color="#0000ee" fo:font-size="10pt" fo:font-style="normal" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="#0000ee" fo:font-weight="normal"/>
+  </style:style>
+  <style:style style:name="Status" style:family="table-cell" style:parent-style-name="Default"/>
+  <style:style style:name="Good" style:family="table-cell" style:parent-style-name="Status">
+   <style:table-cell-properties fo:background-color="#ccffcc"/>
+   <style:text-properties fo:color="#006600" fo:font-size="10pt" fo:font-style="normal" fo:font-weight="normal"/>
+  </style:style>
+  <style:style style:name="Neutral" style:family="table-cell" style:parent-style-name="Status">
+   <style:table-cell-properties fo:background-color="#ffffcc"/>
+   <style:text-properties fo:color="#996600" fo:font-size="10pt" fo:font-style="normal" fo:font-weight="normal"/>
+  </style:style>
+  <style:style style:name="Bad" style:family="table-cell" style:parent-style-name="Status">
+   <style:table-cell-properties fo:background-color="#ffcccc"/>
+   <style:text-properties fo:color="#cc0000" fo:font-size="10pt" fo:font-style="normal" fo:font-weight="normal"/>
+  </style:style>
+  <style:style style:name="Warning" style:family="table-cell" style:parent-style-name="Status">
+   <style:text-properties fo:color="#cc0000" fo:font-size="10pt" fo:font-style="normal" fo:font-weight="normal"/>
+  </style:style>
+  <style:style style:name="Error" style:family="table-cell" style:parent-style-name="Status">
+   <style:table-cell-properties fo:background-color="#cc0000"/>
+   <style:text-properties fo:color="#ffffff" fo:font-size="10pt" fo:font-style="normal" fo:font-weight="bold"/>
+  </style:style>
+  <style:style style:name="Accent" style:family="table-cell" style:parent-style-name="Default">
+   <style:text-properties fo:color="#000000" fo:font-size="10pt" fo:font-style="normal" fo:font-weight="bold"/>
+  </style:style>
+  <style:style style:name="Accent_20_1" style:display-name="Accent 1" style:family="table-cell" style:parent-style-name="Accent">
+   <style:table-cell-properties fo:background-color="#000000"/>
+   <style:text-properties fo:color="#ffffff" fo:font-size="10pt" fo:font-style="normal" fo:font-weight="normal"/>
+  </style:style>
+  <style:style style:name="Accent_20_2" style:display-name="Accent 2" style:family="table-cell" style:parent-style-name="Accent">
+   <style:table-cell-properties fo:background-color="#808080"/>
+   <style:text-properties fo:color="#ffffff" fo:font-size="10pt" fo:font-style="normal" fo:font-weight="normal"/>
+  </style:style>
+  <style:style style:name="Accent_20_3" style:display-name="Accent 3" style:family="table-cell" style:parent-style-name="Accent">
+   <style:table-cell-properties fo:background-color="#dddddd"/>
+  </style:style>
+ </office:styles>
+ <office:automatic-styles>
+  <style:style style:name="co1" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="5.98mm"/>
+  </style:style>
+  <style:style style:name="co2" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="4.99mm"/>
+  </style:style>
+  <style:style style:name="co3" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="6.53mm"/>
+  </style:style>
+  <style:style style:name="co4" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="22.58mm"/>
+  </style:style>
+  <style:style style:name="ro1" style:family="table-row">
+   <style:table-row-properties style:row-height="4.52mm" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ta1" style:family="table" style:master-page-name="Default">
+   <style:table-properties table:display="true" style:writing-mode="lr-tb"/>
+  </style:style>
+  <style:style style:name="ce1" style:family="table-cell" style:parent-style-name="Default">
+   <style:text-properties style:font-name="VL ゴシック" style:font-name-asian="VL ゴシック"/>
+  </style:style>
+  <style:style style:name="ce4" style:family="table-cell" style:parent-style-name="Default">
+   <style:table-cell-properties fo:background-color="#bce4e5"/>
+   <style:text-properties style:font-name="VL ゴシック" style:font-name-asian="VL ゴシック"/>
+  </style:style>
+  <style:style style:name="ce3" style:family="table-cell" style:parent-style-name="Default">
+   <style:table-cell-properties fo:background-color="#eeeeee"/>
+   <style:text-properties style:font-name="VL ゴシック" style:font-name-asian="VL ゴシック"/>
+  </style:style>
+  <style:style style:name="gr1" style:family="graphic">
+   <style:graphic-properties svg:stroke-color="#999999" draw:fill="solid" draw:fill-color="#eeeeee" draw:textarea-horizontal-align="left" draw:textarea-vertical-align="top" draw:auto-grow-height="false" fo:min-height="64.93mm" fo:min-width="127.1mm" fo:padding-top="1mm" fo:padding-bottom="1mm" fo:padding-left="1mm" fo:padding-right="1mm"/>
+  </style:style>
+  <style:style style:name="gr2" style:family="graphic">
+   <style:graphic-properties svg:stroke-color="#999999" draw:fill="solid" draw:fill-color="#eeeeee" draw:textarea-horizontal-align="left" draw:textarea-vertical-align="top" draw:auto-grow-height="false" fo:min-height="20.2mm" fo:min-width="119.82mm" fo:padding-top="1mm" fo:padding-bottom="1mm" fo:padding-left="1mm" fo:padding-right="1mm"/>
+  </style:style>
+  <style:style style:name="gr3" style:family="graphic">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="solid" draw:fill-color="#dddddd" draw:textarea-horizontal-align="left" draw:textarea-vertical-align="top" draw:auto-grow-height="false" fo:min-height="10.48mm" fo:min-width="30.22mm" fo:padding-top="1mm" fo:padding-bottom="1mm" fo:padding-left="1mm" fo:padding-right="1mm"/>
+  </style:style>
+  <style:page-layout style:name="pm1">
+   <style:page-layout-properties style:writing-mode="lr-tb"/>
+   <style:header-style>
+    <style:header-footer-properties fo:min-height="7.5mm" fo:margin-left="0mm" fo:margin-right="0mm" fo:margin-bottom="2.5mm"/>
+   </style:header-style>
+   <style:footer-style>
+    <style:header-footer-properties fo:min-height="7.5mm" fo:margin-left="0mm" fo:margin-right="0mm" fo:margin-top="2.5mm"/>
+   </style:footer-style>
+  </style:page-layout>
+  <style:page-layout style:name="pm2">
+   <style:page-layout-properties style:writing-mode="lr-tb"/>
+   <style:header-style>
+    <style:header-footer-properties fo:min-height="7.5mm" fo:margin-left="0mm" fo:margin-right="0mm" fo:margin-bottom="2.5mm" fo:border="2.49pt solid #000000" fo:padding="0.18mm" fo:background-color="#c0c0c0">
+     <style:background-image/>
+    </style:header-footer-properties>
+   </style:header-style>
+   <style:footer-style>
+    <style:header-footer-properties fo:min-height="7.5mm" fo:margin-left="0mm" fo:margin-right="0mm" fo:margin-top="2.5mm" fo:border="2.49pt solid #000000" fo:padding="0.18mm" fo:background-color="#c0c0c0">
+     <style:background-image/>
+    </style:header-footer-properties>
+   </style:footer-style>
+  </style:page-layout>
+  <style:style style:name="P1" style:family="paragraph">
+   <style:paragraph-properties fo:text-align="start"/>
+  </style:style>
+  <style:style style:name="P2" style:family="paragraph">
+   <loext:graphic-properties draw:fill="solid" draw:fill-color="#eeeeee"/>
+   <style:paragraph-properties fo:text-align="start"/>
+   <style:text-properties style:font-name="VL ゴシック" fo:font-size="10pt" style:font-name-asian="VL ゴシック" style:font-size-asian="10pt"/>
+  </style:style>
+  <style:style style:name="P3" style:family="paragraph">
+   <style:paragraph-properties fo:text-align="center"/>
+  </style:style>
+  <style:style style:name="P4" style:family="paragraph">
+   <loext:graphic-properties draw:fill="solid" draw:fill-color="#dddddd"/>
+   <style:paragraph-properties fo:text-align="start"/>
+   <style:text-properties style:font-name="VL ゴシック" fo:font-size="8pt" style:font-name-asian="VL ゴシック" style:font-size-asian="8pt"/>
+  </style:style>
+  <style:style style:name="T1" style:family="text">
+   <style:text-properties style:font-name="VL ゴシック" fo:font-size="10pt" style:font-name-asian="VL ゴシック" style:font-size-asian="10pt"/>
+  </style:style>
+  <style:style style:name="T2" style:family="text">
+   <style:text-properties style:font-name="VL ゴシック" fo:font-size="8pt" style:font-name-asian="VL ゴシック" style:font-size-asian="8pt"/>
+  </style:style>
+ </office:automatic-styles>
+ <office:master-styles>
+  <style:master-page style:name="Default" style:page-layout-name="pm1">
+   <style:header>
+    <text:p><text:sheet-name>???</text:sheet-name></text:p>
+   </style:header>
+   <style:header-left style:display="false"/>
+   <style:footer>
+    <text:p>ページ <text:page-number>1</text:page-number></text:p>
+   </style:footer>
+   <style:footer-left style:display="false"/>
+  </style:master-page>
+  <style:master-page style:name="Report" style:page-layout-name="pm2">
+   <style:header>
+    <style:region-left>
+     <text:p><text:sheet-name>???</text:sheet-name><text:s/>(<text:title>???</text:title>)</text:p>
+    </style:region-left>
+    <style:region-right>
+     <text:p><text:date style:data-style-name="N2" text:date-value="2020-12-04">0000/00/00</text:date>, <text:time style:data-style-name="N2" text:time-value="03:51:50.684660179">00:00:00</text:time></text:p>
+    </style:region-right>
+   </style:header>
+   <style:header-left style:display="false"/>
+   <style:footer>
+    <text:p>ページ <text:page-number>1</text:page-number><text:s/>/ <text:page-count>99</text:page-count></text:p>
+   </style:footer>
+   <style:footer-left style:display="false"/>
+  </style:master-page>
+ </office:master-styles>
+ <office:body>
+  <office:spreadsheet>
+   <table:calculation-settings table:automatic-find-labels="false" table:use-regular-expressions="false" table:use-wildcards="true"/>
+   <table:table table:name="Sheet1" table:style-name="ta1">
+    <office:forms form:automatic-focus="false" form:apply-design-mode="false">
+     <form:form form:name="フォーム" form:apply-filter="true" form:command-type="table" form:control-implementation="ooo:com.sun.star.form.component.Form" office:target-frame="" xlink:href="" xlink:type="simple">
+      <form:properties>
+       <form:property form:property-name="PropertyChangeNotificationEnabled" office:value-type="boolean" office:boolean-value="true"/>
+      </form:properties>
+      <form:button form:name="プッシュボタン 1" form:control-implementation="ooo:com.sun.star.form.component.CommandButton" xml:id="control1" form:id="control1" form:label="RUN" office:target-frame="" xlink:href="" form:image-data="" form:delay-for-repeat="PT0.050000000S" form:image-position="center">
+       <form:properties>
+        <form:property form:property-name="DefaultControl" office:value-type="string" office:string-value="com.sun.star.form.control.CommandButton"/>
+       </form:properties>
+       <office:event-listeners>
+        <script:event-listener script:language="ooo:script" script:event-name="form:performaction" xlink:href="vnd.sun.star.script:mylib.main.on_click_run?language=Basic&amp;location=document" xlink:type="simple"/>
+       </office:event-listeners>
+      </form:button>
+     </form:form>
+    </office:forms>
+    <table:shapes>
+     <draw:custom-shape draw:z-index="0" draw:name="src" draw:style-name="gr1" draw:text-style-name="P2" svg:width="129.1mm" svg:height="66.93mm" svg:x="43.24mm" svg:y="32.52mm">
+      <text:p text:style-name="P1"><text:span text:style-name="T1">;; game of life</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1">(let* (sheet-name &quot;Sheet1&quot;</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">alive-char &quot;■&quot;</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">t0 (time-ms)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">numseq (fn* (from to) ; from &lt;= x &lt; to</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="16"/></text:span><text:span text:style-name="T1">(if (&lt;= to from)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="18"/></text:span><text:span text:style-name="T1">()</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="18"/></text:span><text:span text:style-name="T1">(cons from (numseq (+ from 1) to))))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">xlist (numseq 0 5)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">ylist (numseq 0 5)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">adj-x-offset (fn* (x) (+ x 1))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">each-cell (fn* (fn)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="19"/></text:span><text:span text:style-name="T1">(map (fn* (y)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="32"/></text:span><text:span text:style-name="T1">(map (fn* (x)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="42"/></text:span><text:span text:style-name="T1">(fn x y))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="32"/></text:span><text:span text:style-name="T1">xlist))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="24"/></text:span><text:span text:style-name="T1">ylist))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">gol-cell-set (fn* (x y val)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="25"/></text:span><text:span text:style-name="T1">(cell-set sheet-name</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="35"/></text:span><text:span text:style-name="T1">(adj-x-offset x)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="35"/></text:span><text:span text:style-name="T1">y</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="35"/></text:span><text:span text:style-name="T1">(if (nil? val) &quot;-&quot; val)))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">gol-cell-get (fn* (x y)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="25"/></text:span><text:span text:style-name="T1">(cell-get sheet-name (adj-x-offset x) y))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">set-alive (fn* (x y) (gol-cell-set x y alive-char))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">cell-set-buf (fn* (x y val) (gol-cell-set x (+ y 6) val))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">adjust-x (fn* (x)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="19"/></text:span><text:span text:style-name="T1">(cond</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="21"/></text:span><text:span text:style-name="T1">(&lt; x 0) 4</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="21"/></text:span><text:span text:style-name="T1">(&lt; 4 x) 0</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="21"/></text:span><text:span text:style-name="T1">&quot;else&quot; x))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">adjust-y (fn* (y) (cond (&lt; y 0) 4 (&lt; 4 y) 0 &quot;else&quot; y))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">sum-rec (fn* (args)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="17"/></text:span><text:span text:style-name="T1">(if (&lt;= (count args) 0)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="19"/></text:span><text:span text:style-name="T1">0</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="19"/></text:span><text:span text:style-name="T1">(+ (first args) (sum-rec (rest args)))))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">sum (fn* (&amp; args) (sum-rec args))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">alive? (fn* (x y)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="16"/></text:span><text:span text:style-name="T1">(= (gol-cell-get (adjust-x x) (adjust-y y)) alive-char))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">count-cell-set (fn* (x y v)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="27"/></text:span><text:span text:style-name="T1">(gol-cell-set x (+ 12 y) v))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">count-cell-get (fn* (x y)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="27"/></text:span><text:span text:style-name="T1">(gol-cell-get x (+ 12 y)))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">count-cell-inc (fn* (x y)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="9"/></text:span><text:span text:style-name="T1">(count-cell-set x y (+ (count-cell-get x y) 1)))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">count-alive (fn* (x y)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="9"/></text:span><text:span text:style-name="T1">(if (= (gol-cell-get x y) alive-char)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="11"/></text:span><text:span text:style-name="T1">(let* (</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="18"/></text:span><text:span text:style-name="T1">xl (adjust-x (- x 1))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="18"/></text:span><text:span text:style-name="T1">xr (adjust-x (+ x 1))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="18"/></text:span><text:span text:style-name="T1">yt (adjust-y (- y 1))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="18"/></text:span><text:span text:style-name="T1">yb (adjust-y (+ y 1)))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="13"/></text:span><text:span text:style-name="T1">(do</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="15"/></text:span><text:span text:style-name="T1">(count-cell-inc xl yt)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="15"/></text:span><text:span text:style-name="T1">(count-cell-inc x <text:s/>yt)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="15"/></text:span><text:span text:style-name="T1">(count-cell-inc xr yt)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="15"/></text:span><text:span text:style-name="T1">(count-cell-inc xl y )</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="15"/></text:span><text:span text:style-name="T1">(count-cell-inc xr y )</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="15"/></text:span><text:span text:style-name="T1">(count-cell-inc xl yb)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="15"/></text:span><text:span text:style-name="T1">(count-cell-inc x <text:s/>yb)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="15"/></text:span><text:span text:style-name="T1">(count-cell-inc xr yb)))))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="7"/></text:span><text:span text:style-name="T1">next-alive? (fn* (x y)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="9"/></text:span><text:span text:style-name="T1">(let* (</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="13"/></text:span><text:span text:style-name="T1">cell-alive (alive? x y)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="13"/></text:span><text:span text:style-name="T1">count (count-cell-get x y))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="11"/></text:span><text:span text:style-name="T1">(if cell-alive</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="13"/></text:span><text:span text:style-name="T1">(cond</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="15"/></text:span><text:span text:style-name="T1">(&lt;= count 1) false ; </text:span><text:span text:style-name="T1">生 → 死</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="15"/></text:span><text:span text:style-name="T1">(&lt;= 4 count) false ; </text:span><text:span text:style-name="T1">生 → 死</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="15"/></text:span><text:span text:style-name="T1">&quot;else&quot; true)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="13"/></text:span><text:span text:style-name="T1">(= count 3) ; 3</text:span><text:span text:style-name="T1">の場合のみ 死 → 生</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="11"/></text:span><text:span text:style-name="T1">)))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="2"/></text:span><text:span text:style-name="T1">)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="2"/></text:span><text:span text:style-name="T1">(do</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="6"/></text:span><text:span text:style-name="T1">;; </text:span><text:span text:style-name="T1">生存カウントをリセット</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="6"/></text:span><text:span text:style-name="T1">(each-cell (fn* (x y)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="19"/></text:span><text:span text:style-name="T1">(count-cell-set x y 0)))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="6"/></text:span><text:span text:style-name="T1">;; </text:span><text:span text:style-name="T1">生存カウント</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="6"/></text:span><text:span text:style-name="T1">(each-cell (fn* (x y) (count-alive x y)))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="6"/></text:span><text:span text:style-name="T1">;; </text:span><text:span text:style-name="T1">次世代生成</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="6"/></text:span><text:span text:style-name="T1">(each-cell (fn* (x y)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="19"/></text:span><text:span text:style-name="T1">(cell-set-buf x y</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="33"/></text:span><text:span text:style-name="T1">(if (next-alive? x y) alive-char &quot;.&quot;)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="33"/></text:span><text:span text:style-name="T1">)))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="6"/></text:span><text:span text:style-name="T1">;; </text:span><text:span text:style-name="T1">バッファから戻す</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="6"/></text:span><text:span text:style-name="T1">(each-cell (fn* (x y)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="19"/></text:span><text:span text:style-name="T1">(gol-cell-set x y</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="33"/></text:span><text:span text:style-name="T1">(gol-cell-get x (+ y 6))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="33"/></text:span><text:span text:style-name="T1">)))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="6"/></text:span><text:span text:style-name="T1">(str (/ (- (time-ms) t0) 1000) &quot; sec&quot;)</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"><text:s text:c="6"/></text:span><text:span text:style-name="T1">))</text:span></text:p>
+      <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+      <draw:enhanced-geometry svg:viewBox="0 0 21600 21600" draw:type="rectangle" draw:enhanced-path="M 0 0 L 21600 0 21600 21600 0 21600 0 0 Z N"/>
+     </draw:custom-shape>
+     <draw:custom-shape draw:z-index="1" draw:name="output" draw:style-name="gr2" draw:text-style-name="P2" svg:width="121.82mm" svg:height="22.2mm" svg:x="42.72mm" svg:y="3.83mm">
+      <text:p text:style-name="P1"><text:span text:style-name="T1">(output)</text:span></text:p>
+      <draw:enhanced-geometry svg:viewBox="0 0 21600 21600" draw:type="rectangle" draw:enhanced-path="M 0 0 L 21600 0 21600 21600 0 21600 0 0 Z N"/>
+     </draw:custom-shape>
+     <draw:control draw:z-index="2" draw:text-style-name="P3" svg:width="30.01mm" svg:height="22.85mm" svg:x="170.09mm" svg:y="3.57mm" draw:control="control1"/>
+     <draw:custom-shape draw:z-index="3" draw:name="log" draw:style-name="gr3" draw:text-style-name="P4" svg:width="32.22mm" svg:height="12.48mm" svg:x="228.25mm" svg:y="2.92mm">
+      <text:p text:style-name="P1"><text:span text:style-name="T2">(log)</text:span></text:p>
+      <draw:enhanced-geometry svg:viewBox="0 0 21600 21600" draw:type="rectangle" draw:enhanced-path="M 0 0 L 21600 0 21600 21600 0 21600 0 0 Z N"/>
+     </draw:custom-shape></table:shapes>
+    <table:table-column table:style-name="co1" table:default-cell-style-name="ce1"/>
+    <table:table-column table:style-name="co2" table:number-columns-repeated="5" table:default-cell-style-name="ce1"/>
+    <table:table-column table:style-name="co3" table:default-cell-style-name="ce1"/>
+    <table:table-column table:style-name="co4" table:number-columns-repeated="8" table:default-cell-style-name="ce3"/>
+    <table:table-column table:style-name="co4" table:number-columns-repeated="1009" table:default-cell-style-name="ce1"/>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell/>
+     <table:table-cell table:style-name="ce4" table:number-columns-repeated="5"/>
+     <table:table-cell table:number-columns-repeated="1018"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell/>
+     <table:table-cell table:style-name="ce4" table:number-columns-repeated="2"/>
+     <table:table-cell table:style-name="ce4" office:value-type="string" calcext:value-type="string">
+      <text:p>■</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce4" table:number-columns-repeated="2"/>
+     <table:table-cell table:number-columns-repeated="1018"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell/>
+     <table:table-cell table:style-name="ce4" table:number-columns-repeated="3"/>
+     <table:table-cell table:style-name="ce4" office:value-type="string" calcext:value-type="string">
+      <text:p>■</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce4"/>
+     <table:table-cell table:number-columns-repeated="1018"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell/>
+     <table:table-cell table:style-name="ce4"/>
+     <table:table-cell table:number-columns-repeated="3" table:style-name="ce4" office:value-type="string" calcext:value-type="string">
+      <text:p>■</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce4"/>
+     <table:table-cell table:number-columns-repeated="1018"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell/>
+     <table:table-cell table:style-name="ce4" table:number-columns-repeated="5"/>
+     <table:table-cell table:number-columns-repeated="1018"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1" table:number-rows-repeated="1048570">
+     <table:table-cell table:number-columns-repeated="1024"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell table:number-columns-repeated="1024"/>
+    </table:table-row>
+   </table:table>
+   <table:named-expressions/>
+  </office:spreadsheet>
+ </office:body>
+</office:document>
