@@ -264,8 +264,7 @@ end function
 
 rem --------------------------------
 
-' TODO retval を使っていないなら sub にすると良さそう
-function read_eval(repl_env, line_)
+function read_eval(repl_env, line_ As String)
     ' ON_ERROR_TRY
 
     Utils.log0 "-->> read_eval()"
@@ -274,7 +273,6 @@ function read_eval(repl_env, line_)
     dim ast
     ast = READ_(line_)
     
-    ' TODO 例外機構に任せた方がよい？
     if input_cont_p then
         Utils.log0 "input continued: skip eval and print"
         read_eval = null
@@ -292,7 +290,7 @@ end function
 
 rem --------------------------------
 
-sub REP(repl_env, line_)
+sub REP(repl_env, line_ As String)
     ' ON_ERROR_TRY
 
     Utils.log0 "-->> REP()"
@@ -519,7 +517,7 @@ function is_macro_call(ast, env)
     dim val
     val = MalEnv.get_(env, head)
     
-    if not MalFunction.is_mal_function(val) then ' TODO IsNull とかの方が適切かも？
+    if not MalFunction.is_mal_function(val) then
         is_macro_call = false
         exit function
     end if
@@ -1015,7 +1013,7 @@ function _eval_inner(ast, env)
       f = MalList.head(el)
       args = MalList.rest(el)
 
-      if type_name_ex(f) = "MalFunction" then ' TODO Use type_name
+      if MalFunction.is_mal_function(f) then
           ast = f.body
           env = MalFunction_gen_env(f, args) rem TODO
       else
@@ -1143,13 +1141,12 @@ sub _run
     ' logbox.string = " "
 
     log_path = environ("FILE_LOG")
-    file_clear log_path
+    ' file_clear log_path
     
     box_clear "output"
     
     dim result
     result = read_eval(repl_env, src)
-    Utils.logkv0 "1489 result", result
     
     ' 一番外側の try/catch に相当
     Utils.log0 "-->> check error (gui mode top)"
@@ -1162,7 +1159,6 @@ sub _run
     ' box_output.string = Printer._pr_str(result, false)
     dim out_str
     out_str = Printer._pr_str(result, false)
-    Utils.logkv0 "1500 out_str", out_str
     Utils.box_append("output", "=> " & out_str)
 
     ' ThisComponent.UnlockControllers()

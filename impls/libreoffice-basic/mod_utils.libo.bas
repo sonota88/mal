@@ -105,9 +105,9 @@ function inspect(val) as string
         rv = MalEnv_inspect(val)
       elseif otn = MalNamedFunction_type_name then
         rv = MalNamedFunction_inspect(val)
-      elseif otn = "MalFunction" then
+      elseif otn = MalFunction.type_name then
         rv = MalFunction_inspect(val)
-      elseif otn = "MalAtom" then
+      elseif otn = MalAtom.type_name then
         rv = MalAtom_inspect(val)
       elseif otn = "Token" then
         rv = Token_inspect(val)
@@ -396,22 +396,22 @@ sub print_status(st)
 end sub
 
 
-function file_read(path)
-  ' ON_ERROR_TRY
-  dim icount as integer
-  dim text2 as string
-  iCount = Freefile
-  open path for binary access Read as #iCount
-
-  seek(#icount, 1)
-  get(#icount, , text2)
-
-  close #iCount
-
-  file_read = text2
-
-  ' ON_ERROR_CATCH
-end function
+' function file_read(path)
+'   ' ON_ERROR_TRY
+'   dim icount as integer
+'   dim text2 as string
+'   iCount = Freefile
+'   open path for binary access Read as #iCount
+' 
+'   seek(#icount, 1)
+'   get(#icount, , text2)
+' 
+'   close #iCount
+' 
+'   file_read = text2
+' 
+'   ' ON_ERROR_CATCH
+' end function
 
 
 sub file_write(path, str as string)
@@ -550,7 +550,7 @@ sub print_output_stdout(msg)
         next
     end if
     
-    if environ("RUN_MODE") = "gui" then
+    if is_gui() then
         box_append("output", msg2)
     else
         dim path
@@ -561,7 +561,7 @@ end sub
 
 
 sub print_output_stderr(msg)
-    if environ("RUN_MODE") = "gui" then
+    if is_gui() then
         box_append("output", msg)
     else
         dim path
@@ -609,9 +609,11 @@ function notify_wrapper(stdout, stderr, command) as string
 
     dim resp as string
 
-    Utils.logkv0 "613", environ("FILE_OUT")
-    file_clear(environ("FILE_OUT"))
-    Utils.log0 "615"
+    if not is_gui() then
+        Utils.logkv0 "613", environ("FILE_OUT")
+        file_clear(environ("FILE_OUT"))
+        Utils.log0 "615"
+    end if
 
     if not IsNull(stdout) then
         print_output_stdout(stdout)
@@ -621,7 +623,7 @@ function notify_wrapper(stdout, stderr, command) as string
         print_output_stderr(stderr)
     end if
     
-    if environ("RUN_MODE") = "gui" then
+    if is_gui() then
         exit function
     end if
     
@@ -656,3 +658,13 @@ function format_err_msg(text, err_, erl_, error_) as String
 
     format_err_msg = rv
 end function
+
+
+Function is_test As Boolean
+    is_test = (environ("IS_TEST") = "1")
+End Function
+
+
+Function is_gui As Boolean
+    is_gui = (environ("RUN_MODE") <> "cli")
+End Function

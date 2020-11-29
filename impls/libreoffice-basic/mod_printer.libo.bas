@@ -58,9 +58,9 @@ function _pr_str(val, optional print_readably as boolean)
       rv = MalMap_pr_str(val, _r)
     elseif obj_typename(val) = MalNamedFunction_type_name then
       rv = MalNamedFunction_inspect(val)
-    elseif obj_typename(val) = "MalFunction" then
+    elseif obj_typename(val) = MalFunction.type_name then
       rv = MalFunction_inspect(val)
-    elseif obj_typename(val) = "MalAtom" then
+    elseif obj_typename(val) = MalAtom.type_name then
       rv = MalAtom_inspect(val)
     elseif obj_typename(val) = "Token" then
       ' TODO Token は渡ってこないはずなので消してよさそう

@@ -354,8 +354,7 @@ def main_argv_mode
   libo_up
   wait_command "SETUP_DONE"
 
-  # libo からの命令を待ち受けるモードに入る
-
+  # libo からの命令を待ち受け
   loop do
     file_wait FILES.DONE, 60 * 60
     cmd_from_libo = File.read(FILES.DONE)
@@ -381,7 +380,7 @@ def main_argv_mode
       $exit_status = $1.to_i
       break
     else
-      p ["369", cmd_from_libo]; exit 1
+      $stderr.puts "ERROR: unexpected command: " + cmd_from_libo.inspect
     end
   end
 end
@@ -393,8 +392,7 @@ def main
   libo_up
   wait_command "SETUP_DONE"
 
-  # libo からの命令を待ち受けるモードに入る
-
+  # libo からの命令を待ち受け
   loop do
     file_wait FILES.DONE, nil
     cmd_from_libo = File.read(FILES.DONE)
@@ -427,7 +425,7 @@ def main
       break
 
     else
-      p ["523", cmd_from_libo]; exit 1 # TODO おそらくタイミング依存で発生する。あとでちゃんと調べて直すこと。
+      $stderr.puts "ERROR: unexpected command: " + cmd_from_libo.inspect
     end
   end
 end
@@ -502,5 +500,16 @@ def start_repl(step)
     puts_e "<<---- ensure"
 
     exit $exit_status
+  end
+end
+
+if $0 == __FILE__
+  cmd = ARGV.shift
+  case cmd
+  when "render"
+    render_fods ARGV[0]
+  else
+    $stderr.puts "invalid command"
+    exit 1
   end
 end

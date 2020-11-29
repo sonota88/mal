@@ -58,11 +58,11 @@ function MalNamedFunction_to_map_key(fname)
 end function
 
 
-function MalNamedFunction_is_fname(val)
-    Utils.log1 "-->> MalNamedFunction_is_fname()"
+function is_named_function(val)
+    ' Utils.log1 "-->> MalNamedFunction.is_named_function()"
     dim rv
 
     rv = (type_name_ex(val) = MalNamedFunction_type_name)
 
-    MalNamedFunction_is_fname = rv
+    is_named_function = rv
 end function

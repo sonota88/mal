@@ -1,3 +1,3 @@
-require_relative "libo_v2"
+require_relative "libo"
 
 start_repl "2"

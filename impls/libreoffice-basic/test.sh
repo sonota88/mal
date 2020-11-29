@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -o errexit
+
 src_step="$1"; shift
 test_step="$1"; shift
 
@@ -6,6 +10,7 @@ test_step="$1"; shift
 export NO_COLOR=1
 export LIBO_HEADLESS=1
 export ENABLE_LOG=0
+export RUN_MODE=cli
 
 # 1: テストに不要な出力を出さないようにするなど
 #   テストを通すための措置

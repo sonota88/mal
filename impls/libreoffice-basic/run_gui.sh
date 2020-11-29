@@ -10,6 +10,6 @@ export LOG_MODE=file
 export ENABLE_LOG=0
 export RUN_MODE=gui
 
-ruby render_fods.rb "A"
+ruby libo.rb render "A"
 
 libreoffice z_000.fods

@@ -154,47 +154,33 @@ function dispatch_func(f, args, env)
 
     ' step 6
     ElseIf f.id = "read-string" then
-        ' Utils.log2 "apply 671"
         rv = Core.read_string(args)
     ElseIf f.id = "slurp" then
-        ' Utils.log2 "apply 681 slurp"
         rv = Core.slurp(args)
     ElseIf f.id = "str" then
-        ' Utils.log2 "apply 720 str"
         rv = Core.str_(args)
     ElseIf f.id = "atom" then
-        ' Utils.log2 "apply 721 atom"
         rv = MalAtom.create(MalList.get_(args, 0))
     ElseIf f.id = "atom?" then
-        ' Utils.log2 "apply 724 atom?"
         rv = Core.atom_p(MalList.get_(args, 0))
     ElseIf f.id = "deref" then
-        ' Utils.log2 "apply 727 deref"
         rv = Core.deref(MalList.get_(args, 0))
     ElseIf f.id = "reset!" then
-        ' Utils.log2 "apply 730 reset!"
         rv = Core.reset(args)
     ElseIf f.id = "swap!" then
-        ' Utils.log2 "apply 733 swap!"
         rv = Core.swap(args)
 
     ' step 7
     ElseIf f.id = "cons" then
-        ' Utils.log2 "apply 817 cons"
         rv = Core.cons(args)
-        ' Utils.log2 "apply 988 <<-- cons"
-        ' Utils.logkv2 "989 rv", rv
 
     ElseIf f.id = "concat" then
-        ' Utils.log2 "apply 821 concat"
         rv = Core.concat(args)
 
     ' step 8 deferrable
     ElseIf f.id = "first" then
-        ' Utils.log2 "apply 144 first"
         rv = first(args)
     ElseIf f.id = "rest" then
-        ' Utils.log2 "apply 147 rest"
         rv = rest(args)
 
     ' step 9
@@ -354,13 +340,10 @@ function dispatch_func(f, args, env)
         rv = Core__file_write(args)
 
     ElseIf f.id = "eval" then
-        ' Utils.log2 "apply 693 eval"
-        ' Utils.logkv2 "args", args
-        ' Utils.logkv2 "ast", MalList.get_(args, 0)
         rv = EVAL(MalList.get_(args, 0), f.env)
 
     else
-        Utils.panic "377 unknown func"
+        Utils.panic "unknown function"
     end if
 
     dispatch_func = rv
@@ -461,7 +444,7 @@ end function
 
 
 function prn(args)
-    Utils.log1 "-->> core.prn()"
+    ' Utils.log1 "-->> core.prn()"
     dim out as string
     out = ""
 
@@ -484,8 +467,8 @@ end function
 
 ' step A self host
 function println(args)
-    Utils.log1 "-->> core.println()"
-    Utils.logkv1 "198 -->> core.println args", args
+    ' Utils.log1 "-->> core.println()"
+
     dim out as string
     out = ""
 
@@ -499,16 +482,14 @@ function println(args)
         out = out & _pr_str(arg, False)
         i = i + 1
     loop
-    Utils.logkv1 "211 -->> core.println out", out
 
-    if environ("RUN_MODE") = "gui" then
+    if Utils.is_gui() then
         print_output_stdout out
     else
         notify_wrapper(out, null, "PRINT_OUTPUT")
     end if
 
     println = null
-    Utils.log1 "<<-- core.println()"
 end function
 
 rem --------------------------------
@@ -649,8 +630,8 @@ end function
 
 ' --------------------------------
 
-function atom_p(val)
-    atom_p = (type_name_ex(val) = "MalAtom") ' TODO use is_xxx()
+function atom_p(val) As Boolean
+    atom_p = MalAtom.is_atom(val)
 end function
 
 
@@ -1213,7 +1194,7 @@ function is_fn(args) as boolean
     dim arg
     arg = MalList.head(args)
 
-    if MalNamedFunction_is_fname(arg) then
+    if MalNamedFunction.is_named_function(arg) then
         is_fn = True
         exit function
     end if
@@ -1226,14 +1207,14 @@ function is_fn(args) as boolean
     rv = False
     
     ' rv = ( _
-    '   (    MalNamedFunction_is_fname(arg) _
+    '   (    MalNamedFunction.is_named_function(arg) _
     '     or  _
     '   ) _
     '   and not arg.is_macro _
     ' )
 
     ' rv = ( _
-    '      MalNamedFunction_is_fname(arg) _
+    '      MalNamedFunction.is_named_function(arg) _
     '   or (MalFunction.is_mal_function(arg) and not arg.is_macro) _
     ' )
 
@@ -1244,9 +1225,14 @@ end function
 function readline(prompt)
     dim rv
 
-    dim resp, file_done_temp
-
-    resp = notify_wrapper(null, null, "READLINE " & prompt)
+    Dim resp As String
+    Dim file_done_temp
+    
+    If Utils.is_gui() Then
+        resp = InputBox(prompt, "readline")
+    Else
+        resp = notify_wrapper(null, null, "READLINE " & prompt)
+    End If
     
     Utils.logkv1 "Core.readline resp", resp
     rv = resp
@@ -1298,7 +1284,7 @@ function clone(val)
         rv = MalVector.clone(val)
     case MalMap.type_name
         rv = MalMap.clone(val)
-    case "MalFunction"
+    case MalFunction.type_name
         rv = MalFunction.clone(val)
         Utils.logkv0 "cloned", rv
     case else
@@ -1346,8 +1332,6 @@ end function
 
 function _apply_func(f, args)
     Utils.log2 "-->> _apply_func()"
-    ' Utils.logkv3 "548 f", f
-    ' Utils.logkv3 "549 args", args
 
     dim rv
     
@@ -1356,14 +1340,13 @@ function _apply_func(f, args)
         ' CHECK_MAL_ERROR
     end if
     
-    ' Utils.logkv3 "497 type", type_name_ex(f)
-    if type_name_ex(f) = MalNamedFunction_type_name then ' TODO use is_xxx()
-        Utils.log2 "... MalNamedFunction"
+    If MalNamedFunction.is_named_function(f) Then
+        ' Utils.log2 "... MalNamedFunction"
 
         rv = apply(f, args, MalEnv.new_())
         
-    ElseIf type_name_ex(f) = "MalFunction" then ' TODO use is_xxx()
-        Utils.log2 "... MalFunction"
+    ElseIf MalFunction.is_mal_function(f) Then
+        ' Utils.log2 "... MalFunction"
 
         dim env2
         env2 = MalFunction_gen_env(f, args)
@@ -1371,7 +1354,7 @@ function _apply_func(f, args)
         rv = EVAL(f.body, env2)
 
     else
-        Utils.panic "invalid function"
+        panic "invalid function"
     end if
 
     _apply_func = rv
