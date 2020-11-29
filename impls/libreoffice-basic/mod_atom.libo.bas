@@ -34,6 +34,6 @@ Function MalAtom_inspect(self)
 End Function
 
 
-Function is_atom As Boolean
+Function is_atom(val) As Boolean
     is_atom = (type_name_ex(val) = type_name)
 End Function

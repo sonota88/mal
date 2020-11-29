@@ -343,7 +343,7 @@ function dispatch_func(f, args, env)
         rv = EVAL(MalList.get_(args, 0), f.env)
 
     else
-        Utils.panic "unknown function"
+        panic "unknown function"
     end if
 
     dispatch_func = rv
@@ -458,10 +458,10 @@ function prn(args)
         out = out & _pr_str(arg, True)
         i = i + 1
     loop
-    notify_wrapper out, null, "PRINT_OUTPUT"
+
+    ext_command(out, null, "PRINT")
 
     prn = null
-    Utils.log1 "<<-- core.prn()"
 end function
 
 
@@ -484,9 +484,9 @@ function println(args)
     loop
 
     if Utils.is_gui() then
-        print_output_stdout out
+        print_stdout out
     else
-        notify_wrapper(out, null, "PRINT_OUTPUT")
+        ext_command(out, null, "PRINT")
     end if
 
     println = null
@@ -598,17 +598,17 @@ end function
 
 
 function slurp(args)
-    Utils.log2 "-->> slurp"
+    ' Utils.log2 "-->> slurp"
     dim rv
 
     dim path
     path = _to_fullpath(MalList.get_(args, 0))
     
     if not FileExists(path) then
-        Utils.panic "file not found: " & path
+        panic "file not found: " & path
     end if
 
-    rv = file_read_v2(path)
+    rv = file_read(path)
 
     slurp = rv
 end function
@@ -1231,7 +1231,7 @@ function readline(prompt)
     If Utils.is_gui() Then
         resp = InputBox(prompt, "readline")
     Else
-        resp = notify_wrapper(null, null, "READLINE " & prompt)
+        resp = ext_command(null, null, "READLINE " & prompt)
     End If
     
     Utils.logkv1 "Core.readline resp", resp

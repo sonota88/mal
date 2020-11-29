@@ -86,7 +86,7 @@ function set_(self, key, value)
     elseif tn = MalNamedFunction_type_name then
         MalMap.put(self.data, key, value)
     else
-        Utils.panic "not_yet_impl (MalEnv.set_)"
+        panic "not_yet_impl (MalEnv.set_)"
     end if
 
     rv = value

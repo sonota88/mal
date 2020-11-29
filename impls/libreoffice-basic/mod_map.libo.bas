@@ -198,7 +198,7 @@ function _to_map_key(val) as String
         case MalNamedFunction_type_name
             rv = MalNamedFunction_to_map_key(val)
         case else
-            Utils.panic "not_yet_impl"
+            panic "not_yet_impl"
     end select
 
     _to_map_key = rv
@@ -242,23 +242,6 @@ end function
 function Keyword_to_map_key(kw) as String
   'Utils.log1 "-->> Keyword_to_map_key"
   Keyword_to_map_key = "kw:" & substring(kw, 1)
-end function
-
-
-' TODO core からも使っているので、 utils かどこかに移動
-function Keyword_is_keyword(kw) as Boolean
-    ' Utils.log1 "-->> Keyword_is_keyword"
-    dim rv
-
-    if type_name_ex(kw) <> "String" then
-        rv = false
-        Keyword_is_keyword = rv
-        exit function
-    end if
-    
-    rv = (char_at(kw, 0) = kw_marker())
-
-    Keyword_is_keyword = rv
 end function
 
 

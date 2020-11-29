@@ -67,6 +67,24 @@ def file_wait(path, timeout_sec = 5)
   end
 end
 
+def file_wait_deletion(path, timeout_sec = 5)
+  t0 = Time.now
+  interval_sec = 0.01
+
+  loop do
+    sleep interval_sec
+    interval_sec += 0.01
+
+    break unless File.exist?(path)
+
+    unless timeout_sec.nil?
+      if timeout_sec < Time.now - t0
+        raise "timeout"
+      end
+    end
+  end
+end
+
 def check_pid
   return unless $__debug
 
@@ -88,7 +106,7 @@ def escape(str)
     .gsub("'", "&apos;")
 end
 
-def proc_throw(src)
+def preprocess(src)
   proc_type = nil
   proc_name = nil
 
@@ -168,7 +186,7 @@ def embed_sample_mal(text, mal_code)
 end
 
 def render_fods(step)
-  template = File.read("template_v5.fods")
+  template = File.read("template.fods")
 
   src_step =
     if ENV.key?("SRC_STEP")
@@ -178,21 +196,21 @@ def render_fods(step)
     end
   bas_file = Dir.glob("step#{src_step}_*.libo.bas").to_a[0]
 
-  basic_src = escape(proc_throw(File.read(bas_file)))
+  basic_src = escape(preprocess(File.read(bas_file)))
 
-  basic_src_utils          = escape(proc_throw(File.read("mod_utils.libo.bas"))    )
-  basic_src_list           = escape(proc_throw(File.read("mod_list.libo.bas"))     )
-  basic_src_vector         = escape(proc_throw(File.read("mod_vector.libo.bas"))   )
-  basic_src_map            = escape(proc_throw(File.read("mod_map.libo.bas"))      )
-  basic_src_env            = escape(proc_throw(File.read("mod_env.libo.bas"))      )
-  basic_src_symbol         = escape(proc_throw(File.read("mod_symbol.libo.bas"))   )
-  basic_src_reader         = escape(proc_throw(File.read("mod_reader.libo.bas"))   )
-  basic_src_printer        = escape(proc_throw(File.read("mod_printer.libo.bas" )) )
-  basic_src_core           = escape(proc_throw(File.read("mod_core.libo.bas"    )) )
-  basic_src_function       = escape(proc_throw(File.read("mod_function.libo.bas")) )
-  basic_src_named_function = escape(proc_throw(File.read("mod_named_function.libo.bas")) )
-  basic_src_atom           = escape(proc_throw(File.read("mod_atom.libo.bas"))     )
-  basic_src_calc           = escape(proc_throw(File.read("mod_calc.libo.bas"))     )
+  basic_src_utils          = escape(preprocess(File.read("mod_utils.libo.bas"))    )
+  basic_src_list           = escape(preprocess(File.read("mod_list.libo.bas"))     )
+  basic_src_vector         = escape(preprocess(File.read("mod_vector.libo.bas"))   )
+  basic_src_map            = escape(preprocess(File.read("mod_map.libo.bas"))      )
+  basic_src_env            = escape(preprocess(File.read("mod_env.libo.bas"))      )
+  basic_src_symbol         = escape(preprocess(File.read("mod_symbol.libo.bas"))   )
+  basic_src_reader         = escape(preprocess(File.read("mod_reader.libo.bas"))   )
+  basic_src_printer        = escape(preprocess(File.read("mod_printer.libo.bas" )) )
+  basic_src_core           = escape(preprocess(File.read("mod_core.libo.bas"    )) )
+  basic_src_function       = escape(preprocess(File.read("mod_function.libo.bas")) )
+  basic_src_named_function = escape(preprocess(File.read("mod_named_function.libo.bas")) )
+  basic_src_atom           = escape(preprocess(File.read("mod_atom.libo.bas"))     )
+  basic_src_calc           = escape(preprocess(File.read("mod_calc.libo.bas"))     )
   mal_sample_code = File.read("sample.mal")
 
   template = embed_src(template, "rem __BASIC_SRC__"               , "\n" + basic_src)
@@ -279,6 +297,9 @@ def write_msg_to_libo(msg)
   file_in_temp = FILES.IN + ".temp"
   file_write(file_in_temp, msg)
   FileUtils.mv file_in_temp, FILES.IN
+
+  # wait ack
+  file_wait_deletion FILES.IN
 end
 
 def wait_command(cmd)
@@ -342,10 +363,10 @@ def respond_to_libo(msg)
   write_msg_to_libo msg
 end
 
-def main_argv_mode
+def main_argv_mode(args)
   File.open(FILES.ARGS, "wb") { |f|
     f.puts ARGV.size
-    ARGV.each { |arg| f.puts arg }
+    args.each { |arg| f.puts arg }
   }
 
   file_rm FILES.DONE
@@ -372,7 +393,7 @@ def main_argv_mode
       line = _readline(prompt)
       respond_to_libo(line)
 
-    elsif /^PRINT_OUTPUT$/ =~ cmd_from_libo
+    elsif /^PRINT$/ =~ cmd_from_libo
       # 出力は上の print_output で済んでいる
       respond_to_libo("print output done")
 
@@ -415,7 +436,7 @@ def main
         respond_to_libo(line)
       end
 
-    elsif /^PRINT_OUTPUT$/ =~ cmd_from_libo
+    elsif /^PRINT$/ =~ cmd_from_libo
       # 出力は上の print_output で済んでいる
       respond_to_libo("print output done")
 
@@ -452,7 +473,7 @@ def setup
   ENV["AUTO_CLOSE"] = "1"
 end
 
-def start_repl(step)
+def start_repl(step, args)
   setup()
 
   Signal.trap(:INT) do
@@ -480,9 +501,9 @@ def start_repl(step)
 
     file_rm FILES.ARGS
 
-    if 0 < ARGV.size
+    if 0 < args.size
       puts_e "argv mode"
-      main_argv_mode()
+      main_argv_mode(ARGV)
 
       shutdown(args_p: true)
     else
@@ -506,6 +527,11 @@ end
 if $0 == __FILE__
   cmd = ARGV.shift
   case cmd
+  when "step"
+    arg_step = ARGV.shift
+    /^step(.)/ =~ arg_step
+    step = $1
+    start_repl(step, ARGV)
   when "render"
     render_fods ARGV[0]
   else

@@ -73,9 +73,9 @@ sub setup(argv, repl_env)
     Utils.log0 ""
 
     if environ("IS_TEST") = "1" then
-        notify_wrapper null, null, "SETUP_DONE"
+        ext_command null, null, "SETUP_DONE"
     else
-        notify_wrapper null, "setup done", "SETUP_DONE"
+        ext_command null, "setup done", "SETUP_DONE"
     end if
 end sub
 
@@ -101,9 +101,9 @@ Sub Main
         _main_file(repl_env, argv)
         
         if environ("IS_TEST") = "1" then
-            notify_wrapper(null, null, "EXIT 0")
+            ext_command(null, null, "EXIT 0")
         else
-            notify_wrapper(null, "bye", "EXIT 0")
+            ext_command(null, "bye", "EXIT 0")
         end if
     else
         Utils.log0 "mode: normal"
@@ -125,8 +125,7 @@ on_error__Main:
   dim msg
   msg = format_err_msg("Main", err, erl, error$)
   
-  print_output_stderr msg
-  print_status "EXIT 1"
+  ext_command(null, msg, "EXIT 1")
   
   if environ("AUTO_CLOSE") = "1" then
       ThisComponent.close(true)
@@ -144,7 +143,7 @@ sub _main_file(repl_env, argv)
     ' 一番外側の try/catch に相当
     Utils.log0 "-->> check error (argv mode top)"
     if mal_error_exists() then
-        print_output_stderr("Error: " & Printer._pr_str(mal_error, true))
+        print_stderr("Error: " & Printer._pr_str(mal_error, true))
     end if
     Utils.log0 "<<-- check error (argv mode top)"
 end sub
@@ -167,7 +166,7 @@ sub _main_repl(repl_env)
 
         dim result
         if text = "exit" then
-            notify_wrapper(null, "bye", "EXIT 0")
+            ext_command(null, "bye", "EXIT 0")
             Utils.log0 "181 exit do"
             exit do
         else
@@ -183,8 +182,8 @@ sub _main_repl(repl_env)
                 dim msg
                 msg = "Error: " & Printer._pr_str(mal_error, true)
                 Utils.log0 msg
-                ' print_output_stderr(msg)
-                notify_wrapper(null, msg, "PRINT_OUTPUT")
+                ' print_stderr(msg)
+                ext_command(null, msg, "PRINT")
             end if
             Utils.log0 "<<-- check error (top)"
         end if
@@ -214,7 +213,7 @@ function get_argv
     end if
 
     dim lines
-    lines = split(file_read_v2(path), lf())
+    lines = split(file_read(path), lf())
 
     dim argc
     argc = CInt(lines(0))
@@ -314,7 +313,7 @@ sub PRINT_(exp)
   Utils.log0 "-->> PRINT_"
   dim str As String
   str = Printer._pr_str(exp, True)
-  notify_wrapper(str, null, "PRINT_OUTPUT")
+  ext_command(str, null, "PRINT")
 end sub
 
 rem --------------------------------
@@ -1151,7 +1150,7 @@ sub _run
     ' 一番外側の try/catch に相当
     Utils.log0 "-->> check error (gui mode top)"
     if mal_error_exists() then
-        ' print_output_stderr("Error: " & Printer._pr_str(mal_error, true))
+        ' print_stderr("Error: " & Printer._pr_str(mal_error, true))
         result = mal_error
     end if
     Utils.log0 "<<-- check error (gui mode top)"

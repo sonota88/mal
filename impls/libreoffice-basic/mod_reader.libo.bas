@@ -8,22 +8,23 @@ dim pos
 rem --------------------------------
 
 function get_ident_size(str)
-  Utils.log3 "-->> get_ident_size()"
+  ' Utils.log3 "-->> get_ident_size()"
   dim rv
-  dim i
-  dim DQ
-  DQ = chr(34)
-  
+  Dim i As Integer
+
+  Dim DQ_ As String
+  DQ_ = dq()
+
+  Dim non_ident_chars As String
+  non_ident_chars = " []{}('`,;)" & lf()
+
+  Dim c As String
   i = 0
   do while i < len(str)
-    ' Utils.logkv3 "i", i
-    dim c
     c = char_at(str, i)
-    ' Utils.logkv3 "c", c
-    ' if instr("abcdefghijklmnopqrstuvwxyzABC123-", c) = 0 then
-    if str_include(" []{}('`,;)" & lf(), c) then
+    if str_include(non_ident_chars, c) then
       exit do
-    elseif c = DQ then	
+    elseif c = DQ_ then
     end if
     i = i + 1
   loop
@@ -34,7 +35,7 @@ end function
 
 
 function _consume_str(rest)
-  Utils.log3 "-->> _consume_str()"
+  ' Utils.log3 "-->> _consume_str()"
   dim rv
   
   if char_at(rest, 0) <> dq() then
@@ -63,7 +64,7 @@ end function
 
 
 function _consume_comment(rest)
-  Utils.log3 "-->> _consume_comment()"
+  ' Utils.log3 "-->> _consume_comment()"
   dim rv
   
   dim pos, c, s
@@ -84,7 +85,7 @@ end function
 
 
 function _unescape_str(str)
-  Utils.logkv3 "-->> _unescape_str()", str
+  ' Utils.logkv3 "-->> _unescape_str()", str
   dim rv
   dim pos, c, s
 
@@ -96,7 +97,7 @@ function _unescape_str(str)
           exit do
       elseif c = bs() then
           if pos = len(str) - 2 then rem TODO
-              ' Utils.panic "expected '" & dq() & "', got EOF"
+              ' panic "expected '" & dq() & "', got EOF"
               throw "expected '" & dq() & "', got EOF"
               ' CHECK_MAL_ERROR
           end if
@@ -119,15 +120,13 @@ function _unescape_str(str)
       end if
   loop
 
-  Utils.logkv3 "  93 unescape result", s
-  
   rv = s
   _unescape_str = rv
 end function
 
 
 function tokenize(str)
-  Utils.log2 "-->> tokenize()"
+  ' Utils.log2 "-->> tokenize()"
 
   dim pos, rest_
   dim ts, size
@@ -136,9 +135,7 @@ function tokenize(str)
   ts = MalList.new_()
 
   do while pos < len(str)
-    ' Utils.log3 "-->> tokenize() 34"
     rest_ = substring(str, pos)
-    ' Utils.logkv3 "139 rest_", rest_
     if left(rest_, 2) = "~@" then
       size = 2
       MalList.add(ts, left(rest_, size))
@@ -151,27 +148,21 @@ function tokenize(str)
       pos = pos + size
 
     elseif 0 < _consume_str(rest_) then
-      ' Utils.log3 "  match => String"
       size = _consume_str(rest_)
       MalList.add(ts, left(rest_, size))
       pos = pos + size
   
     elseif left(rest_, 1) = ";" then
-      ' Utils.log3 "  match => Comment"
       size = _consume_comment(rest_)
-      ' MalList.add(ts, left(rest_, size))
       pos = pos + size
   
     else
-      'Utils.log3 "-->> tokenize() 44"
-      ' Utils.logkv3 "68 rest_", rest_
       size = get_ident_size(rest_)
-      ' Utils.logkv3 "69 size", size
       if 0 < size then
         MalList.add(ts, left(rest_, size))
         pos = pos + size
       else
-          Utils.panic "not_yet_impl"
+          panic "not_yet_impl"
       end if
     end if
   loop
@@ -198,10 +189,8 @@ function next_()
   pos = pos + 1
 
   if tokens.size < pos then
-    ' Utils.log3 "-->> next_() 40"
     rv = null
   else
-    ' Utils.log3 "-->> next_() 43 pos=" & pos
     rv = MalList.get_(tokens, pos - 1)
   end if
 
@@ -233,7 +222,7 @@ end function
 
 function read_map
     ' ON_ERROR_TRY
-    Utils.log1 "-->> read_map()"
+    ' Utils.log1 "-->> read_map()"
     dim rv
 
     dim map, k, v
@@ -242,7 +231,6 @@ function read_map
     next_()
 
     do while True
-        ' Utils.logkv0 "237 peek", peek()
         if peek() = "}" then
             next_()
             exit do
@@ -264,41 +252,24 @@ end function
 function read_atom()
   ' ON_ERROR_TRY
 
-  Utils.log3 "-->> read_atom()"
+  ' Utils.log3 "-->> read_atom()"
   dim rv
   dim token
 
-  ' dim i
-  ' for i = 0 to tokens.size - 1
-  '     Utils.log1 i
-  '     Utils.log1 MalList.get_(tokens, i)
-  ' next
-
-  ' Utils.log3 "  t0=" & MalList.get_(tokens, 0)
-  ' Utils.log3 "  pos=" & pos
-  
   token = next_()
-  Utils.logkv3 "-->> read_atom() 245 token", token
-  ' Utils.logkv3 "  ---- token", token
-  ' Utils.logkv3 "  pos", pos
-  ' Utils.logkv3 "  token[0]", char_at(token, 0)
-  ' Utils.logkv3 "  len token", len(token)
-  ' Utils.logkv3 "  token[-1]", char_at(token, len(token) - 1)
 
   if token = "nil" then
       rv = null
   elseif is_int(token) then
-      Utils.log3 "... int"
       rv = CInt(token)
-      Utils.logkv3 "... int done", rv
   elseif token = dq() then
-      ' Utils.panic "expected '" & dq() & "', got EOF"
+      ' panic "expected '" & dq() & "', got EOF"
       throw "expected '" & dq() & "', got EOF"
   elseif char_at(token, 0) = dq() then
       if char_at(token, len(token) - 1) = dq() then
           rv = _unescape_str(token)
       else
-          ' Utils.panic "expected '" & dq() & "', got EOF"
+          ' panic "expected '" & dq() & "', got EOF"
           throw "expected '" & dq() & "', got EOF"
       end if
   elseif char_at(token, 0) = ":" then
@@ -312,8 +283,6 @@ function read_atom()
   end if
   ' CHECK_MAL_ERROR
 
-  Utils.log3 "-->> read_atom() 59"
-  
   read_atom = rv
 
   ' ON_ERROR_CATCH
@@ -346,7 +315,6 @@ function read_list(klass, start, last)
       end if
       
     t = peek()
-    Utils.logkv3 "183 read_list", t
     if t = last then
       exit do
     end if
@@ -358,7 +326,6 @@ function read_list(klass, start, last)
 
   rv = ast
 
-  'Utils.logkv3 "<<-- read_list()", rv
   read_list = rv
 end function
 
@@ -368,12 +335,13 @@ function read_form()
   dim rv
   dim form
   
-  ' TODO peek() が何度も呼ばれるので変数にキャッシュするとよいかも
-  if peek() = ";" then
+  Dim c As String
+  c = peek()
+
+  if c = ";" then
     rv = nil
 
-  elseif peek() = "'" then
-    ' Utils.log0 "-->> read_form() 317 quasiquote"
+  elseif c = "'" then
     next_()
 
     form = read_form()
@@ -381,8 +349,7 @@ function read_form()
 
     rv = MalList.from_array(Array(MalSymbol.new_("quote"), form))
 
-  elseif peek() = "`" then
-    ' Utils.log0 "-->> read_form() 317 quasiquote"
+  elseif c = "`" then
       next_()
       
       form = read_form()
@@ -390,8 +357,7 @@ function read_form()
       
       rv = MalList.from_array(Array(MalSymbol.new_("quasiquote"), form))
 
-  elseif peek() = "~" then
-    ' Utils.log0 "-->> read_form() 322 unquote"
+  elseif c = "~" then
     next_()
 
     form = read_form()
@@ -399,8 +365,7 @@ function read_form()
 
     rv = MalList.from_array(Array(MalSymbol.new_("unquote"), form))
 
-  elseif peek() = "~@" then
-    ' Utils.log0 "-->> read_form() 322 unquote"
+  elseif c = "~@" then
     next_()
 
     form = read_form()
@@ -408,7 +373,7 @@ function read_form()
 
     rv = MalList.from_array(Array(MalSymbol.new_("splice-unquote"), form))
 
-  elseif peek() = "@" then
+  elseif c = "@" then
     next_()
 
     form = read_form()
@@ -416,35 +381,30 @@ function read_form()
 
     rv = MalList.from_array(Array(MalSymbol.new_("deref"), form))
 
-  elseif peek() = "(" then
-    ' Utils.log3 "-->> read_form() 95"
+  elseif c = "(" then
     rv = read_list(MalList.type_name, "(", ")")
 
-  elseif peek() = ")" then
+  elseif c = ")" then
     throw "unexpected ')'"
 
-  elseif peek() = "[" then
+  elseif c = "[" then
     rv = read_list(MalVector.type_name, "[", "]")
 
-  elseif peek() = "]" then
+  elseif c = "]" then
     throw "unexpected ']'"
 
-  elseif peek() = "{" then
+  elseif c = "{" then
       rv = read_map()
 
-  elseif peek() = "}" then
+  elseif c = "}" then
     throw "unexpected '}'"
 
   else
-    ' Utils.log3 "-->> read_form() 99"
     rv = read_atom()
-    ' Utils.log3 "-->> read_form() 104"
   end if
   
   ' CHECK_MAL_ERROR
 
-  ' Utils.log3("-->> read_form() 107")
-  Utils.logkv3("<<-- read_form()", rv)
   read_form = rv
 end function
 

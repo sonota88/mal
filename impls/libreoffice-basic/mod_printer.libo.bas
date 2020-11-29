@@ -13,15 +13,17 @@ function _pr_str(val, optional print_readably as boolean)
       _r = print_readably
   end if
   
-  ' Utils.logkv2("  9 isnull", IsNull(val))
-  ' Utils.logkv2("  10 type name", TypeName(val))
-  ' Utils.logkv2("  11 type name ex", Type_Name_ex(val))
-    
   if IsNull(val) then
-    ' Utils.log2("10 isnull => true")
     rv = "nil"
-  elseif TypeName(val) = "String" then
-      if 1 <= len(val) and char_at(val, 0) = chr(&H029e) then
+    _pr_str = rv
+    Exit Function
+  End If
+
+  Dim tn As String
+  tn = TypeName(val)
+
+  If tn = "String" then
+      If Keyword_is_keyword(val) Then
           rv = ":" + substring(val, 1)
       else
           if _r then
@@ -31,45 +33,43 @@ function _pr_str(val, optional print_readably as boolean)
           end if
       end if
 
-  elseif TypeName(val) = "Integer" then
+  elseif tn = "Integer" then
     rv = "" & val
-  elseif TypeName(val) = "Long" then
+  elseif tn = "Long" then
     rv = "" & val
-  elseif TypeName(val) = "Single" then
+  elseif tn = "Single" then
     rv = "" & val
-  elseif TypeName(val) = "Double" then
-    ' Utils.log1 "  21 -->> _pr_str()"
+  elseif tn = "Double" then
     rv = "" & val
-  elseif TypeName(val) = "Boolean" then
+  elseif tn = "Boolean" then
       if val then
           rv = "true"
       else
           rv = "false"
       end if
-  elseif TypeName(val) = "Object" then
-    if obj_typename(val) = MalList.type_name then
-      ' Utils.logkv1 "19 list size", val.size
+  elseif tn = "Object" then
+    Dim otn As String
+    otn = obj_typename(val)
+
+    if otn = MalList.type_name then
       rv = MalList_pr_str(val, _r)
-    elseif obj_typename(val) = MalVector.type_name then
+    elseif otn = MalVector.type_name then
       rv = MalVector_pr_str(val, _r)
-    elseif obj_typename(val) = MalSymbol.type_name then
+    elseif otn = MalSymbol.type_name then
       rv = MalSymbol_inspect(val)
-    elseif obj_typename(val) = MalMap.type_name then
+    elseif otn = MalMap.type_name then
       rv = MalMap_pr_str(val, _r)
-    elseif obj_typename(val) = MalNamedFunction_type_name then
+    elseif otn = MalNamedFunction_type_name then
       rv = MalNamedFunction_inspect(val)
-    elseif obj_typename(val) = MalFunction.type_name then
+    elseif otn = MalFunction.type_name then
       rv = MalFunction_inspect(val)
-    elseif obj_typename(val) = MalAtom.type_name then
+    elseif otn = MalAtom.type_name then
       rv = MalAtom_inspect(val)
-    elseif obj_typename(val) = "Token" then
-      ' TODO Token は渡ってこないはずなので消してよさそう
-      rv = Token_inspect(val)
     else
-      rv = "<unknown_obj (_pr_str)>" & obj_typename(val)
+      rv = "<unknown_obj> " & otn
     end if
   else
-    rv = "<UNKNOWN> " & TypeName(val)
+    rv = "<unknown> " & tn
   end if
 
   _pr_str = rv

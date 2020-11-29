@@ -1,2 +1,2 @@
 #!/bin/bash
-exec ruby $(dirname $0)/${STEP:-stepA_mal}.rb "${@}"
+exec ruby $(dirname $0)/libo.rb step ${STEP:-stepA_mal} "${@}"

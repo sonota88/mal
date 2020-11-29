@@ -167,7 +167,6 @@ function obj_typename(obj)
        
   if rv = MalList.type_name then ' TODO use is_list (?)
       ' MalVector の場合がある
-      ' Utils.logkv3 "149 MalList.typename(obj)", MalList.typename(obj)
       rv = MalList.typename(obj)
   end if
   
@@ -328,14 +327,7 @@ sub panic(msg)
     Utils.logkv0 "PANIC", msg
     Utils.log0   "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 
-    ' TODO ↓ notify_wrapper に置き換え    
-    ' dim path
-    ' path = environ("FILE_ERR")
-    ' file_append(path, "ERR " & msg)
-    print_output_stderr msg
-    print_status "EXIT 1"
-
-    __ERR__
+    ext_command(null, msg, "EXIT 1")
 end sub
 
 
@@ -352,6 +344,7 @@ sub log_error_clear()
 
     close fileno
 end sub
+
 
 sub log_out_clear()
     Utils.log1 "-->> log_out_clear"
@@ -386,33 +379,6 @@ function is_truthy(val) as boolean
 end function
 
 rem --------------------------------
-
-rem 完了フラグも兼ねる
-sub print_status(st)
-  dim file_done as string
-  file_done = environ("FILE_DONE")
-
-  file_write(file_done, st)
-end sub
-
-
-' function file_read(path)
-'   ' ON_ERROR_TRY
-'   dim icount as integer
-'   dim text2 as string
-'   iCount = Freefile
-'   open path for binary access Read as #iCount
-' 
-'   seek(#icount, 1)
-'   get(#icount, , text2)
-' 
-'   close #iCount
-' 
-'   file_read = text2
-' 
-'   ' ON_ERROR_CATCH
-' end function
-
 
 sub file_write(path, str as string)
   ' ON_ERROR_TRY
@@ -459,9 +425,8 @@ sub file_append(path, msg)
 end sub
 
 
-function file_read_v2(path as string)
-  'Utils.log2 "-->> file_read_v2()"
-  'Utils.log2 path
+function file_read(path as string)
+  'Utils.log2 "-->> file_read()"
   dim rv
 
   dim sfa as object
@@ -477,13 +442,10 @@ function file_read_v2(path as string)
   
 
   rv = tis.readString(Array(), false)
-  'Utils.log1 "(_" & s & "_)"
-  'Utils.log1 "(_" & len(s) & "_)"
 
   tis.closeInput()
 
-  file_read_v2 = rv
-  'Utils.log2 "<<-- file_read_v2()"
+  file_read = rv
 end function
 
 
@@ -499,23 +461,36 @@ sub file_rm_if_exists(path)
 end sub
 
 
-' TODO rename => file_wait
-sub wait_file(path)
-    Utils.logkv0 "-->> wait_file", path
+sub file_wait(path)
+    ' Utils.logkv0 "-->> file_wait", path
 
     dim interval_sec
-    interval_sec = 0.1
+    interval_sec = 0.01
     
     do while not FileExists(path)
-        Utils.log3("wait_file: exist ... no => wait " & str(interval_sec))
+        ' Utils.log3("file_wait: exist ... no => wait " & str(interval_sec))
         wait interval_sec * 1000
-        interval_sec = interval_sec + 0.1
+        interval_sec = interval_sec + 0.01
         if 5 <= interval_sec then
             interval_sec = 5
         end if
     loop
 
-    Utils.log1 "wait_file: exist ... yes"
+    ' Utils.log1 "file_wait: exist ... yes"
+end sub
+
+
+sub file_wait_deletion(path)
+    dim interval_sec
+    interval_sec = 0.01
+
+    do while FileExists(path)
+        wait interval_sec * 1000
+        interval_sec = interval_sec + 0.01
+        if 5 <= interval_sec then
+            interval_sec = 5
+        end if
+    loop
 end sub
 
 
@@ -530,12 +505,10 @@ sub box_append(box_name, text)
     dim box
     box = Calc.get_shape_by_name(box_name)
     box.string = box.string & text
-
-    Utils.logkv1 "603 text", text
 end sub
 
 
-sub print_output_stdout(msg)
+sub print_stdout(msg)
     dim msg2 as string
     msg2 = ""
         
@@ -560,7 +533,7 @@ sub print_output_stdout(msg)
 end sub
 
 
-sub print_output_stderr(msg)
+sub print_stderr(msg)
     if is_gui() then
         box_append("output", msg)
     else
@@ -600,53 +573,49 @@ sub reset_mal_error()
 end sub
 
 
-function notify_wrapper(stdout, stderr, command) as string
-    Utils.log0 "-->> notify_wrapper: cmd from libo: " & command
-    Utils.logkv0 "668 stdout", stdout
-    Utils.logkv0 "669 stderr", stderr
+function ext_command(stdout, stderr, command) as string
+    ' Utils.log0 "-->> ext_command: cmd from libo: " & command
 
     dim rv
 
     dim resp as string
 
     if not is_gui() then
-        Utils.logkv0 "613", environ("FILE_OUT")
         file_clear(environ("FILE_OUT"))
-        Utils.log0 "615"
     end if
 
     if not IsNull(stdout) then
-        print_output_stdout(stdout)
+        print_stdout(stdout)
     end if
 
     if not IsNull(stderr) then
-        print_output_stderr(stderr)
+        print_stderr(stderr)
     end if
     
     if is_gui() then
         exit function
     end if
     
-    ' Utils.logkv0 "file_out content", file_read_v2(environ("FILE_OUT"))
-
     dim file_done as string
     dim file_done_temp as string
     file_done = environ("FILE_DONE")
     file_done_temp = file_done & ".temp"
 
     file_write(file_done_temp, command)
-    ' Utils.logkv0 "file_done content", file_read_v2(file_done_temp)
-    ' file_rm file_done
     name file_done_temp as file_done
 
-    wait_file environ("FILE_IN")
-    resp = file_read_v2(environ("FILE_IN"))
-    file_rm(environ("FILE_IN")) ' 読んだら消す
+    ' wait ack
+    file_wait_deletion file_done
+
+    Dim file_msg_to_libo As String
+    file_msg_to_libo = environ("FILE_IN")
+
+    file_wait(file_msg_to_libo)
+    resp = file_read(file_msg_to_libo)
+    file_rm(file_msg_to_libo)
     
     rv = resp
-    notify_wrapper = rv
-
-    Utils.log0 "<<-- notify_wrapper: cmd from libo"
+    ext_command = rv
 end function
 
 
@@ -668,3 +637,24 @@ End Function
 Function is_gui As Boolean
     is_gui = (environ("RUN_MODE") <> "cli")
 End Function
+
+
+function Keyword_is_keyword(kw) as Boolean
+    ' Utils.log1 "-->> Keyword_is_keyword"
+    dim rv
+
+    if TypeName(kw) <> "String" then
+        rv = false
+        Keyword_is_keyword = rv
+        exit function
+    end if
+
+    If len(kw) = 0 Then
+        Keyword_is_keyword = False
+        Exit Function
+    End If
+
+    rv = (char_at(kw, 0) = kw_marker())
+
+    Keyword_is_keyword = rv
+end function
