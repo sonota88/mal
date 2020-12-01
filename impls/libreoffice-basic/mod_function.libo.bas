@@ -5,24 +5,23 @@ Option Explicit
 rem --------------------------------
 
 type MalFunction
-  type_ as string
-  env ' MalEnv
-  args ' MalList
-  body ' MalList
-  is_macro as boolean
-  meta as variant
+    type_ as string
+    env ' MalEnv
+    args ' MalList
+    body ' MalList
+    is_macro as boolean
+    meta as variant
 end type
 
 
 ' TODO .new_() にリネーム
 function MalFunction_new(env, args, body)
-  dim mf as New MalFunction
-  mf.type_ = type_name
-  mf.env = env
-  mf.args = args
-  mf.body = body
-  Utils.logkv3 "23 new", mf
-  MalFunction_new = mf
+    dim mf as New MalFunction
+    mf.type_ = type_name
+    mf.env = env
+    mf.args = args
+    mf.body = body
+    MalFunction_new = mf
 end function
 
 
@@ -32,38 +31,36 @@ End Function
 
 
 function MalFunction_inspect(self)
-  dim rv
+    dim rv
 
-  rv = "#<function"
+    rv = "#<function"
 
-  rv = rv & " env: "
+    rv = rv & " env: "
 
-  dim iter_env
-  iter_env = self.env
+    dim iter_env
+    iter_env = self.env
 
-  do while True
-      rv = rv & iter_env.id
+    do while True
+        rv = rv & iter_env.id
 
-      if IsNull(iter_env.outer) then
-          exit do
-      else
-          rv = rv & "->"
-          iter_env = iter_env.outer
-      end if
-  loop
-  
-  rv = rv & ">"
-  
-  MalFunction_inspect = rv
+        if IsNull(iter_env.outer) then
+            exit do
+        else
+            rv = rv & "->"
+            iter_env = iter_env.outer
+        end if
+    loop
+
+    rv = rv & ">"
+
+    MalFunction_inspect = rv
 end function
 
 
 function MalFunction_gen_env(self, args)
     ' ON_ERROR_TRY
 
-    Utils.log2 "-->> MalFunction_gen_env"
-    Utils.logkv2 "self.args", self.args
-    Utils.logkv2 "args", args
+    ' Utils.log2 "-->> MalFunction_gen_env"
 
     dim rv
     dim newenv
@@ -111,7 +108,6 @@ function clone(self)
     rv.is_macro = self.is_macro
 
     clone = rv
-    ' Utils.logkv2 "<<-- MalFunction.clone()", rv
 end function
 
 

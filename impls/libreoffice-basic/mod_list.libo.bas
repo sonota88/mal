@@ -3,22 +3,22 @@ rem -*- mode: basic -*-
 Option Explicit
 
 type MalList
-  xs as variant
-  size as integer
-  type_ as string
-  klass as string
-  meta as variant
+    xs as variant
+    size as integer
+    type_ as string
+    klass as string
+    meta as variant
 end type
 
 
 function new_
-  dim list as New MalList
-  dim xs() as variant
-  list.xs = xs
-  list.size = 0
-  list.type_ = type_name
-  list.klass = type_name
-  new_ = list
+    dim list as New MalList
+    dim xs() as variant
+    list.xs = xs
+    list.size = 0
+    list.type_ = type_name
+    list.klass = type_name
+    new_ = list
 end function
 
 
@@ -30,57 +30,57 @@ End Function
 function cap(self)
     dim rv
 
-  if ubound(self.xs) = -1 then
-      rv = 0
-  else
-      rv = ubound(self.xs) + 1
-  end if
+    if ubound(self.xs) = -1 then
+        rv = 0
+    else
+        rv = ubound(self.xs) + 1
+    end if
 
-  cap = rv
+    cap = rv
 End function
 
 
 function from_array(array_)
-  dim rv
+    dim rv
 
-  rv = MalList.new_()
+    rv = MalList.new_()
 
-  dim i
-  for i = 0 to ubound(array_)
-      MalList.add(rv, array_(i))
-  next
+    dim i
+    for i = 0 to ubound(array_)
+        MalList.add(rv, array_(i))
+    next
 
-  from_array = rv
+    from_array = rv
 end function
 
 
 sub add(self, elem)
     ' ON_ERROR_TRY
     
-  dim size_, newsize
-  size_ = self.size
+    dim size_, newsize
+    size_ = self.size
 
-  if self.size >= cap(self) then
-      if size_ = 0 then
-          newsize = 1
-      else
-          newsize = size_ * 2
-      end if
+    if self.size >= cap(self) then
+        if size_ = 0 then
+            newsize = 1
+        else
+            newsize = size_ * 2
+        end if
 
-    dim newxs(newsize) as variant
+      dim newxs(newsize) as variant
 
-    Dim i As Integer
-    i = 0
-    do while i < size_
-        newxs(i) = self.xs(i)
-        i = i + 1
-    loop
+      Dim i As Integer
+      i = 0
+      do while i < size_
+          newxs(i) = self.xs(i)
+          i = i + 1
+      loop
 
-    self.xs = newxs
-  end if
+      self.xs = newxs
+    end if
 
-  self.xs(self.size) = elem
-  self.size = self.size + 1
+    self.xs(self.size) = elem
+    self.size = self.size + 1
 
     ' ON_ERROR_CATCH
 end sub
@@ -98,56 +98,56 @@ end sub
 
 
 function List_inspect(self)
-  dim rv
+    dim rv
 
-  dim str
-  str = "["
+    dim str
+    str = "["
 
-  Dim i As Integer
-  for i = 0 to self.size - 1
-    if 0 < i then
-        str = str & ", "
-    end if
-    str = str & inspect(MalList.get_(self, i))
-  next
+    Dim i As Integer
+    for i = 0 to self.size - 1
+      if 0 < i then
+          str = str & ", "
+      end if
+      str = str & inspect(MalList.get_(self, i))
+    next
 
-  str = str & "]"
+    str = str & "]"
 
-  rv = str
-  List_inspect = rv
+    rv = str
+    List_inspect = rv
 end function
 
 
 ' TODO rename => pr_str
 function MalList_pr_str(self, print_readably as boolean)
-  dim rv
+    dim rv
 
-  dim str
-  str = "("
+    dim str
+    str = "("
 
-  Dim i As Integer
-  for i = 0 to self.size - 1
-      if 0 < i then
-        str = str & " "
+    Dim i As Integer
+    for i = 0 to self.size - 1
+        if 0 < i then
+          str = str & " "
+        end if
+
+      dim el
+      el = MalList.get_(self, i)
+
+      if IsNull(el) then
+        rem 本当は _pr_str に渡したいが渡せないためここで分岐している
+        str = str & "nil"
+      else
+        dim s2 as string
+        s2 = Printer._pr_str(el, print_readably)
+        str = str & s2
       end if
+    next
 
-    dim el
-    el = MalList.get_(self, i)
+    str = str & ")"
 
-    if IsNull(el) then
-      rem 本当は _pr_str に渡したいが渡せないためここで分岐している
-      str = str & "nil"
-    else
-      dim s2 as string
-      s2 = Printer._pr_str(el, print_readably)
-      str = str & s2
-    end if
-  next
-
-  str = str & ")"
-
-  rv = str
-  MalList_pr_str = rv
+    rv = str
+    MalList_pr_str = rv
 end function
 
 
@@ -163,26 +163,26 @@ end function
 
 
 function rest(self)
-  Utils.log1 "-->> MalList.rest"
-  dim rv
+    Utils.log1 "-->> MalList.rest"
+    dim rv
 
-  dim newlist
-  newlist = MalList.new_()
+    dim newlist
+    newlist = MalList.new_()
 
-  if MalList.size(self) <= 1 then
-      rest = newlist
-      exit function
-  end if
+    if MalList.size(self) <= 1 then
+        rest = newlist
+        exit function
+    end if
 
-  dim i
-  for i = 1 to MalList.size(self) - 1
-      dim el
-      el = MalList.get_(self, i)
-      MalList.add(newlist, el)
-  next
-  rv = newlist
+    dim i
+    for i = 1 to MalList.size(self) - 1
+        dim el
+        el = MalList.get_(self, i)
+        MalList.add(newlist, el)
+    next
+    rv = newlist
 
-  rest = rv
+    rest = rv
 end function
 
 
@@ -262,7 +262,7 @@ end function
 
 
 function seq(self)
-    Utils.log1 "-->> seq()"
+    ' Utils.log1 "-->> seq()"
     dim rv
 
     rv = self
@@ -272,7 +272,7 @@ end function
 
 
 function conj(self, xs)
-    Utils.log1 "-->> MalList.conj()"
+    ' Utils.log1 "-->> MalList.conj()"
     dim rv
 
     dim temp
@@ -285,8 +285,6 @@ function conj(self, xs)
     do while MalList.size(self) < newsize
         MalList.add(self, null)
     loop
-
-    Utils.logkv3 "319 MalList.conj() size", MalList.size(self)
 
     dim self_i, el
     self_i = 0

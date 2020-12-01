@@ -112,7 +112,7 @@ end sub
 rem --------------------------------
 
 function dispatch_func(f, args, env)
-    Utils.log0 "-->> dispatch_func()"
+    ' Utils.log0 "-->> dispatch_func()"
     dim rv
     dim a, b
 
@@ -352,18 +352,18 @@ end function
 ' --------------------------------
 
 function list(args)
-  dim rv
+    dim rv
 
-  rv = MalList.new_()
-  
-  dim i, it
-  do while i < MalList.size(args)
-      it = MalList.get_(args, i)
-      MalList.add(rv, it)
-      i = i + 1
-  loop
-  
-  list = rv
+    rv = MalList.new_()
+
+    dim i, it
+    do while i < MalList.size(args)
+        it = MalList.get_(args, i)
+        MalList.add(rv, it)
+        i = i + 1
+    loop
+
+    list = rv
 end function
 
 
@@ -416,7 +416,6 @@ function equal(a, b) as Boolean
     '     exit function
     ' end if
     
-    ' Utils.log1 "  same type"
     rv = (inspect(a) = inspect(b)) rem TODO
 
     equal = rv
@@ -656,8 +655,7 @@ end function
 
 
 function swap(args)
-    Utils.log2 "-->> swap()"
-    Utils.logkv2 "args", args
+    ' Utils.log2 "-->> swap()"
 
     dim rv
 
@@ -674,7 +672,6 @@ function swap(args)
             MalList.add(fn_args, MalList.get_(args, i))
         next
     end if
-    Utils.logkv2 "fn_args", fn_args
     
     atom_.val = _apply_func(f, fn_args)
 
@@ -734,11 +731,8 @@ function concat(args)
 end function
 
 
-' TODO move to utils
 sub throw(arg)
-    Utils.logkv0 "-->> throw ★", arg
-    ' Utils.logkv0 "-->> throw > mal_error", mal_error
-    ' mal_error = MalList.head(arg)
+    Utils.logkv0 "-->> throw", arg
     mal_error = arg
 end sub
 
@@ -956,7 +950,7 @@ end function
 
 
 function dissoc(args)
-    Utils.log1 "-->> dissoc()"
+    ' Utils.log1 "-->> dissoc()"
     dim rv
 
     dim map1, keys
@@ -1061,12 +1055,12 @@ end function
 
 
 function time_ms
-    Utils.log1 "-->> time_ms()"
+    ' Utils.log1 "-->> time_ms()"
     dim rv
     
     dim unodt, sec
     unodt = CDateToUnoDateTime(Now)
-    ' TODO 一度 double にすべき？
+    ' TODO
     ' sec = unodt.nanoseconds / 1000000000
     sec = 0
 
@@ -1085,7 +1079,7 @@ end function
 
 
 function is_number(args) as boolean
-    Utils.log1 "-->> is_number()"
+    ' Utils.log1 "-->> is_number()"
     dim rv
 
     dim arg
@@ -1106,7 +1100,7 @@ end function
 
 
 function seq(args)
-    Utils.log1 "-->> seq()"
+    ' Utils.log1 "-->> seq()"
     dim rv
     dim arg
     
@@ -1131,7 +1125,7 @@ end function
 
 
 function conj(args)
-    Utils.log2 "-->> Core.conj()"
+    ' Utils.log2 "-->> Core.conj()"
     dim rv
     
     dim arg, rest
@@ -1154,7 +1148,7 @@ end function
 
 
 function meta(args)
-    Utils.log1 "-->> meta()"
+    ' Utils.log1 "-->> meta()"
     dim rv
 
     dim arg
@@ -1171,7 +1165,7 @@ end function
 
 
 function with_meta(args)
-    Utils.log1 "-->> with_meta()"
+    ' Utils.log1 "-->> with_meta()"
     dim rv
     
     dim a, b, x
@@ -1188,7 +1182,7 @@ end function
 
 
 function is_fn(args) as boolean
-    Utils.log1 "-->> is_fn()"
+    ' Utils.log1 "-->> is_fn()"
     dim rv
     
     dim arg
@@ -1225,24 +1219,23 @@ end function
 function readline(prompt)
     dim rv
 
-    Dim resp As String
+    Dim line As String
     Dim file_done_temp
     
     If Utils.is_gui() Then
-        resp = InputBox(prompt, "readline")
+        line = InputBox(prompt, "readline")
     Else
-        resp = ext_command(null, null, "READLINE " & prompt)
+        line = ext_command(null, null, "READLINE " & prompt)
     End If
     
-    Utils.logkv1 "Core.readline resp", resp
-    rv = resp
+    rv = line
 
     readline = rv
 end function
 
 
 function pr_str(args) as string
-    Utils.log1 "-->> pr_str()"
+    ' Utils.log1 "-->> pr_str()"
     dim rv
     dim s as string
     s = ""
@@ -1250,7 +1243,6 @@ function pr_str(args) as string
     dim i, arg
     for i = 0 to MalList.size(args) - 1
         arg = MalList.get_(args, i)
-        Utils.logkv0 "arg" & i, arg
         if 1 <= i then
             s = s & " "
         end if
@@ -1265,7 +1257,7 @@ end function
 ' --------------------------------
 
 function clone(val)
-    Utils.log2 "-->> Core.clone()"
+    ' Utils.log2 "-->> Core.clone()"
     dim rv
     
     if IsNull(val) then
@@ -1286,9 +1278,8 @@ function clone(val)
         rv = MalMap.clone(val)
     case MalFunction.type_name
         rv = MalFunction.clone(val)
-        Utils.logkv0 "cloned", rv
     case else
-        throw "478 clone not_yet_impl " & type_name_ex(val)
+        throw "not yet implemented: " & type_name_ex(val)
     end select
 
     clone = rv
@@ -1296,17 +1287,14 @@ end function
 
 
 function core_apply(args)
-    Utils.log2 "-->> core_apply()"
+    ' Utils.log2 "-->> core_apply()"
     dim rv
 
-    ' Utils.logkv3 "args", args
-    
     dim f
     f = MalList.head(args)
 
     dim i, el
 
-    ' args の先頭と最後以外を追加
     dim args2
     args2 = MalList.new_()
     for i = 1 to MalList.size(args) - 2
@@ -1314,7 +1302,6 @@ function core_apply(args)
         MalList.add(args2, el)
     next
     
-    ' args の最後（リスト）の要素を追加
     dim list
     list = MalList.last(args)
     for i = 0 to MalList.size(list) - 1
@@ -1322,8 +1309,6 @@ function core_apply(args)
         MalList.add(args2, el)
     next
     
-    ' Utils.logkv3 "args2", args2
-
     rv = _apply_func(f, args2)
 
     core_apply = rv
@@ -1331,7 +1316,7 @@ end function
 
 
 function _apply_func(f, args)
-    Utils.log2 "-->> _apply_func()"
+    ' Utils.log2 "-->> _apply_func()"
 
     dim rv
     
@@ -1341,13 +1326,9 @@ function _apply_func(f, args)
     end if
     
     If MalNamedFunction.is_named_function(f) Then
-        ' Utils.log2 "... MalNamedFunction"
-
         rv = apply(f, args, MalEnv.new_())
         
     ElseIf MalFunction.is_mal_function(f) Then
-        ' Utils.log2 "... MalFunction"
-
         dim env2
         env2 = MalFunction_gen_env(f, args)
 
@@ -1365,16 +1346,16 @@ rem builtin procedures
 
 function _builtin_add_int(a, b)
     on local error goto on_error___builtin_add_int
-  _builtin_add_int = CInt(a + b)
+    _builtin_add_int = CInt(a + b)
 
     exit function
 on_error___builtin_add_int:
     if Err() = 6 then ' Overflow
-        ' step5 のテストを通すための措置
-        _builtin_add_int = CLng(a + b)
-   else
-       throw "_builtin_add " & Erl() & ": ERR" & err & " " & error$
-   end if
+       ' step5 のテストを通すための措置
+       _builtin_add_int = CLng(a + b)
+    else
+        throw "_builtin_add " & Erl() & ": ERR" & err & " " & error$
+    end if
 end function
 
 
@@ -1382,7 +1363,6 @@ function _builtin_add(args)
     dim rv
     dim a, b
 
-    ' Utils.logkv3 "  175 rv", args
     a = MalList.get_(args, 0)
     b = MalList.get_(args, 1)
     
@@ -1397,10 +1377,6 @@ function _builtin_add(args)
         rv = a + b
     end if
     
-    ' Utils.logkv3 "  268 type a", ta
-    ' Utils.logkv3 "  268 type b", tb
-    ' Utils.logkv3 "  268 type", type_name_ex(rv)
-
     _builtin_add = rv
 end function
 
@@ -1491,7 +1467,7 @@ end function
 
 
 function lock_controllers(args)
-    Utils.log1 "-->> lock_controllers()"
+    ' Utils.log1 "-->> lock_controllers()"
 
     ThisComponent.LockControllers()
 
@@ -1500,7 +1476,7 @@ end function
 
 
 function unlock_controllers(args)
-    Utils.log1 "-->> unlock_controllers()"
+    ' Utils.log1 "-->> unlock_controllers()"
 
     if ThisComponent.hasControllersLocked() then
         ThisComponent.LockControllers()
@@ -1533,33 +1509,33 @@ End Function
 ' Calc
 
 Function cell_get(args)
-  Dim sname, ci, ri
-  sname = MalList.get_(args, 0)
-  ci    = MalList.get_(args, 1)
-  ri    = MalList.get_(args, 2)
+    Dim sname, ci, ri
+    sname = MalList.get_(args, 0)
+    ci    = MalList.get_(args, 1)
+    ri    = MalList.get_(args, 2)
 
-  cell_get = Calc.cell_get(sname, ci, ri)
+    cell_get = Calc.cell_get(sname, ci, ri)
 End Function
 
 
 Function cell_set(args)
-  ' ON_ERROR_TRY
+    ' ON_ERROR_TRY
 
-  Dim sname, ci, ri, val
-  sname = MalList.get_(args, 0)
-  ci    = MalList.get_(args, 1)
-  ri    = MalList.get_(args, 2)
-  val   = MalList.get_(args, 3)
+    Dim sname, ci, ri, val
+    sname = MalList.get_(args, 0)
+    ci    = MalList.get_(args, 1)
+    ri    = MalList.get_(args, 2)
+    val   = MalList.get_(args, 3)
 
-  Calc.cell_set(sname, ci, ri, val)
-  cell_set = null
-  
-  ' ON_ERROR_CATCH
+    Calc.cell_set(sname, ci, ri, val)
+    cell_set = null
+
+    ' ON_ERROR_CATCH
 End Function
 
 
 Function get_ri_max(args)
-    Utils.log2 "-->> get_ri_max()"
+    ' Utils.log2 "-->> get_ri_max()"
     Dim rv
 
     Dim sh_name As String
@@ -1572,7 +1548,7 @@ End Function
 
 
 Function get_ci_max(args)
-    Utils.log2 "-->> get_ci_max()"
+    ' Utils.log2 "-->> get_ci_max()"
     Dim rv
 
     Dim sh_name As String
@@ -1586,7 +1562,7 @@ End Function
 ' --------------------------------
 
 Function Core__file_write(args) ' TODO rename
-    Utils.log2 "-->> Core__file_write()"
+    ' Utils.log2 "-->> Core__file_write()"
     Dim rv
     rv = null
     

@@ -7,202 +7,202 @@ dim __LV
 rem --------------------------------
 
 function dq() as string
-  dq = chr(34)
+    dq = chr(34)
 end function
 
 
 function lf() as string
-  lf = chr(10)
+    lf = chr(10)
 end function
 
 
 function bs() as string
-  bs = chr(92)
+    bs = chr(92)
 end function
 
 
 function kw_marker() as string
-  kw_marker = chr(&H029e)
+    kw_marker = chr(&H029e)
 end function
 
 rem --------------------------------
 
 function substring(str, index)
-  if (index < 0) then
-    substring = "invalid_index"
-  else
-    substring = right(str, len(str) - index)
-  end if
+    if (index < 0) then
+      substring = "invalid_index"
+    else
+      substring = right(str, len(str) - index)
+    end if
 end function
 
 
 function char_at(str, index)
-  dim retval
+    dim retval
 
-  if (index < 0 or len(str) <= index) then
-    retval = "invalid_index"
-  else
-    retval = right(left(str, index + 1), 1)
-  end if
+    if (index < 0 or len(str) <= index) then
+      retval = "invalid_index"
+    else
+      retval = right(left(str, index + 1), 1)
+    end if
 
-  char_at = retval
+    char_at = retval
 end function
 
 
 function str_include(str, target) as boolean
-  dim rv
+    dim rv
 
-  rv = instr(str, target) <> 0 
+    rv = instr(str, target) <> 0 
 
-  str_include = rv
+    str_include = rv
 end function
 
 
 function is_numeric(c)
-  is_numeric = str_include("0123456789", c)
+    is_numeric = str_include("0123456789", c)
 end function
 
 rem --------------------------------
 
 function int_to_s(n as integer)
-  int_to_s = "" & n
+    int_to_s = "" & n
 end function
 
 rem --------------------------------
 
 function inspect(val) as string
-  ' Utils.log1 "-->> inspect()"
-  dim rv
+    ' Utils.log1 "-->> inspect()"
+    dim rv
 
-  if IsNull(val) then
-    rv = "null"
-  elseif IsEmpty(val) then
-    rv = "<Empty>"
-  Else
+    if IsNull(val) then
+      rv = "null"
+    elseif IsEmpty(val) then
+      rv = "<Empty>"
+    Else
 
-    Dim tn As String
-    tn = TypeName(val)
+      Dim tn As String
+      tn = TypeName(val)
 
-    Select Case tn
-    Case "Boolean", "Integer", "Long", "Single", "Double"
-      rv = CStr(val)
-    Case "String"
-      rv = inspect_str(val)
-    Case "Object"
+      Select Case tn
+      Case "Boolean", "Integer", "Long", "Single", "Double"
+        rv = CStr(val)
+      Case "String"
+        rv = inspect_str(val)
+      Case "Object"
 
-      Dim otn As String
-      otn = obj_typename(val)
+        Dim otn As String
+        otn = obj_typename(val)
 
-      if otn = MalList.type_name then
-        rv = List_inspect(val)
-      elseif otn = MalVector.type_name then
-        rv = MalVector_inspect(val)
-      elseif otn = MalSymbol.type_name then
-        rv = MalSymbol_inspect(val)
-      elseif otn = MalMap.type_name then
-        rv = MalMap_inspect(val)
-      elseif otn = MalEnv.type_name then
-        rv = MalEnv_inspect(val)
-      elseif otn = MalNamedFunction_type_name then
-        rv = MalNamedFunction_inspect(val)
-      elseif otn = MalFunction.type_name then
-        rv = MalFunction_inspect(val)
-      elseif otn = MalAtom.type_name then
-        rv = MalAtom_inspect(val)
-      elseif otn = "Token" then
-        rv = Token_inspect(val)
-      else
-        rv = "<unknown_obj>"
-      end if
+        if otn = MalList.type_name then
+          rv = List_inspect(val)
+        elseif otn = MalVector.type_name then
+          rv = MalVector_inspect(val)
+        elseif otn = MalSymbol.type_name then
+          rv = MalSymbol_inspect(val)
+        elseif otn = MalMap.type_name then
+          rv = MalMap_inspect(val)
+        elseif otn = MalEnv.type_name then
+          rv = MalEnv_inspect(val)
+        elseif otn = MalNamedFunction_type_name then
+          rv = MalNamedFunction_inspect(val)
+        elseif otn = MalFunction.type_name then
+          rv = MalFunction_inspect(val)
+        elseif otn = MalAtom.type_name then
+          rv = MalAtom_inspect(val)
+        elseif otn = "Token" then
+          rv = Token_inspect(val)
+        else
+          rv = "<unknown_obj>"
+        end if
 
-    Case Else
-      rv = "<UNKNOWN> " & TypeName(val)
-    End Select
+      Case Else
+        rv = "<UNKNOWN> " & TypeName(val)
+      End Select
 
-  End If
+    End If
 
-  inspect = rv
+    inspect = rv
 end function
 
 
 function inspect_str(str)
-  dim rv
-  dim s, i, c
-  s = ""
+    dim rv
+    dim s, i, c
+    s = ""
 
-  Dim LF_ As String
-  Dim DQ_ As String
-  Dim BS_ As String
-  LF_ = lf()
-  DQ_ = dq()
-  BS_ = bs()
+    Dim LF_ As String
+    Dim DQ_ As String
+    Dim BS_ As String
+    LF_ = lf()
+    DQ_ = dq()
+    BS_ = bs()
 
-  for i = 0 to len(str) - 1
-    c = char_at(str, i)
+    for i = 0 to len(str) - 1
+      c = char_at(str, i)
 
-    Select Case c
-      Case LF_
-        s = s & BS_ & "n"
-      Case dq()
-        s = s & BS_ & DQ_
-      Case bs()
-        s = s & BS_ & BS_
-      Case Else
-        s = s & c
-    End select
-  next
+      Select Case c
+        Case LF_
+          s = s & BS_ & "n"
+        Case dq()
+          s = s & BS_ & DQ_
+        Case bs()
+          s = s & BS_ & BS_
+        Case Else
+          s = s & c
+      End select
+    next
 
-  rv = DQ_ & s & DQ_
-  inspect_str = rv
+    rv = DQ_ & s & DQ_
+    inspect_str = rv
 end function
 
 
 function obj_typename(obj)
-  ' Utils.log1 "-->> obj_typename()"
-  on local error goto on_error_obj_typename
-  
-  dim rv
-  
-  rv = obj.type_
-       
-  if rv = MalList.type_name then ' TODO use is_list (?)
-      ' MalVector の場合がある
-      rv = MalList.typename(obj)
-  end if
-  
-  obj_typename = rv
-  exit function
+    ' Utils.log1 "-->> obj_typename()"
+    on local error goto on_error_obj_typename
+
+    dim rv
+
+    rv = obj.type_
+
+    if rv = MalList.type_name then ' TODO use is_list (?)
+        ' MalVector の場合がある
+        rv = MalList.typename(obj)
+    end if
+
+    obj_typename = rv
+    exit function
 
 on_error_obj_typename:
-  ' typename(err) => "Long"
-  if err = 423 then
-    rem type_ プロパティが存在しない場合
-    obj_typename = null
-  else
-    msgbox format_err_msg("obj_typename", err, erl, error$)
-    __ERROR__
-  end if
+    ' typename(err) => "Long"
+    if err = 423 then
+      rem type_ プロパティが存在しない場合
+      obj_typename = null
+    else
+      msgbox format_err_msg("obj_typename", err, erl, error$)
+      __ERROR__
+    end if
 end function
 
 
 function type_name_ex(val)
-  ' Utils.log1 "-->> type_name_ex()"
-  dim rv
-  
-  if IsNull(val) then
-      rv = TypeName(val)
-      type_name_ex = rv
-      exit function
-  end if
+    ' Utils.log1 "-->> type_name_ex()"
+    dim rv
 
-  select case TypeName(val)
-    case "Integer", "Long", "String", "Boolean", "Single", "Double"
+    if IsNull(val) then
         rv = TypeName(val)
-    case else
-      rv = obj_typename(val)
-  end select
+        type_name_ex = rv
+        exit function
+    end if
 
-  type_name_ex = rv
+    select case TypeName(val)
+      case "Integer", "Long", "String", "Boolean", "Single", "Double"
+          rv = TypeName(val)
+      case else
+        rv = obj_typename(val)
+    end select
+
+    type_name_ex = rv
 end function
 
 rem --------------------------------
@@ -217,30 +217,30 @@ end sub
 
 
 sub debug(x)
-  msgbox x    
+    msgbox x    
 end sub
 
 
 sub debug_kv(k, v)
-  msgbox "" & k & " (" & inspect(v) & ")"
+    msgbox "" & k & " (" & inspect(v) & ")"
 end sub
 
 ' --------------------------------
 
 function _log_indent()
-  dim rv
-  dim s, i, n
-  rv = ""
-  s = "|   "
-  i = 0
-  do while i < __LV
-      rv = rv & s
-      i = i + 1
-  loop
-  
-  rem Space(4 * __LV)
+    dim rv
+    dim s, i, n
+    rv = ""
+    s = "|   "
+    i = 0
+    do while i < __LV
+        rv = rv & s
+        i = i + 1
+    loop
 
-  _log_indent = rv
+    rem Space(4 * __LV)
+
+    _log_indent = rv
 end function
 
 
@@ -410,42 +410,42 @@ end sub
 
 
 sub file_append(path, msg)
-  ' ON_ERROR_TRY
+    ' ON_ERROR_TRY
 
-  dim iCount3 as integer
-  iCount3 = Freefile
-  ' open path for OutPut as iCount3
-  open path for append as #iCount3
+    dim iCount3 as integer
+    iCount3 = Freefile
+    ' open path for OutPut as iCount3
+    open path for append as #iCount3
 
-  print #iCount3, msg
+    print #iCount3, msg
 
-  close #iCount3
+    close #iCount3
 
-  ' ON_ERROR_CATCH
+    ' ON_ERROR_CATCH
 end sub
 
 
 function file_read(path as string)
-  'Utils.log2 "-->> file_read()"
-  dim rv
+    'Utils.log2 "-->> file_read()"
+    dim rv
 
-  dim sfa as object
-  sfa = CreateUnoService("com.sun.star.ucb.SimpleFileAccess")
+    dim sfa as object
+    sfa = CreateUnoService("com.sun.star.ucb.SimpleFileAccess")
 
-  dim is_ as object
-  is_ = sfa.openFileRead(path)
+    dim is_ as object
+    is_ = sfa.openFileRead(path)
 
-  Dim tis As Object
-  tis = CreateUnoService("com.sun.star.io.TextInputStream")
-  tis.setInputStream(is_)
-  tis.setEncoding("UTF-8")
-  
+    Dim tis As Object
+    tis = CreateUnoService("com.sun.star.io.TextInputStream")
+    tis.setInputStream(is_)
+    tis.setEncoding("UTF-8")
 
-  rv = tis.readString(Array(), false)
 
-  tis.closeInput()
+    rv = tis.readString(Array(), false)
 
-  file_read = rv
+    tis.closeInput()
+
+    file_read = rv
 end function
 
 

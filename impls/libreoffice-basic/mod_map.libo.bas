@@ -1,22 +1,20 @@
 rem -*- mode: basic -*-
 
-rem TODO rename: 適切な名前を調べる（他言語版を見る）
-
 Option Explicit
 
 type MalMap
-  data as Variant ' com.sun.star.container.XMap
-  type_ as String
-  meta as Variant
+    data as Variant ' com.sun.star.container.XMap
+    type_ as String
+    meta as Variant
 end type
 
 function new_
-  dim rv as New MalMap
-  
-  rv.data = com.sun.star.container.EnumerableMap.create("string", "any")
-  rv.type_ = type_name
+    dim rv as New MalMap
 
-  new_ = rv
+    rv.data = com.sun.star.container.EnumerableMap.create("string", "any")
+    rv.type_ = type_name
+
+    new_ = rv
 end function
 
 
@@ -31,7 +29,6 @@ function get_(self, k)
 
     dim str_key
     str_key = _to_map_key(k)
-    ' Utils.log1 "98 MalMap.get_()"
     
     if self.data.containsKey(str_key) then
         rv = self.data.get(str_key)
@@ -44,15 +41,15 @@ end function
 
 
 function has_key(self, k) as Boolean
-  'Utils.log1 "-->> MalMap.has_key()"
-  has_key = self.data.containsKey(_to_map_key(k))
+    'Utils.log1 "-->> MalMap.has_key()"
+    has_key = self.data.containsKey(_to_map_key(k))
 end function
 
 
 sub put(self, k, v)
-  ' Utils.log2 "-->> MalMap.put()"
-  
-  self.data.put(_to_map_key(k), v)
+    ' Utils.log2 "-->> MalMap.put()"
+
+    self.data.put(_to_map_key(k), v)
 end sub
 
 
@@ -65,12 +62,10 @@ function get_keys(self)
     keys = MalList.new_()
     key_iter = self.data.createKeyEnumeration(False)
     While key_iter.hasMoreElements()
-      ' Utils.log1 "195 MalMap.get_keys()"
       str_key = key_iter.nextElement()
       Utils.log1 str_key
       MalList.add(keys, _from_map_key(str_key))
     WEnd
-    ' Utils.log1 "198 MalMap.get_keys()"
 
     get_keys = keys
 
@@ -101,39 +96,37 @@ function get_vals(self)
 end function
 
 
-
 function MalMap_inspect(self)
     ' ON_ERROR_TRY
-    Utils.log1 "-->> MalMap.inspect()"
+    ' Utils.log1 "-->> MalMap.inspect()"
 
-  dim rv
-  
-  dim str, keys
-  str = "{"
+    dim rv
 
-  keys = get_keys(self)
-      
-      dim i, key
-  for i = 0 to MalList.size(keys) - 1
-      key = MalList.get_(keys, i)
+    dim str, keys
+    str = "{"
 
-      if 1 <= i then
-          str = str & ", "
-      end if
+    keys = get_keys(self)
 
-      str = str & inspect(key)
-      str = str & ": "
-      dim val
-      val = get_(self, key)
-      str = str & inspect(val)
-  next
+        dim i, key
+    for i = 0 to MalList.size(keys) - 1
+        key = MalList.get_(keys, i)
 
-  str = str & "}"
-  
-  rv = str
-  
-  MalMap_inspect = rv
-    Utils.log1 "<<-- MalMap.inspect()"
+        if 1 <= i then
+            str = str & ", "
+        end if
+
+        str = str & inspect(key)
+        str = str & ": "
+        dim val
+        val = get_(self, key)
+        str = str & inspect(val)
+    next
+
+    str = str & "}"
+
+    rv = str
+
+    MalMap_inspect = rv
 
     ' ON_ERROR_CATCH
 end function
@@ -141,9 +134,7 @@ end function
 
 function MalMap_pr_str(self2 as object, print_readably as Boolean)
     ' ON_ERROR_TRY
-    Utils.log1 "-->> MalMap_pr_str()"
-    ' Utils.log1 self2
-    ' Utils.log1 print_readably
+    ' Utils.log1 "-->> MalMap_pr_str()"
 
     dim rv
 
@@ -155,7 +146,6 @@ function MalMap_pr_str(self2 as object, print_readably as Boolean)
 
     dim keys
     keys = MalMap.get_keys(self2)
-        Utils.log3 "362 MalMap_pr_str()"
     dim i, key
     for i = 0 to MalList.size(keys) - 1
         key = MalList.get_(keys, i)
@@ -184,8 +174,6 @@ function _to_map_key(val) as String
     'Utils.log1 "-->> MalMap._to_map_key()"
     dim rv
 
-    ' Utils.logkv3 "160 type", type_name_ex(val)
-
     select case type_name_ex(val)
         case MalSymbol.type_name
             rv = MalSymbol_to_map_key(val)
@@ -206,7 +194,7 @@ end function
 
 
 function _from_map_key(key) ' TODO rename => str_key
-    Utils.log1 "-->> _from_map_key()"
+    ' Utils.log1 "-->> _from_map_key()"
     dim rv
     dim str
 
@@ -223,31 +211,30 @@ function _from_map_key(key) ' TODO rename => str_key
     _from_map_key = rv
 
     ' _from_map_key = Reader.read_str(key)
-    Utils.log1 "<<-- _from_map_key()"
 end function
 
 
 function String_to_map_key(str) as String
-  'Utils.log1 "-->> String_to_map_key"
-  String_to_map_key = "str:" & str
+    'Utils.log1 "-->> String_to_map_key"
+    String_to_map_key = "str:" & str
 end function
 
 
 function MalSymbol_to_map_key(sym) as String
-  'Utils.log1 "-->> MalSymbol_to_map_key"
-  MalSymbol_to_map_key = "sym:" & sym.str
+    'Utils.log1 "-->> MalSymbol_to_map_key"
+    MalSymbol_to_map_key = "sym:" & sym.str
 end function
 
 
 function Keyword_to_map_key(kw) as String
-  'Utils.log1 "-->> Keyword_to_map_key"
-  Keyword_to_map_key = "kw:" & substring(kw, 1)
+    'Utils.log1 "-->> Keyword_to_map_key"
+    Keyword_to_map_key = "kw:" & substring(kw, 1)
 end function
 
 
 function MalNamedFunction_to_map_key(fname) as String
-  'Utils.log1 "-->> MalNamedFunction_to_map_key"
-  MalNamedFunction_to_map_key = "fun:" & fname.id
+    'Utils.log1 "-->> MalNamedFunction_to_map_key"
+    MalNamedFunction_to_map_key = "fun:" & fname.id
 end function
 
 

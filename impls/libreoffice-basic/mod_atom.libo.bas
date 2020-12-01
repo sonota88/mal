@@ -4,9 +4,9 @@ Option Explicit
 
 
 Type MalAtom
-  type_ as string
-  val as variant
-  meta as variant
+    type_ as string
+    val as variant
+    meta as variant
 End Type
 
 

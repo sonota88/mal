@@ -39,6 +39,10 @@ def file_write(path, text)
   File.open(path, "wb") { |f| f.print text }
 end
 
+def file_read(path)
+  File.open(path, "rb:utf-8") { |f| f.read }
+end
+
 def file_rm(path)
   if File.exist? path
     FileUtils.rm path
@@ -102,6 +106,7 @@ def escape(str)
   str
     .gsub("&", "&amp;")
     .gsub("<", "&lt;")
+    .gsub(">", "&gt;")
     .gsub('"', "&quot;")
     .gsub("'", "&apos;")
 end
@@ -128,17 +133,15 @@ def preprocess(src)
 
       <<-SRC
                         ' --------------------------------
-                        Utils.log0 "-->> CHECK_ERROR (in #{proc_name})"
-                        ' Utils.logkv0 "112 type", type_name_ex(mal_error)
-                        ' Utils.logkv0 "112 mal_error", mal_error
-                        if mal_error_exists() then
+                        ' Utils.log0 "-->> CHECK_ERROR (in #{proc_name})"
+                        If mal_error_exists() Then
                             Utils.log0 "... error exists"
                             #{retval_line}
                             Utils.log0 "exit #{proc_name}"
-                            exit #{proc_type}
-                        else
+                            Exit #{proc_type}
+                        Else
                             Utils.log0 "... ok"
-                        end if
+                        End If
                         ' --------------------------------
 
       SRC
@@ -151,7 +154,7 @@ def preprocess(src)
     when /^ *' ON_ERROR_CATCH$/
       <<-SRC
                         ' --------------------------------
-                            exit #{proc_type}
+                            Exit #{proc_type}
                         error_handler__#{proc_name}:
                             panic format_err_msg("#{proc_name}", err, erl, error$)
                         ' --------------------------------
@@ -186,7 +189,7 @@ def embed_sample_mal(text, mal_code)
 end
 
 def render_fods(step)
-  template = File.read("template.fods")
+  template = file_read("template.fods")
 
   src_step =
     if ENV.key?("SRC_STEP")
@@ -196,22 +199,22 @@ def render_fods(step)
     end
   bas_file = Dir.glob("step#{src_step}_*.libo.bas").to_a[0]
 
-  basic_src = escape(preprocess(File.read(bas_file)))
+  basic_src = escape(preprocess(file_read(bas_file)))
 
-  basic_src_utils          = escape(preprocess(File.read("mod_utils.libo.bas"))    )
-  basic_src_list           = escape(preprocess(File.read("mod_list.libo.bas"))     )
-  basic_src_vector         = escape(preprocess(File.read("mod_vector.libo.bas"))   )
-  basic_src_map            = escape(preprocess(File.read("mod_map.libo.bas"))      )
-  basic_src_env            = escape(preprocess(File.read("mod_env.libo.bas"))      )
-  basic_src_symbol         = escape(preprocess(File.read("mod_symbol.libo.bas"))   )
-  basic_src_reader         = escape(preprocess(File.read("mod_reader.libo.bas"))   )
-  basic_src_printer        = escape(preprocess(File.read("mod_printer.libo.bas" )) )
-  basic_src_core           = escape(preprocess(File.read("mod_core.libo.bas"    )) )
-  basic_src_function       = escape(preprocess(File.read("mod_function.libo.bas")) )
-  basic_src_named_function = escape(preprocess(File.read("mod_named_function.libo.bas")) )
-  basic_src_atom           = escape(preprocess(File.read("mod_atom.libo.bas"))     )
-  basic_src_calc           = escape(preprocess(File.read("mod_calc.libo.bas"))     )
-  mal_sample_code = File.read("sample.mal")
+  basic_src_utils          = escape(preprocess(file_read("mod_utils.libo.bas"))    )
+  basic_src_list           = escape(preprocess(file_read("mod_list.libo.bas"))     )
+  basic_src_vector         = escape(preprocess(file_read("mod_vector.libo.bas"))   )
+  basic_src_map            = escape(preprocess(file_read("mod_map.libo.bas"))      )
+  basic_src_env            = escape(preprocess(file_read("mod_env.libo.bas"))      )
+  basic_src_symbol         = escape(preprocess(file_read("mod_symbol.libo.bas"))   )
+  basic_src_reader         = escape(preprocess(file_read("mod_reader.libo.bas"))   )
+  basic_src_printer        = escape(preprocess(file_read("mod_printer.libo.bas" )) )
+  basic_src_core           = escape(preprocess(file_read("mod_core.libo.bas"    )) )
+  basic_src_function       = escape(preprocess(file_read("mod_function.libo.bas")) )
+  basic_src_named_function = escape(preprocess(file_read("mod_named_function.libo.bas")) )
+  basic_src_atom           = escape(preprocess(file_read("mod_atom.libo.bas"))     )
+  basic_src_calc           = escape(preprocess(file_read("mod_calc.libo.bas"))     )
+  mal_sample_code = file_read("sample.mal")
 
   template = embed_src(template, "rem __BASIC_SRC__"               , "\n" + basic_src)
   template = embed_src(template, "rem __BASIC_SRC_UTILS__"         , "\n" + basic_src_utils)
@@ -389,7 +392,6 @@ def main_argv_mode(args)
 
     elsif /^READLINE (.+)/ =~ cmd_from_libo
       prompt = $1
-      puts_e "357 _readline"
       line = _readline(prompt)
       respond_to_libo(line)
 
@@ -427,7 +429,6 @@ def main
 
     elsif /^READLINE (.+)/ =~ cmd_from_libo
       prompt = $1
-      puts_e "396 _readline"
       line = _readline(prompt)
       if line.nil?
         puts "exit"
@@ -441,7 +442,6 @@ def main
       respond_to_libo("print output done")
 
     elsif /^EXIT (\d+)/ =~ cmd_from_libo
-      puts_e "409 exit"
       $exit_status = $1.to_i
       break
 

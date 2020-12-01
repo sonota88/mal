@@ -3,7 +3,7 @@ rem -*- mode: basic -*-
 Option Explicit
 
 function new_
-    Utils.log3 "-->> MalVector.new_()"
+    ' Utils.log3 "-->> MalVector.new_()"
 
     dim list ' TODO rename
     list = MalList.new_()
@@ -24,7 +24,7 @@ End Function
 
 
 function clone(self)
-    Utils.log0 "-->> MalVector.clone()"
+    ' Utils.log0 "-->> MalVector.clone()"
     dim rv
 
     rv = MalList.clone(self)
@@ -35,85 +35,67 @@ end function
 
 
 function MalVector_inspect(self)
-  dim rv
-  dim str, i
+    dim rv
+    dim str, i
 
-  str = "["
+    str = "["
 
-  for i = 0 to self.size - 1
-    if 0 < i then
-      str = str & ", "
-    end if
-    str = str & inspect(MalList.get_(self, i))
-  next
+    for i = 0 to self.size - 1
+      if 0 < i then
+        str = str & ", "
+      end if
+      str = str & inspect(MalList.get_(self, i))
+    next
 
-  str = str & "]"
+    str = str & "]"
 
-  rv = str
-  MalVector_inspect = rv
+    rv = str
+    MalVector_inspect = rv
 end function
 
 
-' TODO List_to_s と共通化
+' TODO List_pr_str と共通化
 function MalVector_pr_str(self, print_readably as boolean)
-  Utils.log2 "-->> MalVector_pr_str"
+    ' Utils.log2 "-->> MalVector_pr_str"
 
-  dim rv
-  dim str, i, _r
-  _r = print_readably
+    dim rv
+    dim str, i, _r
+    _r = print_readably
 
-  str = "["
-  
-  Utils.logkv2 "self.size", self.size
+    str = "["
 
-  for i = 0 to self.size - 1
-    Utils.logkv2 "i", i
-    Utils.logkv2 "103 MalVector_pr_str", str
-    if 0 < i then
-      str = str & " "
-    end if
-    
-    Utils.logkv2 "108 MalVector_pr_str", MalList.get_(self, i)
-    dim el
-    el = MalList.get_(self, i)
-    Utils.logkv2 "111 MalVector_pr_str", el
-    Utils.logkv2 "230 MalVector_pr_str", IsNull(el)
+    for i = 0 to self.size - 1
+      if 0 < i then
+        str = str & " "
+      end if
 
-    if IsNull(el) then
-      Utils.log1 "115 MalVector_pr_str"
-      rem 本当は _pr_str に渡したいが渡せないためここで分岐している
-      str = str & "nil"
-    else
-      Utils.log2 "119 MalVector_pr_str"
-      Utils.logkv2 "120 MalVector_pr_str", el
-      Utils.logkv2 "239 MalVector_pr_str type", type_name_ex(el)
-      ' Utils.logkv1 "122 MalVector_pr_str", obj_typename(el)
-      dim s2 as string
-      Utils.log2 "124 MalVector_pr_str"
-      s2 = Printer._pr_str(el, _r)
-      Utils.logkv2 "126 MalVector_pr_str", type_name_ex(s2)
-      Utils.logkv2 "245 MalVector_pr_str", s2
-      str = str & s2
-    end if
+      dim el
+      el = MalList.get_(self, i)
 
-    Utils.log2 "249 MalVector_pr_str"
-  next
-  Utils.log2 "251 MalVector_pr_str"
+      if IsNull(el) then
+        rem 本当は _pr_str に渡したいが渡せないためここで分岐している
+        str = str & "nil"
+      else
+        dim s2 as string
+        s2 = Printer._pr_str(el, _r)
+        str = str & s2
+      end if
+    next
 
-  str = str & "]"
+    str = str & "]"
 
-  rv = str
-  MalVector_pr_str = rv
+    rv = str
+    MalVector_pr_str = rv
 end function
 
 
 sub add(self, elem)
-  MalList.add(self, elem)    
+    MalList.add(self, elem)    
 end sub
 
 
 function seq(self)
-    Utils.log1 "-->> seq()"
+    ' Utils.log1 "-->> seq()"
     dim rv
 
     rv = MalVector.new_()
@@ -128,7 +110,7 @@ end function
 
 
 function conj(self, xs)
-    Utils.log1 "-->> MalVector.conj()"
+    ' Utils.log1 "-->> MalVector.conj()"
     dim rv
 
     dim i, el

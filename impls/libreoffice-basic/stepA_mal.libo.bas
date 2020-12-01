@@ -122,17 +122,17 @@ Sub Main
     exit sub
 
 on_error__Main:
-  dim msg
-  msg = format_err_msg("Main", err, erl, error$)
-  
-  ext_command(null, msg, "EXIT 1")
-  
-  if environ("AUTO_CLOSE") = "1" then
-      ThisComponent.close(true)
-      'wait 1000
-      'stardesktop.terminate
-    exit sub
-  end if
+    dim msg
+    msg = format_err_msg("Main", err, erl, error$)
+
+    ext_command(null, msg, "EXIT 1")
+
+    if environ("AUTO_CLOSE") = "1" then
+        ThisComponent.close(true)
+        'wait 1000
+        'stardesktop.terminate
+      exit sub
+    end if
 end sub
 
 
@@ -310,10 +310,10 @@ end sub
 rem --------------------------------
 
 sub PRINT_(exp)
-  Utils.log0 "-->> PRINT_"
-  dim str As String
-  str = Printer._pr_str(exp, True)
-  ext_command(str, null, "PRINT")
+    Utils.log0 "-->> PRINT_"
+    dim str As String
+    str = Printer._pr_str(exp, True)
+    ext_command(str, null, "PRINT")
 end sub
 
 rem --------------------------------
@@ -384,101 +384,101 @@ end function
 rem --------------------------------
 
 function _eval_ast_list(list, env)
-  Utils.log2 "-->> _eval_ast_list"
-  dim rv
-  
-  dim newlist
-  
-  select case type_name_ex(list)
-  case MalList.type_name
-      newlist = MalList.new_()
-  case MalVector.type_name
-      newlist = MalVector.new_()
-  case else
-      throw "unexpected type: " & type_name_ex(list)
-  end select
+    Utils.log2 "-->> _eval_ast_list"
+    dim rv
 
-  dim i, ast, eval_result
-  for i = 0 to MalList.size(list) - 1
-      ast = MalList.get_(list, i)
+    dim newlist
 
-      eval_result = EVAL(ast, env)
-      ' CHECK_MAL_ERROR
+    select case type_name_ex(list)
+    case MalList.type_name
+        newlist = MalList.new_()
+    case MalVector.type_name
+        newlist = MalVector.new_()
+    case else
+        throw "unexpected type: " & type_name_ex(list)
+    end select
 
-      MalList.add(newlist, eval_result)
-  next
-  rv = newlist
-  
-  _eval_ast_list = rv
+    dim i, ast, eval_result
+    for i = 0 to MalList.size(list) - 1
+        ast = MalList.get_(list, i)
+
+        eval_result = EVAL(ast, env)
+        ' CHECK_MAL_ERROR
+
+        MalList.add(newlist, eval_result)
+    next
+    rv = newlist
+
+    _eval_ast_list = rv
 end function
 
 
 function _eval_ast_map(map, env)
-  ' ON_ERROR_TRY
+    ' ON_ERROR_TRY
 
-  Utils.log2 "-->> _eval_ast_map()"
-  dim rv
-  
-  dim newmap
-  newmap = MalMap.new_()
+    Utils.log2 "-->> _eval_ast_map()"
+    dim rv
 
-  dim keys
-  keys = MalMap.get_keys(map)
+    dim newmap
+    newmap = MalMap.new_()
 
-  dim i, ast, k, v, k2, v2
-  for i = 0 to MalList.size(keys) - 1
-      k = MalList.get_(keys, i)
-      v = MalMap.get_(map, k)
+    dim keys
+    keys = MalMap.get_keys(map)
 
-      k2 = EVAL(k, env)
-      ' CHECK_MAL_ERROR
+    dim i, ast, k, v, k2, v2
+    for i = 0 to MalList.size(keys) - 1
+        k = MalList.get_(keys, i)
+        v = MalMap.get_(map, k)
 
-      v2 = EVAL(v, env)
-      ' CHECK_MAL_ERROR
+        k2 = EVAL(k, env)
+        ' CHECK_MAL_ERROR
 
-      MalMap.put(newmap, k2, v2)
-  next
+        v2 = EVAL(v, env)
+        ' CHECK_MAL_ERROR
 
-  rv = newmap
+        MalMap.put(newmap, k2, v2)
+    next
 
-  _eval_ast_map = rv
-  
-  ' ON_ERROR_CATCH
+    rv = newmap
+
+    _eval_ast_map = rv
+
+    ' ON_ERROR_CATCH
 end function
 
 
 function _eval_ast(ast, env)
-  ' ON_ERROR_TRY
+    ' ON_ERROR_TRY
 
-  Utils.log0 "-->> _eval_ast()"
-  dim rv
+    Utils.log0 "-->> _eval_ast()"
+    dim rv
 
-  select case type_name_ex(ast)
-    case MalSymbol.type_name
-      dim sym
-      sym = ast
-      rv = MalEnv.get_(env, sym)
-      ' CHECK_MAL_ERROR
+    select case type_name_ex(ast)
+      case MalSymbol.type_name
+        dim sym
+        sym = ast
+        rv = MalEnv.get_(env, sym)
+        ' CHECK_MAL_ERROR
 
-    case MalList.type_name
-      rv = _eval_ast_list(ast, env)
-      ' CHECK_MAL_ERROR
+      case MalList.type_name
+        rv = _eval_ast_list(ast, env)
+        ' CHECK_MAL_ERROR
 
-    case MalVector.type_name
-      rv = _eval_ast_list(ast, env)
-      ' CHECK_MAL_ERROR
+      case MalVector.type_name
+        rv = _eval_ast_list(ast, env)
+        ' CHECK_MAL_ERROR
 
-    case MalMap.type_name
-      rv = _eval_ast_map(ast, env)
-      ' CHECK_MAL_ERROR
+      case MalMap.type_name
+        rv = _eval_ast_map(ast, env)
+        ' CHECK_MAL_ERROR
 
-    case else
-      rv = ast
-  end select
+      case else
+        rv = ast
+    end select
 
-  _eval_ast = rv
+    _eval_ast = rv
 
-  ' ON_ERROR_CATCH
+    ' ON_ERROR_CATCH
 end function
 
 rem --------------------------------
@@ -569,20 +569,20 @@ rem mutate env: yes
 rem mutate ast: no
 rem @return [env, ast, result, do_return]
 function _eval_special_form_def(ast, env)
-  dim rv
+    dim rv
 
-  dim name, val, result
-  ' (def! name val)
-  name = MalList.get_(ast, 1)
-  val  = MalList.get_(ast, 2)
+    dim name, val, result
+    ' (def! name val)
+    name = MalList.get_(ast, 1)
+    val  = MalList.get_(ast, 2)
 
-  dim eval_result
-  eval_result = EVAL(val, env)
-  ' CHECK_MAL_ERROR
+    dim eval_result
+    eval_result = EVAL(val, env)
+    ' CHECK_MAL_ERROR
 
-  result = MalEnv.set_(env, name, eval_result)
+    result = MalEnv.set_(env, name, eval_result)
 
-  _eval_special_form_def = Array(env, ast, result, true)
+    _eval_special_form_def = Array(env, ast, result, true)
 end function
 
 
@@ -623,9 +623,9 @@ function _eval_special_form_quote(ast, env)
     dim val
     val = MalList.get_(ast, 1)
     
-  rv = Array(env, ast, val, true)
+    rv = Array(env, ast, val, true)
 
-  _eval_special_form_quote = rv
+    _eval_special_form_quote = rv
 end function
 
 
@@ -915,57 +915,57 @@ function _eval_special_form_fn(ast, env)
     dim rv
     dim arg_names, body
 
-  ' (fn* (x) x)
-  '          body ... body
-  '      arg_names     ... args
+    ' (fn* (x) x)
+    '          body ... body
+    '      arg_names     ... args
 
-  arg_names = MalList.get_(ast, 1)
-  body      = MalList.get_(ast, 2)
+    arg_names = MalList.get_(ast, 1)
+    body      = MalList.get_(ast, 2)
 
-  dim newfunc
-  newfunc = MalFunction_new(env, arg_names, body)
+    dim newfunc
+    newfunc = MalFunction_new(env, arg_names, body)
 
-  rv = Array(env, ast, newfunc, true)
+    rv = Array(env, ast, newfunc, true)
 
-  _eval_special_form_fn = rv
+    _eval_special_form_fn = rv
 end function
 
 
 rem @return [env, ast, eval_result, do_return]
 function eval_special_form(ast, env)
-  Utils.log2 "-->> eval_special_form"
+    Utils.log2 "-->> eval_special_form"
 
-  dim iter_rv
+    dim iter_rv
 
-  Dim a0
-  a0 = MalList.get_(ast, 0)
+    Dim a0
+    a0 = MalList.get_(ast, 0)
 
-  select case a0.str
-    case "def!"
-      iter_rv = _eval_special_form_def(ast, env)
-    case "let*"
-      iter_rv = _eval_special_form_let(ast, env)
-    case "quote"
-      iter_rv = _eval_special_form_quote(ast, env)
-    case "quasiquote"
-      iter_rv = _eval_special_form_quasiquote(ast, env)
-    case "defmacro!"
-      iter_rv = _eval_special_form_defmacro(ast, env)
-    case "macroexpand"
-      iter_rv = _eval_special_form_macroexpand(ast, env)
-    case "try*"
-      iter_rv = _eval_special_form_try(ast, env)
-    case "do"
-      iter_rv = _eval_special_form_do(ast, env)
-    case "if"
-      iter_rv = _eval_special_form_if(ast, env)
-    case "fn*"
-      iter_rv = _eval_special_form_fn(ast, env)
-    case else
-      panic "invalid special form"
-  end select
+    select case a0.str
+      case "def!"
+        iter_rv = _eval_special_form_def(ast, env)
+      case "let*"
+        iter_rv = _eval_special_form_let(ast, env)
+      case "quote"
+        iter_rv = _eval_special_form_quote(ast, env)
+      case "quasiquote"
+        iter_rv = _eval_special_form_quasiquote(ast, env)
+      case "defmacro!"
+        iter_rv = _eval_special_form_defmacro(ast, env)
+      case "macroexpand"
+        iter_rv = _eval_special_form_macroexpand(ast, env)
+      case "try*"
+        iter_rv = _eval_special_form_try(ast, env)
+      case "do"
+        iter_rv = _eval_special_form_do(ast, env)
+      case "if"
+        iter_rv = _eval_special_form_if(ast, env)
+      case "fn*"
+        iter_rv = _eval_special_form_fn(ast, env)
+      case else
+        panic "invalid special form"
+    end select
 
-  eval_special_form = iter_rv
+    eval_special_form = iter_rv
 end function
 
 rem --------------------------------
@@ -975,86 +975,86 @@ function _eval_inner(ast, env)
     Utils.log0 "-->> _eval_inner()"
     dim rv
 
-  ast = macroexpand(ast, env)
+    ast = macroexpand(ast, env)
 
-  if type_name_ex(ast) <> MalList.type_name then ' TODO Use is_list()
-      rv = _eval_ast(ast, env)
-      ' CHECK_MAL_ERROR
+    if type_name_ex(ast) <> MalList.type_name then ' TODO Use is_list()
+        rv = _eval_ast(ast, env)
+        ' CHECK_MAL_ERROR
 
-      _eval_inner = Array(env, ast, rv, true)
-      exit function
-  end if
-  
-  if MalList.size(ast) = 0 then
-      rv = ast
-      _eval_inner = Array(env, ast, rv, true)
-      exit function
-  end if
-  
-  dim iter_rv
-  Dim result
-  Dim do_return As Boolean
+        _eval_inner = Array(env, ast, rv, true)
+        exit function
+    end if
 
-  if is_special_form(ast) then
-      iter_rv = eval_special_form(ast, env)
-      ' CHECK_MAL_ERROR
+    if MalList.size(ast) = 0 then
+        rv = ast
+        _eval_inner = Array(env, ast, rv, true)
+        exit function
+    end if
 
-      env       = iter_rv(0)
-      ast       = iter_rv(1)
-      result    = iter_rv(2)
-      do_return = iter_rv(3)
-  else
-      dim el, f, args
+    dim iter_rv
+    Dim result
+    Dim do_return As Boolean
 
-      el = _eval_ast(ast, env)
-      ' CHECK_MAL_ERROR
+    if is_special_form(ast) then
+        iter_rv = eval_special_form(ast, env)
+        ' CHECK_MAL_ERROR
 
-      f = MalList.head(el)
-      args = MalList.rest(el)
+        env       = iter_rv(0)
+        ast       = iter_rv(1)
+        result    = iter_rv(2)
+        do_return = iter_rv(3)
+    else
+        dim el, f, args
 
-      if MalFunction.is_mal_function(f) then
-          ast = f.body
-          env = MalFunction_gen_env(f, args) rem TODO
-      else
-          result = apply(f, args, env)
-          ' CHECK_MAL_ERROR
-          do_return = true
-      end if
-  end if
+        el = _eval_ast(ast, env)
+        ' CHECK_MAL_ERROR
 
-  _eval_inner = Array(env, ast, result, do_return)
+        f = MalList.head(el)
+        args = MalList.rest(el)
 
-  ' ON_ERROR_CATCH
+        if MalFunction.is_mal_function(f) then
+            ast = f.body
+            env = MalFunction_gen_env(f, args) rem TODO
+        else
+            result = apply(f, args, env)
+            ' CHECK_MAL_ERROR
+            do_return = true
+        end if
+    end if
+
+    _eval_inner = Array(env, ast, result, do_return)
+
+    ' ON_ERROR_CATCH
 end function
 
 
 function EVAL(ByVal ast, ByVal env)
     Utils.log0 "-->> EVAL()"
 
-  dim rv
-  dim iter_rv
+    dim rv
+    dim iter_rv
 
-  dim eval_result
-  Dim do_return As Boolean
-  
-  dim i
-  i = 0
-  do while true
-      i = i + 1
+    dim eval_result
+    Dim do_return As Boolean
 
-      iter_rv = _eval_inner(ast, env)
-      ' CHECK_MAL_ERROR
+    dim i
+    i = 0
+    do while true
+        i = i + 1
 
-      env         = iter_rv(0)
-      ast         = iter_rv(1)
-      eval_result = iter_rv(2)
-      do_return   = iter_rv(3)
+        iter_rv = _eval_inner(ast, env)
+        ' CHECK_MAL_ERROR
 
-      if do_return then
-          rv = eval_result
-          exit do
-      end if
-  loop
+        env         = iter_rv(0)
+        ast         = iter_rv(1)
+        eval_result = iter_rv(2)
+        do_return   = iter_rv(3)
+
+        if do_return then
+            rv = eval_result
+            exit do
+        end if
+    loop
   
     EVAL = rv
 end function
@@ -1079,44 +1079,44 @@ end function
 rem --------------------------------
 
 function _is_special_form_symbol(sym)
-  Utils.log2 "-->> _is_special_form_symbol()"
-  dim rv
+    Utils.log2 "-->> _is_special_form_symbol()"
+    dim rv
 
-  select case sym.str
-      case "def!", "let*", "fn*", "if", "do", "quote", _
-           "quasiquote", "defmacro!", "macroexpand", "try*"
-    rv = true
-  case else
-    rv = false
-  end select
+    select case sym.str
+        case "def!", "let*", "fn*", "if", "do", "quote", _
+             "quasiquote", "defmacro!", "macroexpand", "try*"
+      rv = true
+    case else
+      rv = false
+    end select
 
-_is_special_form_symbol = rv
+    _is_special_form_symbol = rv
 end function
 
 
 Function is_special_form(list) As Boolean
-  Utils.log2 "-->> is_special_form()"
-  dim rv
-  dim el0
-  el0 = MalList.get_(list, 0)
+    Utils.log2 "-->> is_special_form()"
+    dim rv
+    dim el0
+    el0 = MalList.get_(list, 0)
 
-  If Not MalSymbol.is_symbol(el0) Then
-      rv = false
-      is_special_form = rv
-      exit function
-  end if
+    If Not MalSymbol.is_symbol(el0) Then
+        rv = false
+        is_special_form = rv
+        exit function
+    end if
 
-  rv = _is_special_form_symbol(el0)
+    rv = _is_special_form_symbol(el0)
 
-  is_special_form = rv
+    is_special_form = rv
 End Function
 
 ' --------------------------------
 
 sub _run
-  ' ON_ERROR_TRY
+    ' ON_ERROR_TRY
     ' ThisComponent.LockControllers()
-    
+
     dim box_src, box_output
     box_src    = Calc.get_shape_by_name("src")
     box_output = Calc.get_shape_by_name("output")
