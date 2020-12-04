@@ -52,9 +52,9 @@ function _pr_str(val, optional print_readably as boolean)
       otn = obj_typename(val)
 
       if otn = MalList.type_name then
-        rv = MalList_pr_str(val, _r)
+        rv = MalList.pr_str(val, _r)
       elseif otn = MalVector.type_name then
-        rv = MalVector_pr_str(val, _r)
+        rv = MalVector.pr_str(val, _r)
       elseif otn = MalSymbol.type_name then
         rv = MalSymbol_inspect(val)
       elseif otn = MalMap.type_name then
@@ -62,7 +62,7 @@ function _pr_str(val, optional print_readably as boolean)
       elseif otn = MalNamedFunction_type_name then
         rv = MalNamedFunction_inspect(val)
       elseif otn = MalFunction.type_name then
-        rv = MalFunction_inspect(val)
+        rv = MalFunction.inspect(val)
       elseif otn = MalAtom.type_name then
         rv = MalAtom_inspect(val)
       else

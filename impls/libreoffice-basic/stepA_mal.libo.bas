@@ -565,14 +565,10 @@ end function
 
 rem --------------------------------
 
-rem mutate env: yes
-rem mutate ast: no
-rem @return [env, ast, result, do_return]
 function _eval_special_form_def(ast, env)
     dim rv
 
     dim name, val, result
-    ' (def! name val)
     name = MalList.get_(ast, 1)
     val  = MalList.get_(ast, 2)
 
@@ -590,7 +586,6 @@ function _eval_special_form_let(ast, env)
     dim rv
 
     dim kvs, body
-    ' (let* kvs body)
     kvs  = MalList.get_(ast, 1)
     body = MalList.get_(ast, 2)
 
@@ -682,7 +677,7 @@ function qq_loop(ast)
     for i = 0 to MalList.size(ast_rev) - 1
         el = MalList.get_(ast_rev, i)
 
-        if type_name_ex(el) = MalList.type_name then ' TODO Use is_list
+        If MalList.is_list(el) Then
             dim acc2
             acc2 = _qq_loop_list(acc, el)
             acc = acc2
@@ -804,9 +799,6 @@ function _eval_special_form_macroexpand(ast, env)
 end function
 
 
-' (try* expr1 (catch* ...))
-
-' @return [env, ast, result, do_return]
 function _eval_special_form_try(ast, env)
     Utils.log2 "-->> _eval_special_form_try()"
 
@@ -822,7 +814,6 @@ function _eval_special_form_try(ast, env)
 
     if mal_error_exists() then
         if 3 <= MalList.size(ast) then
-            ' (catch* err expr)
             dim a2, a2_0
             a2 = MalList.get_(ast, 2)
             a2_0 = MalList.get_(a2, 0)
@@ -854,8 +845,6 @@ function _eval_special_form_try(ast, env)
 end function
 
 
-rem mutate ast
-rem @return [env, ast, result, do_return]
 function _eval_special_form_do(ast, env)
     Utils.log2 "-->> _eval_special_form_do()"
     dim rv
@@ -864,11 +853,7 @@ function _eval_special_form_do(ast, env)
     exps = MalList.newlist_for_do(ast) rem 先頭と最後以外 / ast[1..-2]
     ast  = MalList.last(ast)
 
-    rem 最後を除いて / 最後以外を / eval する
-    __inc_lv
     results = _eval_ast(exps, env)
-    __dec_lv
-    ' TODO check error
 
     rv = Array(env, ast, results, false)
     _eval_special_form_do = rv
@@ -883,7 +868,6 @@ function _eval_special_form_if(ast, env)
     result = null
     do_return = false
     
-    ' (if cond_expr then_expr else_expr)
     dim cond_expr, then_expr, else_expr
     cond_expr = MalList.get_(ast, 1)
     then_expr = MalList.get_(ast, 2)
@@ -893,7 +877,6 @@ function _eval_special_form_if(ast, env)
     if is_truthy(cond) then
         ast = then_expr rem Continue loop (TCO)
     else
-        rem if IsNull(else_expr) or IsEmpty(else_expr) then
         if MalList.size(ast) <= 3 then
             rem else が省略されている場合
             do_return = true
@@ -908,22 +891,17 @@ function _eval_special_form_if(ast, env)
 end function
 
 
-rem (fn* ...) => (lambda ...)
 function _eval_special_form_fn(ast, env)
     Utils.log2 "-->> _eval_special_form_fn()"
     
     dim rv
     dim arg_names, body
 
-    ' (fn* (x) x)
-    '          body ... body
-    '      arg_names     ... args
-
     arg_names = MalList.get_(ast, 1)
     body      = MalList.get_(ast, 2)
 
     dim newfunc
-    newfunc = MalFunction_new(env, arg_names, body)
+    newfunc = MalFunction.new_(env, arg_names, body)
 
     rv = Array(env, ast, newfunc, true)
 
@@ -931,7 +909,6 @@ function _eval_special_form_fn(ast, env)
 end function
 
 
-rem @return [env, ast, eval_result, do_return]
 function eval_special_form(ast, env)
     Utils.log2 "-->> eval_special_form"
 
@@ -977,7 +954,7 @@ function _eval_inner(ast, env)
 
     ast = macroexpand(ast, env)
 
-    if type_name_ex(ast) <> MalList.type_name then ' TODO Use is_list()
+    If Not MalList.is_list(ast) Then
         rv = _eval_ast(ast, env)
         ' CHECK_MAL_ERROR
 
@@ -1014,7 +991,7 @@ function _eval_inner(ast, env)
 
         if MalFunction.is_mal_function(f) then
             ast = f.body
-            env = MalFunction_gen_env(f, args) rem TODO
+            env = MalFunction.gen_env(f, args)
         else
             result = apply(f, args, env)
             ' CHECK_MAL_ERROR
@@ -1061,8 +1038,6 @@ end function
 
 rem --------------------------------
 
-rem ここに渡ってきた時点で args は評価済み
-rem 評価済みの args に手続きを適用するだけ
 function apply(f, args, env)
     Utils.log0 "-->> apply()"
     dim rv

@@ -1054,19 +1054,9 @@ function vals(args)
 end function
 
 
+' NOTE Basic の機能ではミリ秒の取得はできなさそう
 function time_ms
-    ' Utils.log1 "-->> time_ms()"
-    dim rv
-    
-    dim unodt, sec
-    unodt = CDateToUnoDateTime(Now)
-    ' TODO
-    ' sec = unodt.nanoseconds / 1000000000
-    sec = 0
-
-    rv = ((Now() - 25569) * 86400 + sec) * 1000
-
-    time_ms = rv
+    time_ms = ((Now() - 25569) * 86400) * 1000
 end function
 
 
@@ -1330,7 +1320,7 @@ function _apply_func(f, args)
         
     ElseIf MalFunction.is_mal_function(f) Then
         dim env2
-        env2 = MalFunction_gen_env(f, args)
+        env2 = MalFunction.gen_env(f, args)
 
         rv = EVAL(f.body, env2)
 

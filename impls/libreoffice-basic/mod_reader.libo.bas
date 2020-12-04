@@ -96,7 +96,7 @@ function _unescape_str(str)
         if c = dq() then
             exit do
         elseif c = bs() then
-            if pos = len(str) - 2 then rem TODO
+            if pos = len(str) - 2 then
                 throw "expected '" & dq() & "', got EOF"
                 ' CHECK_MAL_ERROR
             end if

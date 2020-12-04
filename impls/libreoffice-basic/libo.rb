@@ -95,10 +95,10 @@ def check_pid
   print_e "pid file exists ... "
   if File.exist?(FILES.PID)
     pid = File.read(FILES.PID)
-    puts_e "yes (#{pid}) (check_pid)"
+    puts_e "yes (#{pid})"
     system "ps ax | grep #{pid}"
   else
-    puts_e "no (check_pid)"
+    puts_e "no"
   end
 end
 
@@ -115,23 +115,24 @@ def preprocess(src)
   proc_type = nil
   proc_name = nil
 
-  src.lines.map { |line|
-    case line
-    when /^function ([a-z0-9_]+)/i
-      proc_type = "function"
-      proc_name = $1
-      line
-    when /^sub ([a-z0-9_]+)/i
-      proc_type = "sub"
-      proc_name = $1
-      line
-    when /^ *' CHECK_MAL_ERROR$/
-      retval_line = ""
-      if proc_type == "function"
-        retval_line = "#{proc_name} = null"
-      end
+  src.lines
+    .map do |line|
+      case line
+      when /^function ([a-z0-9_]+)/i
+        proc_type = "function"
+        proc_name = $1
+        line
+      when /^sub ([a-z0-9_]+)/i
+        proc_type = "sub"
+        proc_name = $1
+        line
+      when /^ *' CHECK_MAL_ERROR$/
+        retval_line = ""
+        if proc_type == "function"
+          retval_line = "#{proc_name} = null"
+        end
 
-      <<-SRC
+        <<-SRC
                         ' --------------------------------
                         ' Utils.log0 "-->> CHECK_ERROR (in #{proc_name})"
                         If mal_error_exists() Then
@@ -144,30 +145,32 @@ def preprocess(src)
                         End If
                         ' --------------------------------
 
-      SRC
-    when /^ *' ON_ERROR_TRY$/
-      <<-SRC
+        SRC
+      when /^ *' ON_ERROR_TRY$/
+        <<-SRC
                         ' --------------------------------
                             On Local Error GoTo error_handler__#{proc_name}
                         ' --------------------------------
-      SRC
-    when /^ *' ON_ERROR_CATCH$/
-      <<-SRC
+        SRC
+      when /^ *' ON_ERROR_CATCH$/
+        <<-SRC
                         ' --------------------------------
                             Exit #{proc_type}
                         error_handler__#{proc_name}:
                             panic format_err_msg("#{proc_name}", err, erl, error$)
                         ' --------------------------------
-      SRC
-    else
-      line
+        SRC
+      else
+        line
+      end
     end
-  }.join("")
+    .join("")
 end
 
-def embed_src(template, key, src)
+def embed_src(template, key, src_path)
+  src = escape(preprocess(file_read(src_path)))
   parts = template.split(key)
-  parts[0] + src + parts[1]
+  parts[0] + "\n" + src + parts[1]
 end
 
 def embed_sample_mal(text, mal_code)
@@ -198,38 +201,23 @@ def render_fods(step)
       step
     end
   bas_file = Dir.glob("step#{src_step}_*.libo.bas").to_a[0]
+  template = embed_src(template, "rem __BASIC_SRC__", bas_file)
 
-  basic_src = escape(preprocess(file_read(bas_file)))
+  template = embed_src(template, "rem __BASIC_SRC_UTILS__"         , "mod_utils.libo.bas"         )
+  template = embed_src(template, "rem __BASIC_SRC_LIST__"          , "mod_list.libo.bas"          )
+  template = embed_src(template, "rem __BASIC_SRC_VECTOR__"        , "mod_vector.libo.bas"        )
+  template = embed_src(template, "rem __BASIC_SRC_MAP__"           , "mod_map.libo.bas"           )
+  template = embed_src(template, "rem __BASIC_SRC_ENV__"           , "mod_env.libo.bas"           )
+  template = embed_src(template, "rem __BASIC_SRC_SYMBOL__"        , "mod_symbol.libo.bas"        )
+  template = embed_src(template, "rem __BASIC_SRC_READER__"        , "mod_reader.libo.bas"        )
+  template = embed_src(template, "rem __BASIC_SRC_PRINTER__"       , "mod_printer.libo.bas"       )
+  template = embed_src(template, "rem __BASIC_SRC_CORE__"          , "mod_core.libo.bas"          )
+  template = embed_src(template, "rem __BASIC_SRC_FUNCTION__"      , "mod_function.libo.bas"      )
+  template = embed_src(template, "rem __BASIC_SRC_NAMED_FUNCTION__", "mod_named_function.libo.bas")
+  template = embed_src(template, "rem __BASIC_SRC_ATOM__"          , "mod_atom.libo.bas"          )
+  template = embed_src(template, "rem __BASIC_SRC_CALC__"          , "mod_calc.libo.bas"          )
 
-  basic_src_utils          = escape(preprocess(file_read("mod_utils.libo.bas"))    )
-  basic_src_list           = escape(preprocess(file_read("mod_list.libo.bas"))     )
-  basic_src_vector         = escape(preprocess(file_read("mod_vector.libo.bas"))   )
-  basic_src_map            = escape(preprocess(file_read("mod_map.libo.bas"))      )
-  basic_src_env            = escape(preprocess(file_read("mod_env.libo.bas"))      )
-  basic_src_symbol         = escape(preprocess(file_read("mod_symbol.libo.bas"))   )
-  basic_src_reader         = escape(preprocess(file_read("mod_reader.libo.bas"))   )
-  basic_src_printer        = escape(preprocess(file_read("mod_printer.libo.bas" )) )
-  basic_src_core           = escape(preprocess(file_read("mod_core.libo.bas"    )) )
-  basic_src_function       = escape(preprocess(file_read("mod_function.libo.bas")) )
-  basic_src_named_function = escape(preprocess(file_read("mod_named_function.libo.bas")) )
-  basic_src_atom           = escape(preprocess(file_read("mod_atom.libo.bas"))     )
-  basic_src_calc           = escape(preprocess(file_read("mod_calc.libo.bas"))     )
   mal_sample_code = file_read("sample.mal")
-
-  template = embed_src(template, "rem __BASIC_SRC__"               , "\n" + basic_src)
-  template = embed_src(template, "rem __BASIC_SRC_UTILS__"         , "\n" + basic_src_utils)
-  template = embed_src(template, "rem __BASIC_SRC_LIST__"          , "\n" + basic_src_list)
-  template = embed_src(template, "rem __BASIC_SRC_VECTOR__"        , "\n" + basic_src_vector)
-  template = embed_src(template, "rem __BASIC_SRC_MAP__"           , "\n" + basic_src_map)
-  template = embed_src(template, "rem __BASIC_SRC_ENV__"           , "\n" + basic_src_env)
-  template = embed_src(template, "rem __BASIC_SRC_SYMBOL__"        , "\n" + basic_src_symbol)
-  template = embed_src(template, "rem __BASIC_SRC_READER__"        , "\n" + basic_src_reader)
-  template = embed_src(template, "rem __BASIC_SRC_PRINTER__"       , "\n" + basic_src_printer)
-  template = embed_src(template, "rem __BASIC_SRC_CORE__"          , "\n" + basic_src_core)
-  template = embed_src(template, "rem __BASIC_SRC_FUNCTION__"      , "\n" + basic_src_function)
-  template = embed_src(template, "rem __BASIC_SRC_NAMED_FUNCTION__", "\n" + basic_src_named_function)
-  template = embed_src(template, "rem __BASIC_SRC_ATOM__"          , "\n" + basic_src_atom)
-  template = embed_src(template, "rem __BASIC_SRC_CALC__"          , "\n" + basic_src_calc)
   template = embed_sample_mal(template, mal_sample_code)
 
   File.open("z_000.fods", "wb"){ |f|
@@ -362,11 +350,6 @@ def shutdown(args_p: false)
   $shutdown_done = true
 end
 
-# TODO write_msg_to_libo と一本化
-def respond_to_libo(msg)
-  write_msg_to_libo msg
-end
-
 def main_argv_mode(args)
   File.open(FILES.ARGS, "wb") { |f|
     f.puts ARGV.size
@@ -394,11 +377,11 @@ def main_argv_mode(args)
     elsif /^READLINE (.+)/ =~ cmd_from_libo
       prompt = $1
       line = _readline(prompt)
-      respond_to_libo(line)
+      write_msg_to_libo(line)
 
     elsif /^PRINT$/ =~ cmd_from_libo
       # 出力は上の print_output で済んでいる
-      respond_to_libo("print output done")
+      write_msg_to_libo("print output done")
 
     elsif /^EXIT (\d+)/ =~ cmd_from_libo
       $exit_status = $1.to_i
@@ -433,14 +416,14 @@ def main
       line = _readline(prompt)
       if line.nil?
         puts "exit"
-        respond_to_libo("exit")
+        write_msg_to_libo("exit")
       else
-        respond_to_libo(line)
+        write_msg_to_libo(line)
       end
 
     elsif /^PRINT$/ =~ cmd_from_libo
       # 出力は上の print_output で済んでいる
-      respond_to_libo("print output done")
+      write_msg_to_libo("print output done")
 
     elsif /^EXIT (\d+)/ =~ cmd_from_libo
       $exit_status = $1.to_i
@@ -455,23 +438,23 @@ end
 # --------------------------------
 
 def setup
-  FILES.IN  = file_path("z_in.txt")
-  FILES.OUT = file_path("z_out.txt")
-  FILES.LOG = file_path("z_log.txt")
+  FILES.IN        = file_path("z_in.txt")
+  FILES.OUT       = file_path("z_out.txt")
+  FILES.LOG       = file_path("z_log.txt")
   FILES.LOG_SETUP = file_path("z_log_setup.txt")
-  FILES.PID = file_path("z_pid.txt")
-  FILES.ERR = file_path("z_err.txt")
-  FILES.DONE = file_path("z_done.txt")
-  FILES.ARGS = file_path("z_args.txt")
+  FILES.PID       = file_path("z_pid.txt")
+  FILES.ERR       = file_path("z_err.txt")
+  FILES.DONE      = file_path("z_done.txt")
+  FILES.ARGS      = file_path("z_args.txt")
 
-  ENV["FILE_IN" ] = FILES.IN
-  ENV["FILE_OUT"] = FILES.OUT
-  ENV["FILE_LOG"] = FILES.LOG
+  ENV["FILE_IN" ]       = FILES.IN
+  ENV["FILE_OUT"]       = FILES.OUT
+  ENV["FILE_LOG"]       = FILES.LOG
   ENV["FILE_LOG_SETUP"] = FILES.LOG_SETUP
-  ENV["FILE_ERR"] = FILES.ERR
-  ENV["FILE_DONE"] = FILES.DONE
-  ENV["FILE_ARGS"] = FILES.ARGS
-  ENV["AUTO_CLOSE"] = "1"
+  ENV["FILE_ERR"]       = FILES.ERR
+  ENV["FILE_DONE"]      = FILES.DONE
+  ENV["FILE_ARGS"]      = FILES.ARGS
+  ENV["AUTO_CLOSE"]     = "1"
 end
 
 def start_repl(step, args)

@@ -118,12 +118,16 @@ function List_inspect(self)
 end function
 
 
-' TODO rename => pr_str
-function MalList_pr_str(self, print_readably as boolean)
+function Seq_pr_str( _
+    self As Object, _
+    print_readably As Boolean, _
+    paren_open As String, _
+    paren_close As String _
+) As String
     dim rv
 
     dim str
-    str = "("
+    str = paren_open
 
     Dim i As Integer
     for i = 0 to self.size - 1
@@ -144,10 +148,15 @@ function MalList_pr_str(self, print_readably as boolean)
       end if
     next
 
-    str = str & ")"
+    str = str & paren_close
 
     rv = str
-    MalList_pr_str = rv
+    Seq_pr_str = rv
+end function
+
+
+function pr_str(self, print_readably as boolean)
+    pr_str = Seq_pr_str(self, print_readably, "(", ")")
 end function
 
 

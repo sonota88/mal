@@ -54,39 +54,9 @@ function MalVector_inspect(self)
 end function
 
 
-' TODO List_pr_str と共通化
-function MalVector_pr_str(self, print_readably as boolean)
-    ' Utils.log2 "-->> MalVector_pr_str"
-
-    dim rv
-    dim str, i, _r
-    _r = print_readably
-
-    str = "["
-
-    for i = 0 to self.size - 1
-      if 0 < i then
-        str = str & " "
-      end if
-
-      dim el
-      el = MalList.get_(self, i)
-
-      if IsNull(el) then
-        rem 本当は _pr_str に渡したいが渡せないためここで分岐している
-        str = str & "nil"
-      else
-        dim s2 as string
-        s2 = Printer._pr_str(el, _r)
-        str = str & s2
-      end if
-    next
-
-    str = str & "]"
-
-    rv = str
-    MalVector_pr_str = rv
-end function
+Function pr_str(self, print_readably As Boolean) As String
+    pr_str = Seq_pr_str(self, print_readably, "[", "]")
+End Function
 
 
 sub add(self, elem)

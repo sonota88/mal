@@ -14,14 +14,13 @@ type MalFunction
 end type
 
 
-' TODO .new_() にリネーム
-function MalFunction_new(env, args, body)
+function new_(env, args, body)
     dim mf as New MalFunction
     mf.type_ = type_name
     mf.env = env
     mf.args = args
     mf.body = body
-    MalFunction_new = mf
+    new_ = mf
 end function
 
 
@@ -30,7 +29,7 @@ Function type_name As String
 End Function
 
 
-function MalFunction_inspect(self)
+function inspect(self)
     dim rv
 
     rv = "#<function"
@@ -53,14 +52,14 @@ function MalFunction_inspect(self)
 
     rv = rv & ">"
 
-    MalFunction_inspect = rv
+    inspect = rv
 end function
 
 
-function MalFunction_gen_env(self, args)
+function gen_env(self, args)
     ' ON_ERROR_TRY
 
-    ' Utils.log2 "-->> MalFunction_gen_env"
+    ' Utils.log2 "-->> MalFunction.gen_env()"
 
     dim rv
     dim newenv
@@ -94,7 +93,7 @@ function MalFunction_gen_env(self, args)
     loop
 
     rv = newenv
-    MalFunction_gen_env = rv
+    gen_env = rv
     
     ' ON_ERROR_CATCH
 end function
@@ -104,7 +103,7 @@ function clone(self)
     ' Utils.log2 "-->> MalFunction.clone()"
     dim rv
 
-    rv = MalFunction_new(self.env, self.args, self.body)
+    rv = new_(self.env, self.args, self.body)
     rv.is_macro = self.is_macro
 
     clone = rv

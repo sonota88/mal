@@ -106,7 +106,7 @@ function inspect(val) as string
         elseif otn = MalNamedFunction_type_name then
           rv = MalNamedFunction_inspect(val)
         elseif otn = MalFunction.type_name then
-          rv = MalFunction_inspect(val)
+          rv = MalFunction.inspect(val)
         elseif otn = MalAtom.type_name then
           rv = MalAtom_inspect(val)
         elseif otn = "Token" then
@@ -395,7 +395,6 @@ sub file_write(path, str as string)
 end sub
 
 
-' TODO rename: clean の方がよいかも
 sub file_touch(path)
     file_write(path, "")
 end sub
@@ -414,7 +413,6 @@ sub file_append(path, msg)
 
     dim iCount3 as integer
     iCount3 = Freefile
-    ' open path for OutPut as iCount3
     open path for append as #iCount3
 
     print #iCount3, msg
