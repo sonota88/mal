@@ -249,7 +249,8 @@ def libo_up
   opts << " --nolockcheck"
   opts << " --pidfile=#{ FILES.PID }"
 
-  cmd = %(libreoffice #{opts} z_000.fods macro://z_000/mylib.main.Main &)
+  macro_url = "vnd.sun.star.script:mylib.main.Main?language=Basic&location=document"
+  cmd = %(libreoffice #{opts} z_000.fods "#{macro_url}" &)
 
   system cmd
 end
