@@ -793,14 +793,10 @@ end function
 
 rem --------------------------------
 
-rem mutate env: yes
-rem mutate ast: no
-rem @return [env, ast, result, do_return]
 function _eval_special_form_def(ast, env)
     dim rv
 
     dim name, val, result
-    &apos; (def! name val)
     name = MalList.get_(ast, 1)
     val  = MalList.get_(ast, 2)
 
@@ -829,7 +825,6 @@ function _eval_special_form_let(ast, env)
     dim rv
 
     dim kvs, body
-    &apos; (let* kvs body)
     kvs  = MalList.get_(ast, 1)
     body = MalList.get_(ast, 2)
 
@@ -921,7 +916,7 @@ function qq_loop(ast)
     for i = 0 to MalList.size(ast_rev) - 1
         el = MalList.get_(ast_rev, i)
 
-        if type_name_ex(el) = MalList.type_name then &apos; TODO Use is_list
+        If MalList.is_list(el) Then
             dim acc2
             acc2 = _qq_loop_list(acc, el)
             acc = acc2
@@ -1043,9 +1038,6 @@ function _eval_special_form_macroexpand(ast, env)
 end function
 
 
-&apos; (try* expr1 (catch* ...))
-
-&apos; @return [env, ast, result, do_return]
 function _eval_special_form_try(ast, env)
     Utils.log2 &quot;--&gt;&gt; _eval_special_form_try()&quot;
 
@@ -1061,7 +1053,6 @@ function _eval_special_form_try(ast, env)
 
     if mal_error_exists() then
         if 3 &lt;= MalList.size(ast) then
-            &apos; (catch* err expr)
             dim a2, a2_0
             a2 = MalList.get_(ast, 2)
             a2_0 = MalList.get_(a2, 0)
@@ -1093,8 +1084,6 @@ function _eval_special_form_try(ast, env)
 end function
 
 
-rem mutate ast
-rem @return [env, ast, result, do_return]
 function _eval_special_form_do(ast, env)
     Utils.log2 &quot;--&gt;&gt; _eval_special_form_do()&quot;
     dim rv
@@ -1103,11 +1092,7 @@ function _eval_special_form_do(ast, env)
     exps = MalList.newlist_for_do(ast) rem 先頭と最後以外 / ast[1..-2]
     ast  = MalList.last(ast)
 
-    rem 最後を除いて / 最後以外を / eval する
-    __inc_lv
     results = _eval_ast(exps, env)
-    __dec_lv
-    &apos; TODO check error
 
     rv = Array(env, ast, results, false)
     _eval_special_form_do = rv
@@ -1122,7 +1107,6 @@ function _eval_special_form_if(ast, env)
     result = null
     do_return = false
     
-    &apos; (if cond_expr then_expr else_expr)
     dim cond_expr, then_expr, else_expr
     cond_expr = MalList.get_(ast, 1)
     then_expr = MalList.get_(ast, 2)
@@ -1132,7 +1116,6 @@ function _eval_special_form_if(ast, env)
     if is_truthy(cond) then
         ast = then_expr rem Continue loop (TCO)
     else
-        rem if IsNull(else_expr) or IsEmpty(else_expr) then
         if MalList.size(ast) &lt;= 3 then
             rem else が省略されている場合
             do_return = true
@@ -1147,22 +1130,17 @@ function _eval_special_form_if(ast, env)
 end function
 
 
-rem (fn* ...) =&gt; (lambda ...)
 function _eval_special_form_fn(ast, env)
     Utils.log2 &quot;--&gt;&gt; _eval_special_form_fn()&quot;
     
     dim rv
     dim arg_names, body
 
-    &apos; (fn* (x) x)
-    &apos;          body ... body
-    &apos;      arg_names     ... args
-
     arg_names = MalList.get_(ast, 1)
     body      = MalList.get_(ast, 2)
 
     dim newfunc
-    newfunc = MalFunction_new(env, arg_names, body)
+    newfunc = MalFunction.new_(env, arg_names, body)
 
     rv = Array(env, ast, newfunc, true)
 
@@ -1170,7 +1148,6 @@ function _eval_special_form_fn(ast, env)
 end function
 
 
-rem @return [env, ast, eval_result, do_return]
 function eval_special_form(ast, env)
     Utils.log2 &quot;--&gt;&gt; eval_special_form&quot;
 
@@ -1218,7 +1195,7 @@ function _eval_inner(ast, env)
 
     ast = macroexpand(ast, env)
 
-    if type_name_ex(ast) &lt;&gt; MalList.type_name then &apos; TODO Use is_list()
+    If Not MalList.is_list(ast) Then
         rv = _eval_ast(ast, env)
                         &apos; --------------------------------
                         &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in _eval_inner)&quot;
@@ -1288,7 +1265,7 @@ function _eval_inner(ast, env)
 
         if MalFunction.is_mal_function(f) then
             ast = f.body
-            env = MalFunction_gen_env(f, args) rem TODO
+            env = MalFunction.gen_env(f, args)
         else
             result = apply(f, args, env)
                         &apos; --------------------------------
@@ -1361,8 +1338,6 @@ end function
 
 rem --------------------------------
 
-rem ここに渡ってきた時点で args は評価済み
-rem 評価済みの args に手続きを適用するだけ
 function apply(f, args, env)
     Utils.log0 &quot;--&gt;&gt; apply()&quot;
     dim rv
@@ -1608,12 +1583,16 @@ function List_inspect(self)
 end function
 
 
-&apos; TODO rename =&gt; pr_str
-function MalList_pr_str(self, print_readably as boolean)
+function Seq_pr_str( _
+    self As Object, _
+    print_readably As Boolean, _
+    paren_open As String, _
+    paren_close As String _
+) As String
     dim rv
 
     dim str
-    str = &quot;(&quot;
+    str = paren_open
 
     Dim i As Integer
     for i = 0 to self.size - 1
@@ -1634,10 +1613,15 @@ function MalList_pr_str(self, print_readably as boolean)
       end if
     next
 
-    str = str &amp; &quot;)&quot;
+    str = str &amp; paren_close
 
     rv = str
-    MalList_pr_str = rv
+    Seq_pr_str = rv
+end function
+
+
+function pr_str(self, print_readably as boolean)
+    pr_str = Seq_pr_str(self, print_readably, &quot;(&quot;, &quot;)&quot;)
 end function
 
 
@@ -1902,7 +1886,7 @@ function _unescape_str(str)
         if c = dq() then
             exit do
         elseif c = bs() then
-            if pos = len(str) - 2 then rem TODO
+            if pos = len(str) - 2 then
                 throw &quot;expected &apos;&quot; &amp; dq() &amp; &quot;&apos;, got EOF&quot;
                         &apos; --------------------------------
                         &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in _unescape_str)&quot;
@@ -2442,9 +2426,9 @@ function _pr_str(val, optional print_readably as boolean)
       otn = obj_typename(val)
 
       if otn = MalList.type_name then
-        rv = MalList_pr_str(val, _r)
+        rv = MalList.pr_str(val, _r)
       elseif otn = MalVector.type_name then
-        rv = MalVector_pr_str(val, _r)
+        rv = MalVector.pr_str(val, _r)
       elseif otn = MalSymbol.type_name then
         rv = MalSymbol_inspect(val)
       elseif otn = MalMap.type_name then
@@ -2452,7 +2436,7 @@ function _pr_str(val, optional print_readably as boolean)
       elseif otn = MalNamedFunction_type_name then
         rv = MalNamedFunction_inspect(val)
       elseif otn = MalFunction.type_name then
-        rv = MalFunction_inspect(val)
+        rv = MalFunction.inspect(val)
       elseif otn = MalAtom.type_name then
         rv = MalAtom_inspect(val)
       else
@@ -2579,7 +2563,7 @@ function inspect(val) as string
         elseif otn = MalNamedFunction_type_name then
           rv = MalNamedFunction_inspect(val)
         elseif otn = MalFunction.type_name then
-          rv = MalFunction_inspect(val)
+          rv = MalFunction.inspect(val)
         elseif otn = MalAtom.type_name then
           rv = MalAtom_inspect(val)
         elseif otn = &quot;Token&quot; then
@@ -2874,7 +2858,6 @@ sub file_write(path, str as string)
 end sub
 
 
-&apos; TODO rename: clean の方がよいかも
 sub file_touch(path)
     file_write(path, &quot;&quot;)
 end sub
@@ -2895,7 +2878,6 @@ sub file_append(path, msg)
 
     dim iCount3 as integer
     iCount3 = Freefile
-    &apos; open path for OutPut as iCount3
     open path for append as #iCount3
 
     print #iCount3, msg
@@ -3009,7 +2991,7 @@ sub print_stdout(msg)
     end if
     
     if is_gui() then
-        box_append(&quot;output&quot;, msg2)
+        box_append(&quot;output&quot;, msg2 &amp; lf())
     else
         dim path
         path = environ(&quot;FILE_OUT&quot;)
@@ -3020,7 +3002,7 @@ end sub
 
 sub print_stderr(msg)
     if is_gui() then
-        box_append(&quot;output&quot;, msg)
+        box_append(&quot;output&quot;, msg &amp; lf())
     else
         dim path
         path = environ(&quot;FILE_OUT&quot;)
@@ -4561,19 +4543,9 @@ function vals(args)
 end function
 
 
+&apos; NOTE Basic の機能ではミリ秒の取得はできなさそう
 function time_ms
-    &apos; Utils.log1 &quot;--&gt;&gt; time_ms()&quot;
-    dim rv
-    
-    dim unodt, sec
-    unodt = CDateToUnoDateTime(Now)
-    &apos; TODO
-    &apos; sec = unodt.nanoseconds / 1000000000
-    sec = 0
-
-    rv = ((Now() - 25569) * 86400 + sec) * 1000
-
-    time_ms = rv
+    time_ms = ((Now() - 25569) * 86400) * 1000
 end function
 
 
@@ -4859,7 +4831,7 @@ function _apply_func(f, args)
         
     ElseIf MalFunction.is_mal_function(f) Then
         dim env2
-        env2 = MalFunction_gen_env(f, args)
+        env2 = MalFunction.gen_env(f, args)
 
         rv = EVAL(f.body, env2)
 
@@ -5134,14 +5106,13 @@ type MalFunction
 end type
 
 
-&apos; TODO .new_() にリネーム
-function MalFunction_new(env, args, body)
+function new_(env, args, body)
     dim mf as New MalFunction
     mf.type_ = type_name
     mf.env = env
     mf.args = args
     mf.body = body
-    MalFunction_new = mf
+    new_ = mf
 end function
 
 
@@ -5150,7 +5121,7 @@ Function type_name As String
 End Function
 
 
-function MalFunction_inspect(self)
+function inspect(self)
     dim rv
 
     rv = &quot;#&lt;function&quot;
@@ -5173,16 +5144,16 @@ function MalFunction_inspect(self)
 
     rv = rv &amp; &quot;&gt;&quot;
 
-    MalFunction_inspect = rv
+    inspect = rv
 end function
 
 
-function MalFunction_gen_env(self, args)
+function gen_env(self, args)
                         &apos; --------------------------------
-                            On Local Error GoTo error_handler__MalFunction_gen_env
+                            On Local Error GoTo error_handler__gen_env
                         &apos; --------------------------------
 
-    &apos; Utils.log2 &quot;--&gt;&gt; MalFunction_gen_env&quot;
+    &apos; Utils.log2 &quot;--&gt;&gt; MalFunction.gen_env()&quot;
 
     dim rv
     dim newenv
@@ -5216,12 +5187,12 @@ function MalFunction_gen_env(self, args)
     loop
 
     rv = newenv
-    MalFunction_gen_env = rv
+    gen_env = rv
     
                         &apos; --------------------------------
                             Exit function
-                        error_handler__MalFunction_gen_env:
-                            panic format_err_msg(&quot;MalFunction_gen_env&quot;, err, erl, error$)
+                        error_handler__gen_env:
+                            panic format_err_msg(&quot;gen_env&quot;, err, erl, error$)
                         &apos; --------------------------------
 end function
 
@@ -5230,7 +5201,7 @@ function clone(self)
     &apos; Utils.log2 &quot;--&gt;&gt; MalFunction.clone()&quot;
     dim rv
 
-    rv = MalFunction_new(self.env, self.args, self.body)
+    rv = new_(self.env, self.args, self.body)
     rv.is_macro = self.is_macro
 
     clone = rv
@@ -5379,39 +5350,9 @@ function MalVector_inspect(self)
 end function
 
 
-&apos; TODO List_pr_str と共通化
-function MalVector_pr_str(self, print_readably as boolean)
-    &apos; Utils.log2 &quot;--&gt;&gt; MalVector_pr_str&quot;
-
-    dim rv
-    dim str, i, _r
-    _r = print_readably
-
-    str = &quot;[&quot;
-
-    for i = 0 to self.size - 1
-      if 0 &lt; i then
-        str = str &amp; &quot; &quot;
-      end if
-
-      dim el
-      el = MalList.get_(self, i)
-
-      if IsNull(el) then
-        rem 本当は _pr_str に渡したいが渡せないためここで分岐している
-        str = str &amp; &quot;nil&quot;
-      else
-        dim s2 as string
-        s2 = Printer._pr_str(el, _r)
-        str = str &amp; s2
-      end if
-    next
-
-    str = str &amp; &quot;]&quot;
-
-    rv = str
-    MalVector_pr_str = rv
-end function
+Function pr_str(self, print_readably As Boolean) As String
+    pr_str = Seq_pr_str(self, print_readably, &quot;[&quot;, &quot;]&quot;)
+End Function
 
 
 sub add(self, elem)
