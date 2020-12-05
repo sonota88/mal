@@ -1,0 +1,1 @@
+(def! my-func (fn* () "MY-FUNC"))
