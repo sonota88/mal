@@ -524,7 +524,7 @@ sub print_stdout(msg)
     end if
     
     if is_gui() then
-        box_append("output", msg2)
+        box_append("output", msg2 & lf())
     else
         dim path
         path = environ("FILE_OUT")
@@ -535,7 +535,7 @@ end sub
 
 sub print_stderr(msg)
     if is_gui() then
-        box_append("output", msg)
+        box_append("output", msg & lf())
     else
         dim path
         path = environ("FILE_OUT")
