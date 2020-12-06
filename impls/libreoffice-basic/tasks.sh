@@ -1,5 +1,7 @@
 #!/bin/bash
 
+readonly FILES_DIR=z_files/
+
 cmd_test() {
   set -o errexit
 
@@ -59,9 +61,9 @@ cmd_repl() {
 cmd_run_gui() {
   set -o errexit
 
-  export FILE_LOG=z_log.txt
-  export FILE_LOG_SETUP=z_log_setup.txt
-  export FILE_OUT=z_out.txt
+  export FILE_LOG=${FILES_DIR}/log.txt
+  export FILE_LOG_SETUP=${FILES_DIR}/log_setup.txt
+  export FILE_OUT=${FILES_DIR}/out.txt
   # export LOG_MODE=shape
   export LOG_MODE=file
   export ENABLE_LOG=0
@@ -69,11 +71,11 @@ cmd_run_gui() {
 
   ruby libo.rb render "A"
 
-  libreoffice z_000.fods
+  libreoffice ${FILES_DIR}/temp.fods
 }
 
 cmd_reset() {
-  echo -n "" > z_hist.txt
+  echo -n "" > ${FILES_DIR}/hist.txt
 }
 
 # --------------------------------

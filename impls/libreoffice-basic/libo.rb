@@ -3,6 +3,7 @@ require "ostruct"
 
 require_relative "mal_readline"
 
+FILES_DIR = "z_files"
 FILES = OpenStruct.new
 
 $shutdown_done = false
@@ -220,7 +221,7 @@ def render_fods(step)
   mal_sample_code = file_read("sample.mal")
   template = embed_sample_mal(template, mal_sample_code)
 
-  File.open("z_000.fods", "wb"){ |f|
+  File.open(file_path("#{FILES_DIR}/temp.fods"), "wb"){ |f|
     f.print template
   }
 end
@@ -237,8 +238,10 @@ def libo_up
   opts << " --nolockcheck"
   opts << " --pidfile=#{ FILES.PID }"
 
+  fods_path = file_path("#{FILES_DIR}/temp.fods")
+
   macro_url = "vnd.sun.star.script:mylib.main.Main?language=Basic&location=document"
-  cmd = %(libreoffice #{opts} z_000.fods "#{macro_url}" &)
+  cmd = %(libreoffice #{opts} "#{fods_path}" "#{macro_url}" &)
 
   system cmd
 end
@@ -438,14 +441,16 @@ end
 # --------------------------------
 
 def setup
-  FILES.IN        = file_path("z_in.txt")
-  FILES.OUT       = file_path("z_out.txt")
-  FILES.LOG       = file_path("z_log.txt")
-  FILES.LOG_SETUP = file_path("z_log_setup.txt")
-  FILES.PID       = file_path("z_pid.txt")
-  FILES.ERR       = file_path("z_err.txt")
-  FILES.DONE      = file_path("z_done.txt")
-  FILES.ARGS      = file_path("z_args.txt")
+  FileUtils.mkdir_p FILES_DIR
+
+  FILES.IN        = file_path("#{FILES_DIR}/in.txt")
+  FILES.OUT       = file_path("#{FILES_DIR}/out.txt")
+  FILES.LOG       = file_path("#{FILES_DIR}/log.txt")
+  FILES.LOG_SETUP = file_path("#{FILES_DIR}/log_setup.txt")
+  FILES.PID       = file_path("#{FILES_DIR}/pid.txt")
+  FILES.ERR       = file_path("#{FILES_DIR}/err.txt")
+  FILES.DONE      = file_path("#{FILES_DIR}/done.txt")
+  FILES.ARGS      = file_path("#{FILES_DIR}/args.txt")
 
   ENV["FILE_IN" ]       = FILES.IN
   ENV["FILE_OUT"]       = FILES.OUT
