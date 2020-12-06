@@ -3,23 +3,23 @@ rem -*- mode: basic -*-
 Option Explicit
 
 type MalNamedFunction
-    type_ as string
-    id as string
-    env ' TODO as object
-    meta as variant
+    type_ As String
+    id As String
+    env As Variant
+    meta As Variant
 end type
 
 
-Function type_name
+Function type_name As String
     type_name = "MalNamedfunction"
 End Function
 
 
-Function new_(id, Optional env As Object)
+Function new_(id As String, Optional env As Object) As MalNamedfunction
     ' Utils.log2 "-->> MalNamedFunction.new_()"
-    dim rv
+    dim rv As MalNamedFunction
 
-    dim newfn as MalNamedFunction
+    dim newfn As MalNamedFunction
     newfn.type_ = type_name
     newfn.id = id
     
@@ -35,8 +35,8 @@ Function new_(id, Optional env As Object)
 end function
 
 
-function inspect(self)
-    dim rv
+function inspect(self As MalNamedFunction) As String
+    dim rv As String
 
     rv = "<MalNamedFunction"
     rv = rv & " " & self.id
@@ -46,9 +46,9 @@ function inspect(self)
 end function
 
 
-function is_named_function(val)
+function is_named_function(val) As Boolean
     ' Utils.log1 "-->> MalNamedFunction.is_named_function()"
-    dim rv
+    dim rv As Boolean
 
     rv = (type_name_ex(val) = type_name)
 
