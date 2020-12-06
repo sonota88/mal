@@ -60,7 +60,7 @@ function _pr_str(val, optional print_readably as boolean)
       elseif otn = MalMap.type_name then
         rv = MalMap_pr_str(val, _r)
       elseif otn = MalNamedFunction.type_name then
-        rv = MalNamedFunction_inspect(val)
+        rv = MalNamedFunction.inspect(val)
       elseif otn = MalFunction.type_name then
         rv = MalFunction.inspect(val)
       elseif otn = MalAtom.type_name then

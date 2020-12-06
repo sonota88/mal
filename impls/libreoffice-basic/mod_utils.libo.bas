@@ -104,7 +104,7 @@ function inspect(val) as string
         elseif otn = MalEnv.type_name then
           rv = MalEnv_inspect(val)
         elseif otn = MalNamedFunction.type_name then
-          rv = MalNamedFunction_inspect(val)
+          rv = MalNamedFunction.inspect(val)
         elseif otn = MalFunction.type_name then
           rv = MalFunction.inspect(val)
         elseif otn = MalAtom.type_name then

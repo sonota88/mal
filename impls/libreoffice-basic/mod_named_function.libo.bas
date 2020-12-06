@@ -35,14 +35,14 @@ Function new_(id, Optional env As Object)
 end function
 
 
-function MalNamedFunction_inspect(self)
+function inspect(self)
     dim rv
 
     rv = "<MalNamedFunction"
     rv = rv & " " & self.id
     rv = rv & ">"
 
-    MalNamedFunction_inspect = rv
+    inspect = rv
 end function
 
 
