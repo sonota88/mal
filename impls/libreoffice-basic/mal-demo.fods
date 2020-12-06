@@ -151,8 +151,7 @@ sub setup(argv, repl_env)
     
     Utils.log2 &quot;--&gt;&gt; prepare eval&quot;
     dim fname_eval
-    fname_eval = MalNamedFunction.init(&quot;eval&quot;)
-    fname_eval.env = repl_env
+    fname_eval = MalNamedFunction.new_(&quot;eval&quot;, repl_env)
     MalEnv.set_(repl_env, MalSymbol.new_(&quot;eval&quot;), fname_eval)
     Utils.log2 &quot;&lt;&lt;-- prepare eval&quot;
 
@@ -353,10 +352,10 @@ function create_repl_env()
 
     dim repl_env
     repl_env = MalEnv.new_()
-    MalEnv.set_(repl_env, MalSymbol.new_(&quot;+&quot;), MalNamedFunction.init(&quot;+&quot;))
-    MalEnv.set_(repl_env, MalSymbol.new_(&quot;-&quot;), MalNamedFunction.init(&quot;-&quot;))
-    MalEnv.set_(repl_env, MalSymbol.new_(&quot;*&quot;), MalNamedFunction.init(&quot;*&quot;))
-    MalEnv.set_(repl_env, MalSymbol.new_(&quot;/&quot;), MalNamedFunction.init(&quot;/&quot;))
+    MalEnv.set_(repl_env, MalSymbol.new_(&quot;+&quot;), MalNamedFunction.new_(&quot;+&quot;))
+    MalEnv.set_(repl_env, MalSymbol.new_(&quot;-&quot;), MalNamedFunction.new_(&quot;-&quot;))
+    MalEnv.set_(repl_env, MalSymbol.new_(&quot;*&quot;), MalNamedFunction.new_(&quot;*&quot;))
+    MalEnv.set_(repl_env, MalSymbol.new_(&quot;/&quot;), MalNamedFunction.new_(&quot;/&quot;))
 
     Core.register_core_funcs(repl_env)
 
@@ -1342,7 +1341,7 @@ function apply(f, args, env)
     Utils.log0 &quot;--&gt;&gt; apply()&quot;
     dim rv
 
-    if type_name_ex(f) &lt;&gt; MalNamedFunction_type_name then
+    if type_name_ex(f) &lt;&gt; MalNamedFunction.type_name then
         throw &quot;apply: expected MalNamedFunction, got (&quot; &amp; inspect(f) &amp; &quot;)&quot;
     end if
 
@@ -2433,8 +2432,8 @@ function _pr_str(val, optional print_readably as boolean)
         rv = MalSymbol_inspect(val)
       elseif otn = MalMap.type_name then
         rv = MalMap_pr_str(val, _r)
-      elseif otn = MalNamedFunction_type_name then
-        rv = MalNamedFunction_inspect(val)
+      elseif otn = MalNamedFunction.type_name then
+        rv = MalNamedFunction.inspect(val)
       elseif otn = MalFunction.type_name then
         rv = MalFunction.inspect(val)
       elseif otn = MalAtom.type_name then
@@ -2560,8 +2559,8 @@ function inspect(val) as string
           rv = MalMap_inspect(val)
         elseif otn = MalEnv.type_name then
           rv = MalEnv_inspect(val)
-        elseif otn = MalNamedFunction_type_name then
-          rv = MalNamedFunction_inspect(val)
+        elseif otn = MalNamedFunction.type_name then
+          rv = MalNamedFunction.inspect(val)
         elseif otn = MalFunction.type_name then
           rv = MalFunction.inspect(val)
         elseif otn = MalAtom.type_name then
@@ -3384,7 +3383,7 @@ function set_(self, key, value)
         MalMap.put(self.data, key, value)
     elseif tn = MalSymbol.type_name then
         MalMap.put(self.data, key, value)
-    elseif tn = MalNamedFunction_type_name then
+    elseif tn = MalNamedFunction.type_name then
         MalMap.put(self.data, key, value)
     else
         panic &quot;not yet implemented (MalEnv.set_)&quot;
@@ -3540,10 +3539,10 @@ sub register_core_funcs(env)
     
     MalList.add(names, &quot;wait&quot;       )
 
-    &apos; MalEnv.set_(env, MalSymbol.new_(&quot;prop-get&quot;), MalNamedFunction.init(&quot;prop-get&quot;))
-    &apos; MalEnv.set_(env, MalSymbol.new_(&quot;prop-set&quot;), MalNamedFunction.init(&quot;prop-set&quot;))
-    &apos; MalEnv.set_(env, MalSymbol.new_(&quot;uno-get&quot;), MalNamedFunction.init(&quot;uno-get&quot;))
-    &apos; MalEnv.set_(env, MalSymbol.new_(&quot;uno-call&quot;), MalNamedFunction.init(&quot;uno-call&quot;))
+    &apos; MalEnv.set_(env, MalSymbol.new_(&quot;prop-get&quot;), MalNamedFunction.new_(&quot;prop-get&quot;))
+    &apos; MalEnv.set_(env, MalSymbol.new_(&quot;prop-set&quot;), MalNamedFunction.new_(&quot;prop-set&quot;))
+    &apos; MalEnv.set_(env, MalSymbol.new_(&quot;uno-get&quot; ), MalNamedFunction.new_(&quot;uno-get&quot;))
+    &apos; MalEnv.set_(env, MalSymbol.new_(&quot;uno-call&quot;), MalNamedFunction.new_(&quot;uno-call&quot;))
 
     MalList.add(names, &quot;execute-dispatch&quot;  )
     MalList.add(names, &quot;lock-controllers&quot;  )
@@ -3561,7 +3560,7 @@ sub register_core_funcs(env)
     dim name as String
     for i = 0 to MalList.size(names) - 1
         name = MalList.get_(names, i)
-        MalEnv.set_(env, MalSymbol.new_(name), MalNamedFunction.init(name))
+        MalEnv.set_(env, MalSymbol.new_(name), MalNamedFunction.new_(name))
     next
 end sub
 
@@ -5611,7 +5610,7 @@ function _to_map_key(val) as String
             else
                 rv = String_to_map_key(val)
             end if
-        case MalNamedFunction_type_name
+        case MalNamedFunction.type_name
             rv = MalNamedFunction_to_map_key(val)
         case else
             panic &quot;not_yet_impl&quot;
@@ -5717,71 +5716,48 @@ rem -*- mode: basic -*-
 Option Explicit
 
 type MalNamedFunction
-    type_ as string
-    id as string
-    env &apos; TODO as object
-    meta as variant
+    type_ As String
+    id As String
+    env As Variant
+    meta As Variant
 end type
 
 
-function _MalNamedFunction_new_with_id(id)
-    &apos; Utils.log2 &quot;--&gt;&gt; MalNamedFunction_new_with_id()&quot;
-    dim rv
-
-    dim newfn as MalNamedFunction
-    newfn.type_ = MalNamedFunction_type_name
-    newfn.id = id
-
-    rv = newfn
-    _MalNamedFunction_new_with_id = rv
-end function
-
-
-Function MalNamedFunction_type_name
-    MalNamedFunction_type_name = &quot;MalNamedfunction&quot;
+Function type_name As String
+    type_name = &quot;MalNamedfunction&quot;
 End Function
 
 
-function init(id)
-    &apos; Utils.log2 &quot;--&gt;&gt; MalNamedFunction.init()&quot;
-    dim rv
+Function new_(id As String, Optional env As Object) As MalNamedfunction
+    dim newfn As MalNamedFunction
+    newfn.type_ = type_name
+    newfn.id = id
+    
+    If IsMissing(env) Then
+        newfn.env = null
+    Else
+        newfn.env = env
+    End If
 
-    rv = _MalNamedFunction_new_with_id(id)
-
-    init = rv
+    new_ = newfn
 end function
 
 
-function MalNamedFunction_inspect(self)
-    dim rv
+function inspect(self As MalNamedFunction) As String
+    dim rv As String
 
     rv = &quot;&lt;MalNamedFunction&quot;
     rv = rv &amp; &quot; &quot; &amp; self.id
     rv = rv &amp; &quot;&gt;&quot;
 
-    MalNamedFunction_inspect = rv
+    inspect = rv
 end function
 
 
-function MalNamedFunction_to_map_key(fname)
-    dim rv
-
-    rv = &quot;fun:&quot; &amp; fname.id
-
-    MalNamedFunction_to_map_key = rv
+function is_named_function(val) As Boolean
+    is_named_function = (type_name_ex(val) = type_name)
 end function
 
-
-function is_named_function(val)
-    &apos; Utils.log1 &quot;--&gt;&gt; MalNamedFunction.is_named_function()&quot;
-    dim rv
-
-    rv = (type_name_ex(val) = MalNamedFunction_type_name)
-
-    is_named_function = rv
-end function
-
-      
       </ooo:source-code>
      </ooo:module>
     </ooo:library-embedded>
