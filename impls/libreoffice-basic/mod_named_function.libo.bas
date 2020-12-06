@@ -46,15 +46,6 @@ function inspect(self)
 end function
 
 
-function MalNamedFunction_to_map_key(fname)
-    dim rv
-
-    rv = "fun:" & fname.id
-
-    MalNamedFunction_to_map_key = rv
-end function
-
-
 function is_named_function(val)
     ' Utils.log1 "-->> MalNamedFunction.is_named_function()"
     dim rv
