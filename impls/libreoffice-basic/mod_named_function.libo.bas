@@ -16,7 +16,6 @@ End Function
 
 
 Function new_(id As String, Optional env As Object) As MalNamedfunction
-    ' Utils.log2 "-->> MalNamedFunction.new_()"
     dim rv As MalNamedFunction
 
     dim newfn As MalNamedFunction
@@ -47,7 +46,6 @@ end function
 
 
 function is_named_function(val) As Boolean
-    ' Utils.log1 "-->> MalNamedFunction.is_named_function()"
     dim rv As Boolean
 
     rv = (type_name_ex(val) = type_name)
