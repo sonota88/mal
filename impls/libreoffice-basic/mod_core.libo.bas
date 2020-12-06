@@ -84,10 +84,10 @@ sub register_core_funcs(env)
     
     MalList.add(names, "wait"       )
 
-    ' MalEnv.set_(env, MalSymbol.new_("prop-get"), MalNamedFunction.init("prop-get"))
-    ' MalEnv.set_(env, MalSymbol.new_("prop-set"), MalNamedFunction.init("prop-set"))
-    ' MalEnv.set_(env, MalSymbol.new_("uno-get"), MalNamedFunction.init("uno-get"))
-    ' MalEnv.set_(env, MalSymbol.new_("uno-call"), MalNamedFunction.init("uno-call"))
+    ' MalEnv.set_(env, MalSymbol.new_("prop-get"), MalNamedFunction.new_("prop-get"))
+    ' MalEnv.set_(env, MalSymbol.new_("prop-set"), MalNamedFunction.new_("prop-set"))
+    ' MalEnv.set_(env, MalSymbol.new_("uno-get" ), MalNamedFunction.new_("uno-get"))
+    ' MalEnv.set_(env, MalSymbol.new_("uno-call"), MalNamedFunction.new_("uno-call"))
 
     MalList.add(names, "execute-dispatch"  )
     MalList.add(names, "lock-controllers"  )
@@ -105,7 +105,7 @@ sub register_core_funcs(env)
     dim name as String
     for i = 0 to MalList.size(names) - 1
         name = MalList.get_(names, i)
-        MalEnv.set_(env, MalSymbol.new_(name), MalNamedFunction.init(name))
+        MalEnv.set_(env, MalSymbol.new_(name), MalNamedFunction.new_(name))
     next
 end sub
 

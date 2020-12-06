@@ -15,8 +15,8 @@ Function MalNamedFunction_type_name
 End Function
 
 
-function init(id)
-    ' Utils.log2 "-->> MalNamedFunction.init()"
+function new_(id)
+    ' Utils.log2 "-->> MalNamedFunction.new_()"
     dim rv
 
     dim newfn as MalNamedFunction
@@ -25,7 +25,7 @@ function init(id)
 
     rv = newfn
 
-    init = rv
+    new_ = rv
 end function
 
 

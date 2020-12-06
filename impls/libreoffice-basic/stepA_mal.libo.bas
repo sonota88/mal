@@ -36,7 +36,7 @@ sub setup(argv, repl_env)
     
     Utils.log2 "-->> prepare eval"
     dim fname_eval
-    fname_eval = MalNamedFunction.init("eval")
+    fname_eval = MalNamedFunction.new_("eval")
     fname_eval.env = repl_env
     MalEnv.set_(repl_env, MalSymbol.new_("eval"), fname_eval)
     Utils.log2 "<<-- prepare eval"
@@ -238,10 +238,10 @@ function create_repl_env()
 
     dim repl_env
     repl_env = MalEnv.new_()
-    MalEnv.set_(repl_env, MalSymbol.new_("+"), MalNamedFunction.init("+"))
-    MalEnv.set_(repl_env, MalSymbol.new_("-"), MalNamedFunction.init("-"))
-    MalEnv.set_(repl_env, MalSymbol.new_("*"), MalNamedFunction.init("*"))
-    MalEnv.set_(repl_env, MalSymbol.new_("/"), MalNamedFunction.init("/"))
+    MalEnv.set_(repl_env, MalSymbol.new_("+"), MalNamedFunction.new_("+"))
+    MalEnv.set_(repl_env, MalSymbol.new_("-"), MalNamedFunction.new_("-"))
+    MalEnv.set_(repl_env, MalSymbol.new_("*"), MalNamedFunction.new_("*"))
+    MalEnv.set_(repl_env, MalSymbol.new_("/"), MalNamedFunction.new_("/"))
 
     Core.register_core_funcs(repl_env)
 
