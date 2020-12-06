@@ -36,8 +36,7 @@ sub setup(argv, repl_env)
     
     Utils.log2 "-->> prepare eval"
     dim fname_eval
-    fname_eval = MalNamedFunction.new_("eval")
-    fname_eval.env = repl_env
+    fname_eval = MalNamedFunction.new_("eval", repl_env)
     MalEnv.set_(repl_env, MalSymbol.new_("eval"), fname_eval)
     Utils.log2 "<<-- prepare eval"
 

@@ -15,13 +15,19 @@ Function MalNamedFunction_type_name
 End Function
 
 
-function new_(id)
+Function new_(id, Optional env As Object)
     ' Utils.log2 "-->> MalNamedFunction.new_()"
     dim rv
 
     dim newfn as MalNamedFunction
     newfn.type_ = MalNamedFunction_type_name
     newfn.id = id
+    
+    If IsMissing(env) Then
+        newfn.env = null
+    Else
+        newfn.env = env
+    End If
 
     rv = newfn
 
