@@ -183,7 +183,7 @@ function _to_map_key(val) as String
             else
                 rv = String_to_map_key(val)
             end if
-        case MalNamedFunction_type_name
+        case MalNamedFunction.type_name
             rv = MalNamedFunction_to_map_key(val)
         case else
             panic "not_yet_impl"

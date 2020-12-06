@@ -10,8 +10,8 @@ type MalNamedFunction
 end type
 
 
-Function MalNamedFunction_type_name
-    MalNamedFunction_type_name = "MalNamedfunction"
+Function type_name
+    type_name = "MalNamedfunction"
 End Function
 
 
@@ -20,7 +20,7 @@ Function new_(id, Optional env As Object)
     dim rv
 
     dim newfn as MalNamedFunction
-    newfn.type_ = MalNamedFunction_type_name
+    newfn.type_ = type_name
     newfn.id = id
     
     If IsMissing(env) Then
@@ -59,7 +59,7 @@ function is_named_function(val)
     ' Utils.log1 "-->> MalNamedFunction.is_named_function()"
     dim rv
 
-    rv = (type_name_ex(val) = MalNamedFunction_type_name)
+    rv = (type_name_ex(val) = type_name)
 
     is_named_function = rv
 end function

@@ -1041,7 +1041,7 @@ function apply(f, args, env)
     Utils.log0 "-->> apply()"
     dim rv
 
-    if type_name_ex(f) <> MalNamedFunction_type_name then
+    if type_name_ex(f) <> MalNamedFunction.type_name then
         throw "apply: expected MalNamedFunction, got (" & inspect(f) & ")"
     end if
 

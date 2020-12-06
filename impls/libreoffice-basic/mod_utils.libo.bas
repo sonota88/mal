@@ -103,7 +103,7 @@ function inspect(val) as string
           rv = MalMap_inspect(val)
         elseif otn = MalEnv.type_name then
           rv = MalEnv_inspect(val)
-        elseif otn = MalNamedFunction_type_name then
+        elseif otn = MalNamedFunction.type_name then
           rv = MalNamedFunction_inspect(val)
         elseif otn = MalFunction.type_name then
           rv = MalFunction.inspect(val)

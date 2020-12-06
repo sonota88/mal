@@ -59,7 +59,7 @@ function _pr_str(val, optional print_readably as boolean)
         rv = MalSymbol_inspect(val)
       elseif otn = MalMap.type_name then
         rv = MalMap_pr_str(val, _r)
-      elseif otn = MalNamedFunction_type_name then
+      elseif otn = MalNamedFunction.type_name then
         rv = MalNamedFunction_inspect(val)
       elseif otn = MalFunction.type_name then
         rv = MalFunction.inspect(val)

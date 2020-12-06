@@ -74,7 +74,7 @@ function set_(self, key, value)
         MalMap.put(self.data, key, value)
     elseif tn = MalSymbol.type_name then
         MalMap.put(self.data, key, value)
-    elseif tn = MalNamedFunction_type_name then
+    elseif tn = MalNamedFunction.type_name then
         MalMap.put(self.data, key, value)
     else
         panic "not yet implemented (MalEnv.set_)"
