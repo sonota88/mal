@@ -10,19 +10,6 @@ type MalNamedFunction
 end type
 
 
-function _MalNamedFunction_new_with_id(id)
-    ' Utils.log2 "-->> MalNamedFunction_new_with_id()"
-    dim rv
-
-    dim newfn as MalNamedFunction
-    newfn.type_ = MalNamedFunction_type_name
-    newfn.id = id
-
-    rv = newfn
-    _MalNamedFunction_new_with_id = rv
-end function
-
-
 Function MalNamedFunction_type_name
     MalNamedFunction_type_name = "MalNamedfunction"
 End Function
@@ -32,7 +19,11 @@ function init(id)
     ' Utils.log2 "-->> MalNamedFunction.init()"
     dim rv
 
-    rv = _MalNamedFunction_new_with_id(id)
+    dim newfn as MalNamedFunction
+    newfn.type_ = MalNamedFunction_type_name
+    newfn.id = id
+
+    rv = newfn
 
     init = rv
 end function
