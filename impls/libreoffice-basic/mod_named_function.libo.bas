@@ -16,8 +16,6 @@ End Function
 
 
 Function new_(id As String, Optional env As Object) As MalNamedfunction
-    dim rv As MalNamedFunction
-
     dim newfn As MalNamedFunction
     newfn.type_ = type_name
     newfn.id = id
@@ -28,9 +26,7 @@ Function new_(id As String, Optional env As Object) As MalNamedfunction
         newfn.env = env
     End If
 
-    rv = newfn
-
-    new_ = rv
+    new_ = newfn
 end function
 
 
@@ -46,9 +42,5 @@ end function
 
 
 function is_named_function(val) As Boolean
-    dim rv As Boolean
-
-    rv = (type_name_ex(val) = type_name)
-
-    is_named_function = rv
+    is_named_function = (type_name_ex(val) = type_name)
 end function
