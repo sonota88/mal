@@ -1,3 +1,5 @@
+;; -*- mode: clojure -*-
+
 (let*
   [
     sheet-name "Sheet1"

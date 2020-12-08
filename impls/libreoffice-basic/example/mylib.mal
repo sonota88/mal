@@ -1,1 +1,3 @@
+;; -*- mode: clojure -*-
+
 (def! my-func (fn* () "MY-FUNC"))

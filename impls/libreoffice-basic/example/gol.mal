@@ -1,3 +1,5 @@
+;; -*- mode: clojure -*-
+
 ;; game of life
 (let* [sheet-name "Sheet1"
        alive-char "■"
