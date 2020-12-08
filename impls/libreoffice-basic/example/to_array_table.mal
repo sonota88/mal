@@ -1,11 +1,11 @@
 (let*
-  (
+  [
     sheet-name "Sheet1"
-    numseq (fn* (from to) ; from <= x < to
+    numseq (fn* [from to] ; from <= x < to
                  (if (<= to from)
                      ()
                    (cons from (numseq (+ from 1) to))))
-    join (fn* (delim xs)
+    join (fn* [delim xs]
               (cond
                (= (count xs) 0) ""
                (= (count xs) 1) (str (first xs))
@@ -14,18 +14,18 @@
     ri-max (get-ri-max sheet-name)
     ris (numseq 0 ri-max)
     cis (numseq 0 ci-max)
-    pr-json (fn* (val)
+    pr-json (fn* [val]
                  (if (nil? val)
                      "null"
                    (pr-str val)))
-    row-to-line (fn* (ri)
+    row-to-line (fn* [ri]
                      (str "[ "
                           (join ", "
                                 (map
-                                 (fn* (ci) (pr-json (cell-get sheet-name ci ri)))
+                                 (fn* [ci] (pr-json (cell-get sheet-name ci ri)))
                                  cis))
                           " ]"))
     text (join "\n" (map row-to-line ris))
-  )
+  ]
   (file-write "array_table.txt" (str text "\n"))
 )
