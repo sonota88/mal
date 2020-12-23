@@ -3,7 +3,7 @@ require "ostruct"
 
 require_relative "mal_readline"
 
-FILES_DIR = "z_files"
+FILES_DIR = "/tmp"
 FILES = OpenStruct.new
 
 $shutdown_done = false
@@ -244,8 +244,8 @@ def libo_up
 
   fods_path = file_path("#{FILES_DIR}/temp.fods")
 
-  macro_url = "vnd.sun.star.script:mylib.main.Main?language=Basic&location=document"
-  cmd = %(libreoffice #{opts} "#{fods_path}" "#{macro_url}" &)
+  macro_url = "vnd.sun.star.script:Mal.Main.Main?language=Basic&location=application"
+  cmd = %(libreoffice #{opts} "#{macro_url}" &)
 
   system cmd
 end
@@ -490,7 +490,7 @@ def start_repl(step, args)
     file_clear FILES.LOG
     file_clear FILES.LOG_SETUP
 
-    render_fods step
+    # render_fods step
 
     file_rm FILES.ARGS
 

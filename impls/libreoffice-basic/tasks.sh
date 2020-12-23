@@ -86,6 +86,8 @@ cmd_test_all() {
 }
 
 cmd_repl() {
+  ruby docker_setup.rb
+
   export LIBO_HEADLESS=1
   export ENABLE_LOG=0
   export RUN_MODE=cli
@@ -113,6 +115,17 @@ cmd_reset() {
   echo -n "" > ${FILES_DIR}/hist.txt
 }
 
+
+cmd_docker_build() {
+  docker build -t libreoffice_basic_mal:trial .
+}
+
+cmd_docker_repl() {
+  docker run --rm -it -v "$(pwd):/root/work" \
+    libreoffice_basic_mal:trial \
+    bash tasks.sh repl
+}
+
 # --------------------------------
 
 cmd="$1"; shift
@@ -137,6 +150,12 @@ case $cmd in
     ;;
   reset)      #desc: Reset
     cmd_reset "$@"
+    ;;
+  docker-build) #desc: Build Docker image
+    cmd_docker_build "$@"
+    ;;
+  docker-repl)  #desc: Try repl in Docker container
+    cmd_docker_repl "$@"
     ;;
   *)
     echo "invalid command: ${cmd}" >&2
