@@ -381,17 +381,17 @@ end function
 rem --------------------------------
 
 sub file_write(path, str as string)
-  ' ON_ERROR_TRY
-  dim file_id as integer
-  file_id = Freefile
-  ' open path for OutPut as file_id
-  open path for binary access write as #file_id
+    ' ON_ERROR_TRY
+    dim file_id as integer
+    file_id = Freefile
+    ' open path for OutPut as file_id
+    open path for binary access write as #file_id
 
-  put(#file_id, 1, str)
+    put(#file_id, 1, str)
 
-  close #file_id
+    close #file_id
 
-  ' ON_ERROR_CATCH
+    ' ON_ERROR_CATCH
 end sub
 
 
