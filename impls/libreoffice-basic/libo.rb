@@ -33,7 +33,11 @@ def puts_e(*args)
 end
 
 def file_path(path)
-  File.join(__dir__, path)
+  if path.start_with?("/")
+    path
+  else
+    File.join(__dir__, path)
+  end
 end
 
 def file_write(path, text)
