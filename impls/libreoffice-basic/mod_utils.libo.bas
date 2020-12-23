@@ -27,7 +27,7 @@ end function
 
 rem --------------------------------
 
-function substring(str, index)
+function substring(str As String, index As Integer)
     if (index < 0) then
       substring = "invalid_index"
     else
@@ -36,8 +36,8 @@ function substring(str, index)
 end function
 
 
-function char_at(str, index)
-    dim retval
+function char_at(str As String, index As Integer)
+    dim retval As String
 
     if (index < 0 or len(str) <= index) then
       retval = "invalid_index"
@@ -49,8 +49,8 @@ function char_at(str, index)
 end function
 
 
-function str_include(str, target) as boolean
-    dim rv
+function str_include(str As String, target As String) as boolean
+    dim rv As Boolean
 
     rv = instr(str, target) <> 0 
 
@@ -58,7 +58,7 @@ function str_include(str, target) as boolean
 end function
 
 
-function is_numeric(c)
+function is_numeric(c As String) As Boolean
     is_numeric = str_include("0123456789", c)
 end function
 
