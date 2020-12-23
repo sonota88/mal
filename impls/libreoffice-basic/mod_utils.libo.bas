@@ -75,49 +75,49 @@ function inspect(val) as string
     dim rv
 
     if IsNull(val) then
-      rv = "null"
+        rv = "null"
     elseif IsEmpty(val) then
-      rv = "<Empty>"
+        rv = "<Empty>"
     Else
 
-      Dim tn As String
-      tn = TypeName(val)
+        Dim tn As String
+        tn = TypeName(val)
 
-      Select Case tn
-      Case "Boolean", "Integer", "Long", "Single", "Double"
-        rv = CStr(val)
-      Case "String"
-        rv = inspect_str(val)
-      Case "Object"
+        Select Case tn
+        Case "Boolean", "Integer", "Long", "Single", "Double"
+            rv = CStr(val)
+        Case "String"
+            rv = inspect_str(val)
+        Case "Object"
 
-        Dim otn As String
-        otn = obj_typename(val)
+            Dim otn As String
+            otn = obj_typename(val)
 
-        if otn = MalList.type_name then
-          rv = List_inspect(val)
-        elseif otn = MalVector.type_name then
-          rv = MalVector_inspect(val)
-        elseif otn = MalSymbol.type_name then
-          rv = MalSymbol_inspect(val)
-        elseif otn = MalMap.type_name then
-          rv = MalMap_inspect(val)
-        elseif otn = MalEnv.type_name then
-          rv = MalEnv_inspect(val)
-        elseif otn = MalNamedFunction.type_name then
-          rv = MalNamedFunction.inspect(val)
-        elseif otn = MalFunction.type_name then
-          rv = MalFunction.inspect(val)
-        elseif otn = MalAtom.type_name then
-          rv = MalAtom_inspect(val)
-        elseif otn = "Token" then
-          rv = Token_inspect(val)
-        else
-          rv = "<unknown_obj>"
-        end if
+            if otn = MalList.type_name then
+                rv = List_inspect(val)
+            elseif otn = MalVector.type_name then
+                rv = MalVector_inspect(val)
+            elseif otn = MalSymbol.type_name then
+                rv = MalSymbol_inspect(val)
+            elseif otn = MalMap.type_name then
+                rv = MalMap_inspect(val)
+            elseif otn = MalEnv.type_name then
+                rv = MalEnv_inspect(val)
+            elseif otn = MalNamedFunction.type_name then
+                rv = MalNamedFunction.inspect(val)
+            elseif otn = MalFunction.type_name then
+                rv = MalFunction.inspect(val)
+            elseif otn = MalAtom.type_name then
+                rv = MalAtom_inspect(val)
+            elseif otn = "Token" then
+                rv = Token_inspect(val)
+            else
+                rv = "<unknown_obj>"
+            end if
 
-      Case Else
-        rv = "<UNKNOWN> " & TypeName(val)
-      End Select
+        Case Else
+            rv = "<UNKNOWN> " & TypeName(val)
+        End Select
 
     End If
 
