@@ -382,14 +382,14 @@ rem --------------------------------
 
 sub file_write(path, str as string)
   ' ON_ERROR_TRY
-  dim iCount3 as integer
-  iCount3 = Freefile
-  ' open path for OutPut as iCount3
-  open path for binary access write as #iCount3
+  dim file_id as integer
+  file_id = Freefile
+  ' open path for OutPut as file_id
+  open path for binary access write as #file_id
 
-  put(#iCount3, 1, str)
+  put(#file_id, 1, str)
 
-  close #iCount3
+  close #file_id
 
   ' ON_ERROR_CATCH
 end sub
@@ -411,13 +411,13 @@ end sub
 sub file_append(path, msg)
     ' ON_ERROR_TRY
 
-    dim iCount3 as integer
-    iCount3 = Freefile
-    open path for append as #iCount3
+    dim file_id as integer
+    file_id = Freefile
+    open path for append as #file_id
 
-    print #iCount3, msg
+    print #file_id, msg
 
-    close #iCount3
+    close #file_id
 
     ' ON_ERROR_CATCH
 end sub
