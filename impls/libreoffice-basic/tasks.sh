@@ -120,6 +120,12 @@ cmd_docker_build() {
   docker build -t libreoffice_basic_mal:trial .
 }
 
+cmd_docker_run() {
+  docker run --rm -it -v "$(pwd):/root/work" \
+    libreoffice_basic_mal:trial \
+    bash
+}
+
 cmd_docker_repl() {
   docker run --rm -it -v "$(pwd):/root/work" \
     libreoffice_basic_mal:trial \
@@ -153,6 +159,9 @@ case $cmd in
     ;;
   docker-build) #desc: Build Docker image
     cmd_docker_build "$@"
+    ;;
+  docker-run)  #desc: Docker run
+    cmd_docker_run "$@"
     ;;
   docker-repl)  #desc: Try repl in Docker container
     cmd_docker_repl "$@"
