@@ -92,6 +92,7 @@ cmd_repl() {
   export ENABLE_LOG=0
   export RUN_MODE=cli
 
+  touch .mal-history
   ruby libo.rb step stepA "$@"
 }
 
