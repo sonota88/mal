@@ -2,6 +2,8 @@ require "fileutils"
 require "rexml/document"
 require "rexml/formatters/pretty"
 
+require_relative "libo"
+
 SCRIPT_XLB_TEMPLATE = <<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE library:library PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "library.dtd">
@@ -135,5 +137,6 @@ add_library(lib_name)
   ["Utils"            , "mod_utils.libo.bas"         ],
 ].each do |mod_name, file|
   src = File.open(file, "r:utf-8") { |f| f.read }
+  src = preprocess(src)
   add_module(lib_name, mod_name, src)
 end
