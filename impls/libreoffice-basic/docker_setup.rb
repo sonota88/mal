@@ -103,13 +103,11 @@ def add_module(lib_name, module_name, src)
   modify_xml(path) do |doc|
     existing_module_names = doc.root.elements.map{ |el| el["library:name"] }
 
-    if existing_module_names.include?(module_name)
-      return
+    unless existing_module_names.include?(module_name)
+      el_mod = REXML::Element.new("library:element")
+      el_mod.add_attribute("library:name", module_name)
+      doc.root.add_element(el_mod)
     end
-
-    el_mod = REXML::Element.new("library:element")
-    el_mod.add_attribute("library:name", module_name)
-    doc.root.add_element(el_mod)
   end
 
   add_module_src(lib_name, module_name, src)
