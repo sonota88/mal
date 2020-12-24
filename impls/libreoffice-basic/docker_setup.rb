@@ -136,6 +136,6 @@ add_library(lib_name)
   ["Reader"           , "mod_reader.libo.bas"        ],
   ["Utils"            , "mod_utils.libo.bas"         ],
 ].each do |mod_name, file|
-  src = File.read(file)
+  src = File.open(file, "r:utf-8") { |f| f.read }
   add_module(lib_name, mod_name, src)
 end
