@@ -1042,6 +1042,7 @@ function apply(f, args, env)
 
     if type_name_ex(f) <> MalNamedFunction.type_name then
         throw "apply: expected MalNamedFunction, got (" & inspect(f) & ")"
+        ' CHECK_MAL_ERROR
     end if
 
     rv = dispatch_func(f, args, env)
