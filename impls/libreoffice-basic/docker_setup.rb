@@ -83,16 +83,9 @@ def add_library(lib_name)
 end
 
 def add_module_src(lib_name, mod_name, src)
-  src = src
-           .gsub("&", "&amp;")
-           .gsub('"', "&quot;")
-           .gsub("'", "&apos;")
-           .gsub("<", "&lt;")
-           .gsub(">", "&gt;")
-
   xml = MOD_TEMPLATE
           .sub("{{module_name}}", mod_name)
-          .sub("{{src}}", src)
+          .sub("{{src}}", escape(src))
 
   file_path = File.join(user_bas_dir, lib_name, mod_name + ".xba")
 
