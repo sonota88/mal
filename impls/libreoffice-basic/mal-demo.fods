@@ -147,7 +147,7 @@ sub setup(argv, repl_env)
 
     &apos; step 6
     MalEnv.set_(repl_env, MalSymbol.new_(&quot;*ARGV*&quot;), MalList.rest(argv))
-    Utils.logkv2 &quot;38 argv&quot;, argv
+    Utils.logkv2 &quot;argv&quot;, argv
     
     Utils.log2 &quot;--&gt;&gt; prepare eval&quot;
     dim fname_eval
@@ -281,7 +281,6 @@ sub _main_repl(repl_env)
         dim result
         if text = &quot;exit&quot; then
             ext_command(null, &quot;bye&quot;, &quot;EXIT 0&quot;)
-            Utils.log0 &quot;181 exit do&quot;
             exit do
         else
             reset_mal_error()
@@ -305,7 +304,7 @@ sub _main_repl(repl_env)
         Utils.log1 &quot;&lt;&lt;-- REPL loop&quot;
     loop
 
-    Utils.log0 &quot;205 end of _main_repl()&quot;
+    Utils.log0 &quot;&lt;&lt;-- _main_repl()&quot;
 end sub
 
 
@@ -1343,6 +1342,18 @@ function apply(f, args, env)
 
     if type_name_ex(f) &lt;&gt; MalNamedFunction.type_name then
         throw &quot;apply: expected MalNamedFunction, got (&quot; &amp; inspect(f) &amp; &quot;)&quot;
+                        &apos; --------------------------------
+                        &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in apply)&quot;
+                        If mal_error_exists() Then
+                            Utils.log0 &quot;... error exists&quot;
+                            apply = null
+                            Utils.log0 &quot;exit apply&quot;
+                            Exit function
+                        Else
+                            Utils.log0 &quot;... ok&quot;
+                        End If
+                        &apos; --------------------------------
+
     end if
 
     rv = dispatch_func(f, args, env)
@@ -2483,7 +2494,7 @@ end function
 
 rem --------------------------------
 
-function substring(str, index)
+function substring(str As String, index As Integer)
     if (index &lt; 0) then
       substring = &quot;invalid_index&quot;
     else
@@ -2492,8 +2503,8 @@ function substring(str, index)
 end function
 
 
-function char_at(str, index)
-    dim retval
+function char_at(str As String, index As Integer)
+    dim retval As String
 
     if (index &lt; 0 or len(str) &lt;= index) then
       retval = &quot;invalid_index&quot;
@@ -2505,8 +2516,8 @@ function char_at(str, index)
 end function
 
 
-function str_include(str, target) as boolean
-    dim rv
+function str_include(str As String, target As String) as boolean
+    dim rv As Boolean
 
     rv = instr(str, target) &lt;&gt; 0 
 
@@ -2514,7 +2525,7 @@ function str_include(str, target) as boolean
 end function
 
 
-function is_numeric(c)
+function is_numeric(c As String) As Boolean
     is_numeric = str_include(&quot;0123456789&quot;, c)
 end function
 
@@ -2531,49 +2542,49 @@ function inspect(val) as string
     dim rv
 
     if IsNull(val) then
-      rv = &quot;null&quot;
+        rv = &quot;null&quot;
     elseif IsEmpty(val) then
-      rv = &quot;&lt;Empty&gt;&quot;
+        rv = &quot;&lt;Empty&gt;&quot;
     Else
 
-      Dim tn As String
-      tn = TypeName(val)
+        Dim tn As String
+        tn = TypeName(val)
 
-      Select Case tn
-      Case &quot;Boolean&quot;, &quot;Integer&quot;, &quot;Long&quot;, &quot;Single&quot;, &quot;Double&quot;
-        rv = CStr(val)
-      Case &quot;String&quot;
-        rv = inspect_str(val)
-      Case &quot;Object&quot;
+        Select Case tn
+        Case &quot;Boolean&quot;, &quot;Integer&quot;, &quot;Long&quot;, &quot;Single&quot;, &quot;Double&quot;
+            rv = CStr(val)
+        Case &quot;String&quot;
+            rv = inspect_str(val)
+        Case &quot;Object&quot;
 
-        Dim otn As String
-        otn = obj_typename(val)
+            Dim otn As String
+            otn = obj_typename(val)
 
-        if otn = MalList.type_name then
-          rv = List_inspect(val)
-        elseif otn = MalVector.type_name then
-          rv = MalVector_inspect(val)
-        elseif otn = MalSymbol.type_name then
-          rv = MalSymbol_inspect(val)
-        elseif otn = MalMap.type_name then
-          rv = MalMap_inspect(val)
-        elseif otn = MalEnv.type_name then
-          rv = MalEnv_inspect(val)
-        elseif otn = MalNamedFunction.type_name then
-          rv = MalNamedFunction.inspect(val)
-        elseif otn = MalFunction.type_name then
-          rv = MalFunction.inspect(val)
-        elseif otn = MalAtom.type_name then
-          rv = MalAtom_inspect(val)
-        elseif otn = &quot;Token&quot; then
-          rv = Token_inspect(val)
-        else
-          rv = &quot;&lt;unknown_obj&gt;&quot;
-        end if
+            if otn = MalList.type_name then
+                rv = List_inspect(val)
+            elseif otn = MalVector.type_name then
+                rv = MalVector_inspect(val)
+            elseif otn = MalSymbol.type_name then
+                rv = MalSymbol_inspect(val)
+            elseif otn = MalMap.type_name then
+                rv = MalMap_inspect(val)
+            elseif otn = MalEnv.type_name then
+                rv = MalEnv_inspect(val)
+            elseif otn = MalNamedFunction.type_name then
+                rv = MalNamedFunction.inspect(val)
+            elseif otn = MalFunction.type_name then
+                rv = MalFunction.inspect(val)
+            elseif otn = MalAtom.type_name then
+                rv = MalAtom_inspect(val)
+            elseif otn = &quot;Token&quot; then
+                rv = Token_inspect(val)
+            else
+                rv = &quot;&lt;unknown_obj&gt;&quot;
+            end if
 
-      Case Else
-        rv = &quot;&lt;UNKNOWN&gt; &quot; &amp; TypeName(val)
-      End Select
+        Case Else
+            rv = &quot;&lt;UNKNOWN&gt; &quot; &amp; TypeName(val)
+        End Select
 
     End If
 
@@ -2840,14 +2851,14 @@ sub file_write(path, str as string)
                         &apos; --------------------------------
                             On Local Error GoTo error_handler__file_write
                         &apos; --------------------------------
-  dim iCount3 as integer
-  iCount3 = Freefile
-  &apos; open path for OutPut as iCount3
-  open path for binary access write as #iCount3
+    dim file_id as integer
+    file_id = Freefile
+    &apos; open path for OutPut as file_id
+    open path for binary access write as #file_id
 
-  put(#iCount3, 1, str)
+    put(#file_id, 1, str)
 
-  close #iCount3
+    close #file_id
 
                         &apos; --------------------------------
                             Exit sub
@@ -2875,13 +2886,13 @@ sub file_append(path, msg)
                             On Local Error GoTo error_handler__file_append
                         &apos; --------------------------------
 
-    dim iCount3 as integer
-    iCount3 = Freefile
-    open path for append as #iCount3
+    dim file_id as integer
+    file_id = Freefile
+    open path for append as #file_id
 
-    print #iCount3, msg
+    print #file_id, msg
 
-    close #iCount3
+    close #file_id
 
                         &apos; --------------------------------
                             Exit sub
