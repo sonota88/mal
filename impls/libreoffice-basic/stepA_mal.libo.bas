@@ -32,7 +32,7 @@ sub setup(argv, repl_env)
 
     ' step 6
     MalEnv.set_(repl_env, MalSymbol.new_("*ARGV*"), MalList.rest(argv))
-    Utils.logkv2 "38 argv", argv
+    Utils.logkv2 "argv", argv
     
     Utils.log2 "-->> prepare eval"
     dim fname_eval
@@ -166,7 +166,6 @@ sub _main_repl(repl_env)
         dim result
         if text = "exit" then
             ext_command(null, "bye", "EXIT 0")
-            Utils.log0 "181 exit do"
             exit do
         else
             reset_mal_error()
@@ -190,7 +189,7 @@ sub _main_repl(repl_env)
         Utils.log1 "<<-- REPL loop"
     loop
 
-    Utils.log0 "205 end of _main_repl()"
+    Utils.log0 "<<-- _main_repl()"
 end sub
 
 
