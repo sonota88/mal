@@ -7,11 +7,10 @@ print_this_dir() {
   )
 }
 
-readonly FILES_DIR=z_files/
+readonly FILES_DIR=$(print_this_dir)/z_files/
+readonly FAILED_STEPS_FILE=${FILES_DIR}/failed_steps.txt
 
 cmd_test() {
-  set -o errexit
-
   src_step="$1"; shift
   test_step="$1"; shift
 
@@ -33,6 +32,7 @@ cmd_test() {
     make "test^libreoffice-basic^step${test_step}"
     if [ $? -ne 0 ]; then
       echo "!!!! NG !!!!"
+      echo "step $test_step" >> $FAILED_STEPS_FILE
     else
       echo "ok"
     fi
@@ -54,7 +54,35 @@ cmd_test_mal() {
     cd ../../
     # make MAL_IMPL=ruby "test^mal^step${step}"
     make MAL_IMPL=libreoffice-basic "test^mal^step${step}"
+    if [ $? -ne 0 ]; then
+      echo "!!!! NG !!!!"
+      echo "mal step $test_step" >> $FAILED_STEPS_FILE
+    else
+      echo "ok"
+    fi
   )
+}
+
+cmd_test_all() {
+  if [ -e $FAILED_STEPS_FILE ]; then
+    rm $FAILED_STEPS_FILE
+  fi
+
+  for test_step in 2 3 4 5 6 7 8 9 A; do
+    cmd_test A $test_step
+  done
+
+  for test_step in 2 3 4 6 7 8 9 A; do
+    cmd_test_mal $test_step
+  done
+
+  echo "----------------"
+  if [ -e $FAILED_STEPS_FILE ]; then
+    echo "!!!! NG !!!!"
+    cat $FAILED_STEPS_FILE
+  else
+    echo "ok"
+  fi
 }
 
 cmd_repl() {
@@ -94,6 +122,9 @@ case $cmd in
     ;;
   test-mal)   #desc: Run test (mal)
     cmd_test_mal "$@"
+    ;;
+  test-all)   #desc: Run all tests
+    cmd_test_all "$@"
     ;;
   render)     #desc: Render fods file
     ruby libo.rb render "A"
