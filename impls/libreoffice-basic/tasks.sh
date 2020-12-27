@@ -1,5 +1,12 @@
 #!/bin/bash
 
+print_this_dir() {
+  (
+    cd "$(dirname "$0")"
+    pwd
+  )
+}
+
 readonly FILES_DIR=z_files/
 
 cmd_test() {
