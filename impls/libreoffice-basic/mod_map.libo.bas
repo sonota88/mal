@@ -115,11 +115,11 @@ function MalMap_inspect(self)
             str = str & ", "
         end if
 
-        str = str & inspect(key)
+        str = str & Utils.inspect(key)
         str = str & ": "
         dim val
         val = get_(self, key)
-        str = str & inspect(val)
+        str = str & Utils.inspect(val)
     next
 
     str = str & "}"

@@ -108,7 +108,7 @@ function List_inspect(self)
       if 0 < i then
           str = str & ", "
       end if
-      str = str & inspect(MalList.get_(self, i))
+      str = str & Utils.inspect(MalList.get_(self, i))
     next
 
     str = str & "]"

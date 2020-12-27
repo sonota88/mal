@@ -93,7 +93,7 @@ function get_(self, key)
     env = MalEnv.find(self, key)
 
     if IsEmpty(env) or IsNull(env) then
-        Core.throw "'" & inspect(key) & "' not found"
+        Core.throw "'" & Utils.inspect(key) & "' not found"
         ' CHECK_MAL_ERROR
     end if
 
@@ -115,7 +115,7 @@ function MalEnv_inspect(self)
     if IsNull(self.outer) then
         outer = ", outer:null"
     else
-        outer = ", outer: " & inspect(self.outer)
+        outer = ", outer: " & Utils.inspect(self.outer)
     end if
 
     rv = "{ "

@@ -416,7 +416,7 @@ function equal(a, b) as Boolean
     '     exit function
     ' end if
     
-    rv = (inspect(a) = inspect(b)) rem TODO
+    rv = (Utils.inspect(a) = Utils.inspect(b)) rem TODO
 
     equal = rv
 end function
@@ -1311,7 +1311,7 @@ function _apply_func(f, args)
     dim rv
     
     if not MalList.is_list(args) then
-        throw "_apply_func: expected MalList, got (" & inspect(args) & ")"
+        throw "_apply_func: expected MalList, got (" & Utils.inspect(args) & ")"
         ' CHECK_MAL_ERROR
     end if
     

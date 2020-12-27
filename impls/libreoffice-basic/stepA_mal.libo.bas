@@ -1041,7 +1041,7 @@ function apply(f, args, env)
     dim rv
 
     if type_name_ex(f) <> MalNamedFunction.type_name then
-        throw "apply: expected MalNamedFunction, got (" & inspect(f) & ")"
+        throw "apply: expected MalNamedFunction, got (" & Utils.inspect(f) & ")"
         ' CHECK_MAL_ERROR
     end if
 
