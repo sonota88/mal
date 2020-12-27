@@ -1341,7 +1341,7 @@ function apply(f, args, env)
     dim rv
 
     if type_name_ex(f) &lt;&gt; MalNamedFunction.type_name then
-        throw &quot;apply: expected MalNamedFunction, got (&quot; &amp; inspect(f) &amp; &quot;)&quot;
+        throw &quot;apply: expected MalNamedFunction, got (&quot; &amp; Utils.inspect(f) &amp; &quot;)&quot;
                         &apos; --------------------------------
                         &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in apply)&quot;
                         If mal_error_exists() Then
@@ -1583,7 +1583,7 @@ function List_inspect(self)
       if 0 &lt; i then
           str = str &amp; &quot;, &quot;
       end if
-      str = str &amp; inspect(MalList.get_(self, i))
+      str = str &amp; Utils.inspect(MalList.get_(self, i))
     next
 
     str = str &amp; &quot;]&quot;
@@ -3413,7 +3413,7 @@ function get_(self, key)
     env = MalEnv.find(self, key)
 
     if IsEmpty(env) or IsNull(env) then
-        Core.throw &quot;&apos;&quot; &amp; inspect(key) &amp; &quot;&apos; not found&quot;
+        Core.throw &quot;&apos;&quot; &amp; Utils.inspect(key) &amp; &quot;&apos; not found&quot;
                         &apos; --------------------------------
                         &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in get_)&quot;
                         If mal_error_exists() Then
@@ -3446,7 +3446,7 @@ function MalEnv_inspect(self)
     if IsNull(self.outer) then
         outer = &quot;, outer:null&quot;
     else
-        outer = &quot;, outer: &quot; &amp; inspect(self.outer)
+        outer = &quot;, outer: &quot; &amp; Utils.inspect(self.outer)
     end if
 
     rv = &quot;{ &quot;
@@ -3893,7 +3893,7 @@ function equal(a, b) as Boolean
     &apos;     exit function
     &apos; end if
     
-    rv = (inspect(a) = inspect(b)) rem TODO
+    rv = (Utils.inspect(a) = Utils.inspect(b)) rem TODO
 
     equal = rv
 end function
@@ -4821,7 +4821,7 @@ function _apply_func(f, args)
     dim rv
     
     if not MalList.is_list(args) then
-        throw &quot;_apply_func: expected MalList, got (&quot; &amp; inspect(args) &amp; &quot;)&quot;
+        throw &quot;_apply_func: expected MalList, got (&quot; &amp; Utils.inspect(args) &amp; &quot;)&quot;
                         &apos; --------------------------------
                         &apos; Utils.log0 &quot;--&gt;&gt; CHECK_ERROR (in _apply_func)&quot;
                         If mal_error_exists() Then
@@ -5288,7 +5288,7 @@ End Function
 Function MalAtom_inspect(self)
     dim rv
 
-    rv = &quot;(atom &quot; &amp; inspect(self.val) &amp; &quot;)&quot;
+    rv = &quot;(atom &quot; &amp; Utils.inspect(self.val) &amp; &quot;)&quot;
 
     MalAtom_inspect = rv
 End Function
@@ -5350,7 +5350,7 @@ function MalVector_inspect(self)
       if 0 &lt; i then
         str = str &amp; &quot;, &quot;
       end if
-      str = str &amp; inspect(MalList.get_(self, i))
+      str = str &amp; Utils.inspect(MalList.get_(self, i))
     next
 
     str = str &amp; &quot;]&quot;
@@ -5543,11 +5543,11 @@ function MalMap_inspect(self)
             str = str &amp; &quot;, &quot;
         end if
 
-        str = str &amp; inspect(key)
+        str = str &amp; Utils.inspect(key)
         str = str &amp; &quot;: &quot;
         dim val
         val = get_(self, key)
-        str = str &amp; inspect(val)
+        str = str &amp; Utils.inspect(val)
     next
 
     str = str &amp; &quot;}&quot;
